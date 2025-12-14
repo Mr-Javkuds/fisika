@@ -1,0 +1,398 @@
+<!-- ===================================
+     TIPE DATA (DATA TYPES) SECTION
+     =================================== -->
+<section id="data-types" class="py-20 px-6 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="badge badge-purple mb-4">Python Fundamentals #1</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-database mr-3"></i>Tipe Data Python
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+        Dari basic types hingga advanced collections - semua dengan contoh real dari kode momentum 2D
+      </p>
+    </div>
+
+    <!-- THEORY SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-900/20 dark:to-blue-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu Tipe Data?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Definisi</h4>
+          <p class="text-lg">
+            <strong>Tipe Data (Data Types)</strong> adalah classification yang menentukan jenis nilai yang bisa
+            disimpan dalam variable dan operasi apa yang bisa dilakukan pada nilai tersebut. Think of it as
+            "aturan main" untuk setiap variable - apakah itu number, text, true/false, atau collection of items.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
+            ✅ Mengapa Tipe Data Penting?
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. Type Safety</h5>
+              <p class="text-sm">Mencegah operasi invalid: <code>"5" + 3</code> adalah error karena string + int tidak
+                kompatibel.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Memory Efficiency</h5>
+              <p class="text-sm">Different types use different memory. Integer lebih efficient dari string untuk
+                numbers.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Code Clarity</h5>
+              <p class="text-sm">Type hints make code self-documenting: <code>mass: float</code> jelas lebih
+                informative.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Performance</h5>
+              <p class="text-sm">Right type = faster operations. NumPy arrays jauh lebih cepat untuk math operations vs
+                lists.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-3">🎯 Python's Type System</h4>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-purple-500">
+              <h5 class="font-bold text-lg mb-2">Dynamic Typing</h5>
+              <p class="text-sm mb-2">Variables can change type:</p>
+              <code class="text-xs block">x = 5<br>x = "hello"  # OK!</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 class="font-bold text-lg mb-2">Strong Typing</h5>
+              <p class="text-sm mb-2">No implicit conversions:</p>
+              <code class="text-xs block">"5" + 3  # ERROR<br>int("5") + 3  # OK!</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 class="font-bold text-lg mb-2">Duck Typing</h5>
+              <p class="text-sm mb-2">"If it quacks like a duck..."</p>
+              <code class="text-xs block">Any object with __iter__<br>can be looped</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🏗️ Data Type Categories</h4>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h5 class="font-bold mb-2 text-purple-600 dark:text-purple-400">Primitive Types</h5>
+              <ul class="text-sm space-y-1">
+                <li>• <code>int</code> - Whole numbers: <code>42</code>, <code>-17</code></li>
+                <li>• <code>float</code> - Decimals: <code>3.14</code>, <code>0.01</code></li>
+                <li>• <code>str</code> - Text: <code>"Hello"</code>, <code>'Python'</code></li>
+                <li>• <code>bool</code> - True/False: <code>True</code>, <code>False</code></li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2 text-green-600 dark:text-green-400">Collection Types</h5>
+              <ul class="text-sm space-y-1">
+                <li>• <code>list</code> - Ordered, mutable: <code>[1, 2, 3]</code></li>
+                <li>• <code>tuple</code> - Ordered, immutable: <code>(1, 2)</code></li>
+                <li>• <code>dict</code> - Key-value pairs: <code>{"x": 5}</code></li>
+                <li>• <code>set</code> - Unique values: <code>{1, 2, 3}</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">💡 Type Conversion Strategy</h4>
+          <p class="text-sm mb-4">
+            <strong>Golden Rule:</strong> Always be explicit dengan type conversions, terutama untuk user input!
+          </p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+              <h6 class="font-bold text-red-600 dark:text-red-400 mb-2">❌ Dangerous</h6>
+              <code
+                class="text-xs block">mass = entry.get()<br># mass is str "2.5"<br>force = mass * 9.8  # ERROR!</code>
+            </div>
+            <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+              <h6 class="font-bold text-green-600 dark:text-green-400 mb-2">✅ Safe</h6>
+              <code
+                class="text-xs block">mass = float(entry.get())<br># mass is float 2.5<br>force = mass * 9.8  # OK!</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">🎓 Learning Path</h4>
+          <p class="text-sm">
+            Start dengan primitive types (int, float, str, bool) → lalu collections (list, dict) →
+            advanced types (NumPy arrays, deque). Setiap type punya use case specific!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Numeric Types -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-hashtag text-white"></i>
+        </div>
+        Numeric Types
+      </h3>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div
+          class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-700">
+          <h4 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-3">
+            <code>int</code> - Integer
+          </h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+            Bilangan bulat tanpa desimal
+          </p>
+          <div class="code-block">
+            <button class="copy-btn bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 218
+BALL_RADIUS_PIXELS = 20
+
+# Konversi ke int
+frame_delay = int(TIME_STEP * 1000)
+# TIME_STEP = 0.02 → 20ms</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-700">
+          <h4 class="text-xl font-bold text-blue-600 dark:text-blue-300 mb-3">
+            <code>float</code> - Floating Point
+          </h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+            Bilangan desimal untuk presisi
+          </p>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 218-219
+PIXELS_TO_METERS = 0.01  # float literal
+TIME_STEP = 0.02
+
+# Type conversion
+mass = float(entry_mass.get())  # "2.0" → 2.0</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border-2 border-green-200 dark:border-green-700">
+          <h4 class="text-xl font-bold text-green-600 dark:text-green-300 mb-3">
+            Type Conversion
+          </h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+            Mengubah antar tipe untuk kompatibilitas
+          </p>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 103, 858
+self.mass = float(mass)  # Ensure float type
+
+# String to float
+e = float(self.restitution_coefficient.get())</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <h4 class="font-bold mb-2"><i class="fas fa-lightbulb mr-2"></i>Best Practice: Explicit Type Conversion</h4>
+        <p class="text-sm">
+          Selalu convert input dari user (yang bertipe <code>str</code>) ke tipe yang dibutuhkan (<code>float</code>,
+          <code>int</code>).
+          Ini mencegah error saat operasi matematika!
+        </p>
+      </div>
+    </div>
+
+    <!-- Strings -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-quote-right text-white"></i>
+        </div>
+        Strings (str)
+      </h3>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">String Literals & Usage</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 223-225
+BALL_1_COLOR = "#e63946"  # Hex color code
+BALL_2_COLOR = "#457b9d"
+CANVAS_BG_COLOR = "#f5f5f5"
+
+# Unicode emoji dalam strings
+ttk.Label(text="⚙️ Parameter Fisika")
+ttk.Button(text="▶️ START")</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">F-Strings (Formatted Strings)</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 909-912
+# Modern Python string formatting dengan f-strings
+txt = (
+    f"t: {self.simulation_time:.2f}s | "
+    f"P_tot: {self.momentum_log[-1]:.2f} kg·m/s | "
+    f"KE: {self.kinetic_energy_log[-1]:.2f} J\n"
+    f"V1: {np.linalg.norm(self.ball_1.velocity):.2f} m/s"
+)
+# :.2f = format dengan 2 desimal</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4 class="font-bold text-lg mb-3"><i class="fas fa-star text-yellow-500 mr-2"></i>F-Strings: Python Modern Way
+        </h4>
+        <p class="mb-3">F-strings (Python 3.6+) adalah cara terbaik untuk format strings. Lebih readable daripada
+          <code>%</code> atau <code>.format()</code>
+        </p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="comparison-box bad">
+            <p class="font-bold text-red-600 dark:text-red-400 mb-2">❌ Old Way (Hindari)</p>
+            <code class="text-sm">"Time: %s" % time<br>"Time: {}".format(time)</code>
+          </div>
+          <div class="comparison-box good">
+            <p class="font-bold text-green-600 dark:text-green-400 mb-2">✅ Modern Way (Gunakan Ini)</p>
+            <code class="text-sm">f"Time: {time:.2f}s"</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boolean -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-toggle-on text-white"></i>
+        </div>
+        Boolean (bool)
+      </h3>
+
+      <div
+        class="bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 p-8 rounded-2xl border-2 border-green-200 dark:border-green-700">
+        <p class="text-lg mb-6 text-gray-700 dark:text-gray-300">
+          Boolean hanya punya 2 nilai: <code>True</code> atau <code>False</code>. Digunakan untuk flags dan conditional
+          logic.
+        </p>
+
+        <div class="code-block mb-6">
+          <button class="copy-btn bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm"
+            onclick="copyCode(this)">
+            <i class="fas fa-copy mr-1"></i>Copy
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 247-249 - State Flags
+self.is_running = False
+self.is_paused = False
+
+# Dari kode: Line 263 - Dictionary values
+self.contact_tracker = {
+    "in_contact": False,  # Boolean flag
+    "impulse_accumulated": 0.0,
+    "force_samples": []
+}
+
+# Penggunaan dalam conditional
+if not self.is_running:  # Line 786
+    return
+
+if self.is_paused:  # Line 789
+    # ...schedule next check</code></pre>
+        </div>
+
+        <div class="callout success">
+          <h4 class="font-bold mb-2"><i class="fas fa-check-circle mr-2"></i>Pattern: Boolean Flags untuk State
+            Management</h4>
+          <p class="text-sm">
+            Boolean flags seperti <code>is_running</code>, <code>is_paused</code> membuat code lebih readable daripada
+            menggunakan integer (0/1).
+            Gunakan prefix <code>is_</code>, <code>has_</code>, <code>can_</code> untuk boolean variables.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collections Overview -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white text-center">
+        Python Collections
+      </h3>
+
+      <!-- Lists -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
+          <span class="text-4xl mr-3">📋</span> Lists - Ordered & Mutable
+        </h4>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+            <h5 class="font-bold text-lg mb-3 text-purple-600 dark:text-purple-400">List Basics</h5>
+            <div class="code-block">
+              <button class="copy-btn bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-sm"
+                onclick="copyCode(this)">
+                <i class="fas fa-copy mr-1"></i>Copy
+              </button>
+              <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 802 - Iterate over balls
+for b in (self.ball_1, self.ball_2):
+    # b adalah reference ke Ball object
+
+# Dari kode: Line 385-386 - Combobox values
+values=["1D", "2D (semi)"]
+
+# Menyimpan time series data
+self.time_log = []  # Empty list
+self.force_log = []
+self.momentum_log = []</code></pre>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+            <h5 class="font-bold text-lg mb-3 text-purple-600 dark:text-purple-400">List Operations</h5>
+            <div class="code-block">
+              <button class="copy-btn bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-sm"
+                onclick="copyCode(this)">
+                <i class="fas fa-copy mr-1"></i>Copy
+              </button>
+              <pre class="rounded-lg"><code class="language-python"># Append - menambah di akhir
+self.time_log.append(self.simulation_time)  # Line 901
+
+# Access dengan index
+last_momentum = self.momentum_log[-1]  # Index negatif
+
+# Clear all elements
+self.time_log.clear()  # Line 690
+
+# Iterate dengan index
+for i in range(len(self.time_log)):  # Line 954
+    value = self.time_log[i]</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue to next page due to length... -->

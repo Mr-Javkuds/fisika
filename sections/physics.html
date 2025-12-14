@@ -1,0 +1,406 @@
+<!-- PHYSICS & PROGRAM FLOW SECTION -->
+<section id="physics"
+  class="py-20 px-6 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-purple mb-4">Bonus Section</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-atom mr-3"></i>Fisika & Alur Program
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Belajar Python DAN Fisika sekaligus - Rumus fisika dijelaskan step-by-step dengan implementasi Python
+      </p>
+    </div>
+
+    <!-- Program Flow Overview -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-8 text-center">🔄 Alur Program Simulasi</h3>
+
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl">
+        <div class="grid md:grid-cols-5 gap-4 text-center">
+          <div class="bg-blue-100 dark:bg-blue-900/30 p-6 rounded-xl">
+            <div class="text-4xl mb-3">1️⃣</div>
+            <h4 class="font-bold mb-2">Initialization</h4>
+            <p class="text-sm">Setup GUI, create Ball objects, set parameters</p>
+            <code class="text-xs">__init__()</code>
+          </div>
+          <div class="text-3xl flex items-center justify-center">→</div>
+          <div class="bg-green-100 dark:bg-green-900/30 p-6 rounded-xl">
+            <div class="text-4xl mb-3">2️⃣</div>
+            <h4 class="font-bold mb-2">Event Loop</h4>
+            <p class="text-sm">Update positions every 20ms</p>
+            <code class="text-xs">_run_loop()</code>
+          </div>
+          <div class="text-3xl flex items-center justify-center">→</div>
+          <div class="bg-purple-100 dark:bg-purple-900/30 p-6 rounded-xl">
+            <div class="text-4xl mb-3">3️⃣</div>
+            <h4 class="font-bold mb-2">Physics</h4>
+            <p class="text-sm">Collision detection & resolution</p>
+            <code class="text-xs">_handle_collision()</code>
+          </div>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-4">
+          <div class="bg-orange-100 dark:bg-orange-900/30 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-3">4️⃣</div>
+            <h4 class="font-bold mb-2">Visualization</h4>
+            <p class="text-sm">Update canvas, draw balls & trails, plot graphs</p>
+            <code class="text-xs">update_visual_position(), draw_trail()</code>
+          </div>
+          <div class="bg-pink-100 dark:bg-pink-900/30 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-3">5️⃣</div>
+            <h4 class="font-bold mb-2">Data Logging</h4>
+            <p class="text-sm">Record momentum, energy, forces</p>
+            <code class="text-xs">_log_simulation_data()</code>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+          <p class="text-center text-sm">
+            <strong>Loop berulang setiap 20ms (50 FPS)</strong> hingga user stop atau tutup window
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Physics Concepts -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-8 text-center">⚛️ Konsep Fisika yang Digunakan</h3>
+
+      <!-- Momentum Conservation -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-8">
+        <h4 class="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400">
+          1. Hukum Kekekalan Momentum
+        </h4>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h5 class="font-bold mb-3 text-lg">📐 Rumus Matematika</h5>
+            <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4">
+              <p class="font-mono text-lg text-center mb-2">
+                <strong>Momentum:</strong> p = m × v
+              </p>
+              <p class="font-mono text-lg text-center mb-2">
+                <strong>Konservasi:</strong> p₁ + p₂ = p₁' + p₂'
+              </p>
+              <p class="font-mono text-lg text-center">
+                <strong>Total:</strong> P_total = m₁v₁ + m₂v₂
+              </p>
+            </div>
+            <div class="text-sm space-y-2">
+              <p><strong>Dimana:</strong></p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>p = momentum (kg·m/s)</li>
+                <li>m = massa (kg)</li>
+                <li>v = kecepatan (m/s)</li>
+                <li>' = setelah tumbukan</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h5 class="font-bold mb-3 text-lg">💻 Implementasi Python</h5>
+            <div class="code-block">
+              <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i>
+              </button>
+              <pre class="rounded-lg"><code class="language-python"># Line 894-898 - Calculate total momentum
+p1 = self.ball_1.mass * self.ball_1.velocity
+p2 = self.ball_2.mass * self.ball_2.velocity
+
+# Vector sum (NumPy magic!)
+p_total_vec = p1 + p2
+
+# Magnitude (scalar)
+p_total = np.linalg.norm(p_total_vec)
+
+# Log for verification
+self.momentum_log.append(p_total)</code></pre>
+            </div>
+            <div class="callout success mt-3">
+              <p class="text-sm"><strong>Insight:</strong> Dalam sistem tertutup (no external forces), momentum total
+                SELALU konstan!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collision Physics -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-8">
+        <h4 class="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">
+          2. Fisika Tumbukan (Collision)
+        </h4>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h5 class="font-bold mb-3 text-lg">📐 Rumus Impulse-Momentum</h5>
+            <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4">
+              <p class="font-mono text-sm text-center mb-3">
+                <strong>Impulse:</strong>
+              </p>
+              <p class="font-mono text-lg text-center mb-3">
+                J = -(1 + e) × v_rel · n̂ / (1/m₁ + 1/m₂)
+              </p>
+              <p class="font-mono text-sm text-center mb-3">
+                <strong>Velocity Change:</strong>
+              </p>
+              <p class="font-mono text-base text-center mb-2">
+                Δv₁ = J × n̂ / m₁
+              </p>
+              <p class="font-mono text-base text-center">
+                Δv₂ = -J × n̂ / m₂
+              </p>
+            </div>
+            <div class="text-sm space-y-2">
+              <p><strong>Variabel:</strong></p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>J = impulse magnitude (N·s)</li>
+                <li>e = coefficient of restitution (0-1)</li>
+                <li>v_rel = relative velocity</li>
+                <li>n̂ = collision normal (unit vector)</li>
+                <li>m = mass of each ball</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h5 class="font-bold mb-3 text-lg">💻 Implementasi Python</h5>
+            <div class="code-block">
+              <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i>
+              </button>
+              <pre class="rounded-lg"><code class="language-python"># Line 837-867 - Collision resolution
+# 1. Collision normal (unit vector)
+pos_diff = b1.position - b2.position
+dist = np.linalg.norm(pos_diff)
+n = pos_diff / (dist + 1e-9)  # Normalize
+
+# 2. Relative velocity along normal
+v_rel = b1.velocity - b2.velocity
+v_norm = np.dot(v_rel, n)
+
+# 3. Check if approaching
+if v_norm < 0:  # Negative = approaching
+    # 4. Get restitution coefficient
+    e = float(self.restitution_coefficient.get())
+    
+    # 5. Calculate impulse magnitude
+    j = -(1 + e) * v_norm / (1/b1.mass + 1/b2.mass)
+    
+    # 6. Apply impulse (vector)
+    impulse_vec = j * n
+    b1.velocity += impulse_vec / b1.mass
+    b2.velocity -= impulse_vec / b2.mass</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl">
+          <h5 class="font-bold mb-3">🎯 Step-by-Step Collision Process:</h5>
+          <ol class="text-sm space-y-2">
+            <li><strong>1. Detect:</strong> Check if distance ≤ r₁ + r₂</li>
+            <li><strong>2. Normal Vector:</strong> Direction dari ball1 ke ball2</li>
+            <li><strong>3. Relative Velocity:</strong> v₁ - v₂ projected onto normal</li>
+            <li><strong>4. Calculate Impulse:</strong> Using mass ratio and restitution</li>
+            <li><strong>5. Update Velocities:</strong> Apply impulse to both balls</li>
+            <li><strong>6. Separation:</strong> Push balls apart if overlapping</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Coefficient of Restitution -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-8">
+        <h4 class="text-2xl font-bold mb-4 text-green-600 dark:text-green-400">
+          3. Koefisien Restitusi (e)
+        </h4>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-6">
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-3">e = 0</div>
+            <h5 class="font-bold mb-2">Inelastic</h5>
+            <p class="text-sm">Bola menempel setelah tumbukan</p>
+            <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Energi kinetic hilang maksimal</p>
+          </div>
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-3">0 < e < 1</div>
+                <h5 class="font-bold mb-2">Semi-Elastic</h5>
+                <p class="text-sm">Ada energy yang hilang</p>
+                <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Realistic collision (bola basket e≈0.8)</p>
+            </div>
+            <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl text-center">
+              <div class="text-4xl mb-3">e = 1</div>
+              <h5 class="font-bold mb-2">Elastic</h5>
+              <p class="text-sm">Energy kinetic konstan</p>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Perfect bounce (ideal case)</p>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+            <h5 class="font-bold mb-3 text-center">Rumus Koefisien Restitusi</h5>
+            <p class="font-mono text-xl text-center mb-4">
+              e = (v₂' - v₁') / (v₁ - v₂)
+            </p>
+            <p class="text-sm text-center">
+              Rasio kecepatan relatif setelah dan sebelum tumbukan
+            </p>
+          </div>
+        </div>
+
+        <!-- Kinetic Energy -->
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-8">
+          <h4 class="text-2xl font-bold mb-4 text-orange-600 dark:text-orange-400">
+            4. Energi Kinetik
+          </h4>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h5 class="font-bold mb-3 text-lg">📐 Rumus</h5>
+              <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                <p class="font-mono text-xl text-center mb-3">
+                  KE = ½ m v²
+                </p>
+                <p class="font-mono text-lg text-center mb-3">
+                  KE_total = KE₁ + KE₂
+                </p>
+                <p class="font-mono text-base text-center">
+                  = ½m₁v₁² + ½m₂v₂²
+                </p>
+              </div>
+              <div class="callout warning">
+                <p class="text-sm"><strong>⚠️ Perhatian:</strong> Energi kinetik HANYA konstan jika e = 1 (elastic).
+                  Jika e < 1, ada energy yang hilang menjadi panas/suara.</p>
+              </div>
+            </div>
+
+            <div>
+              <h5 class="font-bold mb-3 text-lg">💻 Implementasi Python</h5>
+              <div class="code-block">
+                <button class="copy-btn bg-orange-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+                  <i class="fas fa-copy"></i>
+                </button>
+                <pre class="rounded-lg"><code class="language-python"># Line 902-907 - Calculate kinetic energy
+# Using dot product for speed² (efficient!)
+speed_1_sq = np.dot(
+    self.ball_1.velocity, 
+    self.ball_1.velocity
+)
+speed_2_sq = np.dot(
+    self.ball_2.velocity, 
+    self.ball_2.velocity
+)
+
+# KE = 0.5 * m * v²
+ke_total = (
+    0.5 * self.ball_1.mass * speed_1_sq +
+    0.5 * self.ball_2.mass * speed_2_sq
+)
+
+self.kinetic_energy_log.append(ke_total)</code></pre>
+              </div>
+              <div class="callout tip mt-3">
+                <p class="text-sm"><strong>Optimization:</strong> Menggunakan <code>np.dot(v, v)</code> lebih cepat
+                  dari <code>np.linalg.norm(v)**2</code>!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Motion Equation -->
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+          <h4 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">
+            5. Kinematika - Persamaan Gerak
+          </h4>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h5 class="font-bold mb-3 text-lg">📐 Rumus</h5>
+              <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                <p class="font-mono text-xl text-center mb-4">
+                  s = s₀ + v·Δt
+                </p>
+                <p class="text-sm text-center mb-3">Untuk 2D (vector form):</p>
+                <p class="font-mono text-base text-center mb-2">
+                  x(t) = x₀ + v_x·Δt
+                </p>
+                <p class="font-mono text-base text-center">
+                  y(t) = y₀ + v_y·Δt
+                </p>
+              </div>
+              <div class="text-sm space-y-2">
+                <p><strong>Variabel:</strong></p>
+                <ul class="list-disc list-inside space-y-1">
+                  <li>s = posisi (m)</li>
+                  <li>s₀ = posisi awal (m)</li>
+                  <li>v = kecepatan (m/s)</li>
+                  <li>Δt = time step (s)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h5 class="font-bold mb-3 text-lg">💻 Implementasi Python</h5>
+              <div class="code-block">
+                <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+                  <i class="fas fa-copy"></i>
+                </button>
+                <pre class="rounded-lg"><code class="language-python"># Line 173-174 - Update position
+def move(self, time_step: float) -> None:
+    """Gerakkan bola berdasarkan kecepatan."""
+    
+    # Vector equation: s = s₀ + v·Δt
+    # NumPy applies to ALL elements!
+    self.position += self.velocity * time_step
+    
+    # Equivalent to (but MUCH faster than):
+    # self.position[0] += self.velocity[0] * time_step
+    # self.position[1] += self.velocity[1] * time_step
+    
+    # Update visualization
+    self.update_visual_position()</code></pre>
+              </div>
+              <div class="highlight-box mt-3">
+                <h6 class="font-bold mb-2">🚀 NumPy Vectorization Power!</h6>
+                <p class="text-sm">Satu line <code>position += velocity * dt</code> handles X DAN Y sekaligus.
+                  Ini contoh perfect kenapa NumPy amazing untuk scientific computing!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Card -->
+      <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8 rounded-2xl shadow-2xl">
+        <h3 class="text-3xl font-bold mb-6 text-center">🎓 Summary: Python Meets Physics</h3>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-xl font-bold mb-4 text-yellow-300">⚛️ Physics Learned</h4>
+            <ul class="space-y-2">
+              <li>✅ <strong>Momentum Conservation:</strong> p_total = constant</li>
+              <li>✅ <strong>Collision Physics:</strong> Impulse calculation</li>
+              <li>✅ <strong>Coefficient of Restitution:</strong> e determines bounce</li>
+              <li>✅ <strong>Kinetic Energy:</strong> KE = ½mv²</li>
+              <li>✅ <strong>Kinematics:</strong> Position update dengan velocity</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4 text-yellow-300">💻 Python Skills Applied</h4>
+            <ul class="space-y-2">
+              <li>✅ <strong>Vector Math:</strong> NumPy array operations</li>
+              <li>✅ <strong>OOP:</strong> Ball class encapsulates physics</li>
+              <li>✅ <strong>Event Loop:</strong> Real-time simulation</li>
+              <li>✅ <strong>Visualization:</strong> Tkinter + Matplotlib</li>
+              <li>✅ <strong>Data Logging:</strong> Track conservation laws</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-white/20 rounded-xl text-center">
+          <p class="text-lg font-bold">
+            🎯 Result: Kamu belajar Python sambil understand physics behind the simulation!
+          </p>
+        </div>
+      </div>
+    </div>
+</section>

@@ -1,0 +1,369 @@
+<!-- CLEAN CODE SECTION -->
+<section id="clean-code" class="py-20 px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-green mb-4">Python Fundamentals #6</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-broom mr-3"></i>Clean Code Principles
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        DRY, KISS, SRP - Write code that lasts
+      </p>
+    </div>
+
+    <!-- TEORI SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/20 dark:to-teal-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-emerald-600 dark:text-emerald-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu Clean Code?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Definisi Clean Code</h4>
+          <p class="text-lg mb-3">
+            <strong>Clean Code</strong> adalah code yang mudah dibaca, mudah dipahami, dan mudah dimodifikasi.
+            Bukan soal "bekerja dengan benar" saja - tapi bekerja dengan cara yang ELEGANT dan MAINTAINABLE.
+          </p>
+          <p class="text-base">
+            Seperti kata Uncle Bob Martin: <em>"Clean code adalah code yang ditulis oleh seseorang yang peduli."</em>
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
+            ✅ Mengapa Clean Code Penting?
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. Mengurangi Technical Debt</h5>
+              <p class="text-sm">Messy code = hutang teknis yang makin besar. Suatu hari harus dibayar dengan
+                refactoring besar-besaran.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Mempercepat Development</h5>
+              <p class="text-sm">Clean code lebih cepat dipahami = new features lebih cepat dibuat. Messy code =
+                debugging nightmare.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Mengurangi Bugs</h5>
+              <p class="text-sm">Simple, clear code = bugs lebih mudah terlihat. Complex, messy code = bugs tersembunyi
+                di complexity.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Team Productivity</h5>
+              <p class="text-sm">Team bisa collaborate lebih efektif. Tidak perlu "tanya ahlinya" untuk setiap perubahan
+                kecil.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-2xl font-bold mb-4 text-center">🎯 3 Prinsip Utama Clean Code</h4>
+
+          <!-- DRY Principle -->
+          <div class="mb-6 bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-blue-700 dark:text-blue-300">
+              1. 🔄 DRY (Don't Repeat Yourself)
+            </h5>
+
+            <div class="space-y-4 text-sm">
+              <div>
+                <h6 classfont-bold mb-2">📖 Apa itu DRY?</h6>
+                <p>Setiap piece of knowledge harus punya <strong>single, unambiguous representation</strong> dalam
+                  system.
+                  Jangan copy-paste code!</p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ Mengapa DRY Penting?</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• <strong>Single Source of Truth:</strong> Perubahan di 1 tempat, effect everywhere</li>
+                    <li>• <strong>Maintainability:</strong> Fix bug sekali, fixed di semua tempat</li>
+                    <li>• <strong>Consistency:</strong> Logic sama dijamin identik</li>
+                    <li>• <strong>Less Code:</b> Fewer lines = fewer bugs</li>
+                  </ul>
+                </div>
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-orange-600 dark:text-orange-400">💡 Kapan Extract ke Function?</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• Copy-paste <strong>2+ kali</strong>? Extract!</li>
+                    <li>• <strong>Kompleksitas</strong> bisa diisolasi? Extract!</li>
+                    <li>• Bisa diberi <strong>nama descriptive</strong>? Extract!</li>
+                    <li>• Might be <strong>reused</strong> di future? Extract!</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KISS Principle -->
+          <div class="mb-6 bg-green-50 dark:bg-green-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-green-700 dark:text-green-300">
+              2. 💚 KISS (Keep It Simple, Stupid)
+            </h5>
+
+            <div class="space-y-4 text-sm">
+              <div>
+                <h6 class="font-bold mb-2">📖 Apa itu KISS?</h6>
+                <p>Pilih solusi yang <strong>paling simple</strong>. Complexity adalah musuh.
+                  "Simplicity is the ultimate sophistication" - Leonardo da Vinci.</p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ Mengapa KISS Penting?</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• <strong>Easier to Understand:</strong> Simple code = cepat dipahami</li>
+                    <li>• <strong>Easier to Debug:</strong> Fewer moving parts = easier troubleshooting</li>
+                    <li>• <strong>Easier to Change:</strong> Simple structure flexible untuk perubahan</li>
+                    <li>• <strong>Performance:</strong> Simple solutions often faster</li>
+                  </ul>
+                </div>
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-red-600 dark:text-red-400">❌ Hindari Over-Engineering</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• Jangan buat <strong>abstraction</strong> yang tidak perlu</li>
+                    <li>• Jangan optimize <strong>prematurely</strong></li>
+                    <li>• Jangan gunakan <strong>design pattern</strong> for the sake of it</li>
+                    <li>• <strong>YAGNI:</strong> You Ain't Gonna Need It!</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-yellow-50 dark:bg-yellow-900/40 p-3 rounded">
+                <p class="text-xs italic">
+                  <strong>Prinsip:</strong> Jika ada 2 solusi yang sama-sama works, pilih yang lebih SIMPLE.
+                  Clever code itu bagus untuk ego, tapi CLEAR code bagus untuk team!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SRP Principle -->
+          <div class="mb-6 bg-purple-50 dark:bg-purple-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-purple-700 dark:text-purple-300">
+              3. 🎯 SRP (Single Responsibility Principle)
+            </h5>
+
+            <div class="space-y-4 text-sm">
+              <div>
+                <h6 class="font-bold mb-2">📖 Apa itu SRP?</h6>
+                <p>Setiap function/class harus punya <strong>satu dan hanya satu alasan untuk berubah</strong>.
+                  One job, one responsibility, one reason to exist.</p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ Mengapa SRP Penting?</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• <strong>Easier to Test:</strong> One responsibility = simple unit tests</li>
+                    <li>• <strong>Easier to Understand:</strong> Function name explains what it does</li>
+                    <li>• <strong>Easier to Reuse:</strong> Focused functions reusable di context lain</li>
+                    <li>• <strong>Change Isolation:</strong> Perubahan di 1 concern tidak affect others</li>
+                  </ul>
+                </div>
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-blue-600 dark:text-blue-400">💡 Cara Detect Violation</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• Function name punya <strong>"dan"</strong>? Red flag!</li>
+                    <li>• Function >20 lines? Possibly doing too much</li>
+                    <li>• Hard to name function? Probably unclear responsibility</li>
+                    <li>• Banyak parameters? Too many concerns</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-blue-50 dark:bg-blue-900/40 p-3 rounded">
+                <p class="text-xs">
+                  <strong>Contoh:</strong> <code>_setup_user_interface()</code> ✅ GOOD - jelas setup UI saja.
+                  <code>setup_ui_and_load_data()</code> ❌ BAD - 2 responsibilities!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout success">
+          <h4 class="font-bold mb-2">🏆 The Golden Rule</h4>
+          <p class="text-sm">
+            <strong>"Buat code seolah-olah orang yang maintain code ini adalah psychopath violent yang tahu dimana kamu
+              tinggal."</strong>
+            - Cara humor untuk bilang: ALWAYS write clean, clear code!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRY -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔁 DRY: Don't Repeat Yourself</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="comparison-box bad">
+          <h4 class="font-bold text-red-600 dark:text-red-300 mb-3">❌ Repetitive Code</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># BAD: Repeating same pattern
+ttk.Label(frame, text="m (kg):")
+entry1 = ttk.Entry(frame, width=5)
+entry1.insert(0, "2.0")
+entry1.pack()
+
+ttk.Label(frame, text="vx (m/s):")
+entry2 = ttk.Entry(frame, width=5)
+entry2.insert(0, "3.0")
+entry2.pack()
+
+ttk.Label(frame, text="vy (m/s):")
+entry3 = ttk.Entry(frame, width=5)
+entry3.insert(0, "0.0")
+entry3.pack()</code></pre>
+          </div>
+        </div>
+
+        <div class="comparison-box good">
+          <h4 class="font-bold text-green-600 dark:text-green-300 mb-3">✅ Helper Function</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># GOOD: Extract to helper (Line 454-459)
+def create_entry(label, default, attr_name):
+    ttk.Label(frame, text=label).pack(...)
+    entry = ttk.Entry(frame, width=5)
+    entry.insert(0, default)
+    entry.pack(...)
+    setattr(self, attr_name, entry)
+
+# Use the helper
+create_entry("m (kg):", "2.0", "entry_mass")
+create_entry("vx (m/s):", "3.0", "entry_vx")
+create_entry("vy (m/s):", "0.0", "entry_vy")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip mt-6">
+        <p class="text-sm"><strong>DRY Rule:</strong> If you copy-paste code 3+ times, extract to a function/method!</p>
+      </div>
+    </div>
+
+    <!-- KISS -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">✨ KISS: Keep It Simple</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+        <h4 class="font-bold text-lg mb-3">Guard Clauses - Reduce Nesting</h4>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-sm text-red-600 dark:text-red-300 font-bold mb-2">❌ Deeply Nested</p>
+            <div class="code-block">
+              <pre class="rounded-lg text-sm"><code class="language-python">def process():
+    if running:
+        if not paused:
+            if data_ready:
+                # Do work
+                update()
+                render()</code></pre>
+            </div>
+          </div>
+          <div>
+            <p class="text-sm text-green-600 dark:text-green-300 font-bold mb-2">✅ Guard Clauses</p>
+            <div class="code-block">
+              <pre class="rounded-lg text-sm"><code class="language-python">def process():  # Line 784-792
+    if not running:
+        return  # ← Exit early
+    if paused:
+        return  # ← Exit early
+    if not data_ready:
+        return  # ← Exit early
+    
+    # Do work (no nesting!)
+    update()
+    render()</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4 class="font-bold mb-2">🎯 KISS Principles</h4>
+        <ul class="text-sm space-y-1">
+          <li>• Prefer simple solutions over clever ones</li>
+          <li>• Reduce nesting with early returns</li>
+          <li>• One level of abstraction per function</li>
+          <li>• Clear > compact: <code>is_paused</code> better than <code>p</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SRP -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🎯 SRP: Single Responsibility Principle</h3>
+
+      <div
+        class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+        <p class="text-lg mb-4">Each function/class should do ONE thing well:</p>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+          <div class="bg-white dark:bg-gray-700 p-4 rounded-xl">
+            <h5 class="font-bold mb-2">✅ Good SRP</h5>
+            <code class="text-sm">_handle_collision()</code>
+            <p class="text-xs mt-2">Only handles collision logic</p>
+          </div>
+          <div class="bg-white dark:bg-gray-700 p-4 rounded-xl">
+            <h5 class="font-bold mb-2">✅ Good SRP</h5>
+            <code class="text-sm">_update_info_display()</code>
+            <p class="text-xs mt-2">Only updates UI labels</p>
+          </div>
+          <div class="bg-white dark:bg-gray-700 p-4 rounded-xl">
+            <h5 class="font-bold mb-2">✅ Good SRP</h5>
+            <code class="text-sm">export_data_to_csv()</code>
+            <p class="text-xs mt-2">Only exports data</p>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <h4 class="font-bold mb-2">❌ Contoh Pelanggaran SRP</h4>
+          <p class="text-sm">Jika <code>_handle_collision()</code> also updates UI AND exports data AND renders graphs =
+            TOO MANY RESPONSIBILITIES!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Readable Names -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">📝 Readable Names</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="comparison-box bad">
+          <h4 class="font-bold text-red-600 mb-3">❌ Cryptic Names</h4>
+          <code class="text-sm">
+                        cc = 0.5<br>
+                        pt = np.array([x, y])<br>
+                        def upd():<br>
+                        &nbsp;&nbsp;self.t += self.dt
+                    </code>
+        </div>
+
+        <div class="comparison-box good">
+          <h4 class="font-bold text-green-600 mb-3">✅ Descriptive Names</h4>
+          <code class="text-sm">
+                        restitution_coefficient = 0.5<br>
+                        position = np.array([x, y])<br>
+                        def update_simulation_time():<br>
+                        &nbsp;&nbsp;self.simulation_time += self.time_step
+                    </code>
+        </div>
+      </div>
+
+      <div class="callout success mt-6">
+        <h4 class="font-bold mb-2">✅ Naming Guidelines</h4>
+        <ul class="text-sm space-y-1">
+          <li>• <strong>Be descriptive:</strong> <code>time_step</code> not <code>ts</code></li>
+          <li>• <strong>Use full words:</strong> <code>simulation_time</code> not <code>sim_t</code></li>
+          <li>• <strong>Boolean prefix:</strong> <code>is_running</code>, <code>has_collision</code></li>
+          <li>• <strong>Avoid abbreviations</strong> unless universally known (HTTP, URL ok)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

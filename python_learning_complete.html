@@ -1,0 +1,2966 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Python - Tutorial Lengkap 972 Baris</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#667eea',secondary:'#764ba2'}}}}</script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900"><!-- NAV -->
+<nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-md z-50">
+<div class="container mx-auto px-6 py-4">
+<div class="flex justify-between items-center">
+<h1 class="text-2xl font-bold gradient-text"><i class="fas fa-python mr-2"></i>Python Complete</h1>
+<div class="hidden md:flex items-center space-x-4 text-sm">
+<a href="#data-types">Data</a><a href="#functions">Functions</a><a href="#loops">Loops</a>
+<a href="#oop">OOP</a><a href="#structure">Structure</a><a href="#clean">Clean</a><a href="#best">Best</a>
+<button id="darkModeToggle" class="p-2 rounded bg-gray-200 dark:bg-gray-700"><i class="fas fa-moon"></i></button>
+</div></div></div></nav><!-- HERO -->
+<section class="gradient-bg text-white pt-32 pb-20 px-6">
+<div class="container mx-auto text-center">
+<h1 class="text-6xl font-bold mb-6">Master Python<br><span class="text-yellow-300">972 Baris Real Code</span></h1>
+<p class="text-xl mb-8">Belajar LENGKAP: Types, Functions, Loops, OOP, Structure, Clean Code, Best Practices</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#data-types" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-yellow-300 hover:text-purple-700 transition-all transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-rocket mr-2"></i>Mulai Belajar
+                </a>
+                <a href="momentum _2d.py" download="momentum_2d.py" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-download mr-2"></i>Download Kode Python
+                </a>
+            </div>
+</div></section><!-- ===================================
+     TIPE DATA (DATA TYPES) SECTION
+     =================================== -->
+<section id="data-types" class="py-20 px-6 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="badge badge-purple mb-4">Python Fundamentals #1</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-database mr-3"></i>Tipe Data Python
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+        Dari basic types hingga advanced collections - semua dengan contoh real dari kode momentum 2D
+      </p>
+    </div>
+
+    <!-- THEORY SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-900/20 dark:to-blue-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu Tipe Data?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Definisi</h4>
+          <p class="text-lg">
+            <strong>Tipe Data (Data Types)</strong> adalah classification yang menentukan jenis nilai yang bisa
+            disimpan dalam variable dan operasi apa yang bisa dilakukan pada nilai tersebut. Think of it as
+            "aturan main" untuk setiap variable - apakah itu number, text, true/false, atau collection of items.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
+            ✅ Mengapa Tipe Data Penting?
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. Type Safety</h5>
+              <p class="text-sm">Mencegah operasi invalid: <code>"5" + 3</code> adalah error karena string + int tidak
+                kompatibel.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Memory Efficiency</h5>
+              <p class="text-sm">Different types use different memory. Integer lebih efficient dari string untuk
+                numbers.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Code Clarity</h5>
+              <p class="text-sm">Type hints make code self-documenting: <code>mass: float</code> jelas lebih
+                informative.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Performance</h5>
+              <p class="text-sm">Right type = faster operations. NumPy arrays jauh lebih cepat untuk math operations vs
+                lists.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-3">🎯 Python's Type System</h4>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-purple-500">
+              <h5 class="font-bold text-lg mb-2">Dynamic Typing</h5>
+              <p class="text-sm mb-2">Variables can change type:</p>
+              <code class="text-xs block">x = 5<br>x = "hello"  # OK!</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 class="font-bold text-lg mb-2">Strong Typing</h5>
+              <p class="text-sm mb-2">No implicit conversions:</p>
+              <code class="text-xs block">"5" + 3  # ERROR<br>int("5") + 3  # OK!</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 class="font-bold text-lg mb-2">Duck Typing</h5>
+              <p class="text-sm mb-2">"If it quacks like a duck..."</p>
+              <code class="text-xs block">Any object with __iter__<br>can be looped</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🏗️ Data Type Categories</h4>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h5 class="font-bold mb-2 text-purple-600 dark:text-purple-400">Primitive Types</h5>
+              <ul class="text-sm space-y-1">
+                <li>• <code>int</code> - Whole numbers: <code>42</code>, <code>-17</code></li>
+                <li>• <code>float</code> - Decimals: <code>3.14</code>, <code>0.01</code></li>
+                <li>• <code>str</code> - Text: <code>"Hello"</code>, <code>'Python'</code></li>
+                <li>• <code>bool</code> - True/False: <code>True</code>, <code>False</code></li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2 text-green-600 dark:text-green-400">Collection Types</h5>
+              <ul class="text-sm space-y-1">
+                <li>• <code>list</code> - Ordered, mutable: <code>[1, 2, 3]</code></li>
+                <li>• <code>tuple</code> - Ordered, immutable: <code>(1, 2)</code></li>
+                <li>• <code>dict</code> - Key-value pairs: <code>{"x": 5}</code></li>
+                <li>• <code>set</code> - Unique values: <code>{1, 2, 3}</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">💡 Type Conversion Strategy</h4>
+          <p class="text-sm mb-4">
+            <strong>Golden Rule:</strong> Always be explicit dengan type conversions, terutama untuk user input!
+          </p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+              <h6 class="font-bold text-red-600 dark:text-red-400 mb-2">❌ Dangerous</h6>
+              <code
+                class="text-xs block">mass = entry.get()<br># mass is str "2.5"<br>force = mass * 9.8  # ERROR!</code>
+            </div>
+            <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+              <h6 class="font-bold text-green-600 dark:text-green-400 mb-2">✅ Safe</h6>
+              <code
+                class="text-xs block">mass = float(entry.get())<br># mass is float 2.5<br>force = mass * 9.8  # OK!</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">🎓 Learning Path</h4>
+          <p class="text-sm">
+            Start dengan primitive types (int, float, str, bool) → lalu collections (list, dict) →
+            advanced types (NumPy arrays, deque). Setiap type punya use case specific!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Numeric Types -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-hashtag text-white"></i>
+        </div>
+        Numeric Types
+      </h3>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div
+          class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-700">
+          <h4 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-3">
+            <code>int</code> - Integer
+          </h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+            Bilangan bulat tanpa desimal
+          </p>
+          <div class="code-block">
+            <button class="copy-btn bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 218
+BALL_RADIUS_PIXELS = 20
+
+# Konversi ke int
+frame_delay = int(TIME_STEP * 1000)
+# TIME_STEP = 0.02 → 20ms</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-2 border-blue-200 dark:border-blue-700">
+          <h4 class="text-xl font-bold text-blue-600 dark:text-blue-300 mb-3">
+            <code>float</code> - Floating Point
+          </h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+            Bilangan desimal untuk presisi
+          </p>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 218-219
+PIXELS_TO_METERS = 0.01  # float literal
+TIME_STEP = 0.02
+
+# Type conversion
+mass = float(entry_mass.get())  # "2.0" → 2.0</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border-2 border-green-200 dark:border-green-700">
+          <h4 class="text-xl font-bold text-green-600 dark:text-green-300 mb-3">
+            Type Conversion
+          </h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">
+            Mengubah antar tipe untuk kompatibilitas
+          </p>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 103, 858
+self.mass = float(mass)  # Ensure float type
+
+# String to float
+e = float(self.restitution_coefficient.get())</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <h4 class="font-bold mb-2"><i class="fas fa-lightbulb mr-2"></i>Best Practice: Explicit Type Conversion</h4>
+        <p class="text-sm">
+          Selalu convert input dari user (yang bertipe <code>str</code>) ke tipe yang dibutuhkan (<code>float</code>,
+          <code>int</code>).
+          Ini mencegah error saat operasi matematika!
+        </p>
+      </div>
+    </div>
+
+    <!-- Strings -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-quote-right text-white"></i>
+        </div>
+        Strings (str)
+      </h3>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">String Literals & Usage</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 223-225
+BALL_1_COLOR = "#e63946"  # Hex color code
+BALL_2_COLOR = "#457b9d"
+CANVAS_BG_COLOR = "#f5f5f5"
+
+# Unicode emoji dalam strings
+ttk.Label(text="⚙️ Parameter Fisika")
+ttk.Button(text="▶️ START")</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">F-Strings (Formatted Strings)</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
+              onclick="copyCode(this)">
+              <i class="fas fa-copy mr-1"></i>Copy
+            </button>
+            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 909-912
+# Modern Python string formatting dengan f-strings
+txt = (
+    f"t: {self.simulation_time:.2f}s | "
+    f"P_tot: {self.momentum_log[-1]:.2f} kg·m/s | "
+    f"KE: {self.kinetic_energy_log[-1]:.2f} J\n"
+    f"V1: {np.linalg.norm(self.ball_1.velocity):.2f} m/s"
+)
+# :.2f = format dengan 2 desimal</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4 class="font-bold text-lg mb-3"><i class="fas fa-star text-yellow-500 mr-2"></i>F-Strings: Python Modern Way
+        </h4>
+        <p class="mb-3">F-strings (Python 3.6+) adalah cara terbaik untuk format strings. Lebih readable daripada
+          <code>%</code> atau <code>.format()</code>
+        </p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="comparison-box bad">
+            <p class="font-bold text-red-600 dark:text-red-400 mb-2">❌ Old Way (Hindari)</p>
+            <code class="text-sm">"Time: %s" % time<br>"Time: {}".format(time)</code>
+          </div>
+          <div class="comparison-box good">
+            <p class="font-bold text-green-600 dark:text-green-400 mb-2">✅ Modern Way (Gunakan Ini)</p>
+            <code class="text-sm">f"Time: {time:.2f}s"</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boolean -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-toggle-on text-white"></i>
+        </div>
+        Boolean (bool)
+      </h3>
+
+      <div
+        class="bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 p-8 rounded-2xl border-2 border-green-200 dark:border-green-700">
+        <p class="text-lg mb-6 text-gray-700 dark:text-gray-300">
+          Boolean hanya punya 2 nilai: <code>True</code> atau <code>False</code>. Digunakan untuk flags dan conditional
+          logic.
+        </p>
+
+        <div class="code-block mb-6">
+          <button class="copy-btn bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm"
+            onclick="copyCode(this)">
+            <i class="fas fa-copy mr-1"></i>Copy
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 247-249 - State Flags
+self.is_running = False
+self.is_paused = False
+
+# Dari kode: Line 263 - Dictionary values
+self.contact_tracker = {
+    "in_contact": False,  # Boolean flag
+    "impulse_accumulated": 0.0,
+    "force_samples": []
+}
+
+# Penggunaan dalam conditional
+if not self.is_running:  # Line 786
+    return
+
+if self.is_paused:  # Line 789
+    # ...schedule next check</code></pre>
+        </div>
+
+        <div class="callout success">
+          <h4 class="font-bold mb-2"><i class="fas fa-check-circle mr-2"></i>Pattern: Boolean Flags untuk State
+            Management</h4>
+          <p class="text-sm">
+            Boolean flags seperti <code>is_running</code>, <code>is_paused</code> membuat code lebih readable daripada
+            menggunakan integer (0/1).
+            Gunakan prefix <code>is_</code>, <code>has_</code>, <code>can_</code> untuk boolean variables.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collections Overview -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white text-center">
+        Python Collections
+      </h3>
+
+      <!-- Lists -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
+          <span class="text-4xl mr-3">📋</span> Lists - Ordered & Mutable
+        </h4>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+            <h5 class="font-bold text-lg mb-3 text-purple-600 dark:text-purple-400">List Basics</h5>
+            <div class="code-block">
+              <button class="copy-btn bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-sm"
+                onclick="copyCode(this)">
+                <i class="fas fa-copy mr-1"></i>Copy
+              </button>
+              <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 802 - Iterate over balls
+for b in (self.ball_1, self.ball_2):
+    # b adalah reference ke Ball object
+
+# Dari kode: Line 385-386 - Combobox values
+values=["1D", "2D (semi)"]
+
+# Menyimpan time series data
+self.time_log = []  # Empty list
+self.force_log = []
+self.momentum_log = []</code></pre>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+            <h5 class="font-bold text-lg mb-3 text-purple-600 dark:text-purple-400">List Operations</h5>
+            <div class="code-block">
+              <button class="copy-btn bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-sm"
+                onclick="copyCode(this)">
+                <i class="fas fa-copy mr-1"></i>Copy
+              </button>
+              <pre class="rounded-lg"><code class="language-python"># Append - menambah di akhir
+self.time_log.append(self.simulation_time)  # Line 901
+
+# Access dengan index
+last_momentum = self.momentum_log[-1]  # Index negatif
+
+# Clear all elements
+self.time_log.clear()  # Line 690
+
+# Iterate dengan index
+for i in range(len(self.time_log)):  # Line 954
+    value = self.time_log[i]</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue to next page due to length... --><!-- FUNCTIONS SECTION -->
+<section id="functions" class="py-20 px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-blue mb-4">Python Fundamentals #2</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-code mr-3"></i>Functions & Methods
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Function definition, type hints, docstrings, callbacks - Production-ready patterns
+      </p>
+    </div>
+
+    <!-- THEORY SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu Functions?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <p class="text-lg">
+          <strong>Functions (fungsi)</strong> adalah reusable blocks of code yang perform specific task.
+          Think of them as mini-programs dalam program. Kamu write code sekali dalam function,
+          lalu call function itu berkali-kali whenever needed.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+            <h4 class="font-bold text-lg mb-3 text-green-600 dark:text-green-400">✅ Why Use Functions?</h4>
+            <ul class="text-sm space-y-2">
+              <li><strong>• DRY Principle:</strong> Don't Repeat Yourself - write once, use many times</li>
+              <li><strong>• Modularity:</strong> Break complex problems into smaller pieces</li>
+              <li><strong>• Readability:</strong> <code>calculate_momentum()</code> lebih jelas dari inline code</li>
+              <li><strong>• Testing:</strong> Easier to test individual functions</li>
+              <li><strong>• Reusability:</strong> Use same function in different parts</li>
+            </ul>
+          </div>
+
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+            <h4 class="font-bold text-lg mb-3 text-purple-600 dark:text-purple-400">🎯 When to Create Function?</h4>
+            <ul class="text-sm space-y-2">
+              <li><strong>• Repetition:</strong> Copy-paste code 3+ times? Make it a function!</li>
+              <li><strong>• Complexity:</strong> Code block doing complex task? Extract to function</li>
+              <li><strong>• Logical Unit:</strong> Self-contained task? Perfect for function</li>
+              <li><strong>• Readability:</strong> Name describes what code does better than code itself</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">📐 Function Anatomy</h4>
+          <div class="code-block">
+            <pre class="rounded-lg"><code class="language-python">def function_name(parameter: type) -> return_type:
+    """Docstring: what function does"""
+    # Function body
+    result = do_something(parameter)
+    return result  # Optional
+
+# Call the function
+output = function_name(input_value)</code></pre>
+          </div>
+          <p class="text-sm mt-3">
+            <strong>Components:</strong> <code>def</code> keyword, name, parameters, type hints,
+            docstring, body, and optional return value.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Function Basics -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">⚙️</span> Definisi Function dengan Type Hints
+      </h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+        <div class="code-block">
+          <button class="copy-btn bg-blue-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+            <i class="fas fa-copy"></i>
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Line 164-172 - Function dengan type hints
+def move(self, time_step: float) -> None:
+    """
+    Gerakkan bola berdasarkan kecepatan dan waktu.
+    
+    Parameter:
+    -----------
+    time_step : float
+        Delta waktu (detik)
+    """
+    # Update posisi: s = s₀ + v·Δt
+    self.position += self.velocity * time_step</code></pre>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">✅ Manfaat Type Hints</h4>
+          <ul class="text-sm space-y-1">
+            <li>• IDE autocomplete & suggestions</li>
+            <li>• Catch bugs before runtime</li>
+            <li>• Self-documenting code</li>
+            <li>• Better code maintenance</li>
+          </ul>
+        </div>
+        <div class="callout info">
+          <h4 class="font-bold mb-2">📖 Type Hint Syntax</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <code>param: type</code> - Parameter type</li>
+            <li>• <code>-> type</code> - Return type</li>
+            <li>• <code>-> None</code> - No return value</li>
+            <li>• <code>Optional[type]</code> - Can be None</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Docstrings -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">📚</span> Docstrings - Documentation
+      </h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block">
+          <button class="copy-btn bg-green-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+            <i class="fas fa-copy"></i>
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Line 832-833 - Function docstring
+def _handle_collision(self) -> None:
+    """Deteksi dan tangani tumbukan antara ball_1 dan ball_2."""
+    # Implementation...
+
+# Line 28-48 - Class docstring dengan ATRIBUT
+class Ball:
+    """
+    Representasi objek bola dalam simulasi fisika.
+    
+    ATRIBUT:
+    --------
+    canvas : tk.Canvas
+        Canvas Tkinter untuk menggambar
+    radius_pixels : float
+        Jari-jari bola dalam piksel
+    mass : float
+        Massa bola (kg)
+    position : np.array
+        Posisi [x, y] dalam meter
+    velocity : np.array
+        Kecepatan [vx, vy] dalam m/s
+    """</code></pre>
+        </div>
+      </div>
+
+      <div class="highlight-box mt-6">
+        <h4 class="font-bold text-lg mb-3">✨ Docstring Best Practices</h4>
+        <ul class="text-sm space-y-2">
+          <li>• <strong>Triple quotes</strong> <code>"""docstring"""</code> even for one-line</li>
+          <li>• <strong>First line:</strong> Short summary (imperative mood: "Calculate..." not "Calculates...")</li>
+          <li>• <strong>Parameter:</strong> Jelaskan setiap parameter dengan type dan artinya</li>
+          <li>• <strong>Return:</strong> Jelaskan nilai return jika ada</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Methods vs Functions -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">🔧</span> Methods (Functions dalam Class)
+      </h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-4">Instance Methods</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-purple-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 127-132 - Instance method
+def draw_trail(self) -> None:
+    """Menggambar jejak pergerakan bola."""
+    for trail_id in self.trail_ids:
+        self.canvas.delete(trail_id)
+    # Akses instance attributes via self</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold text-blue-600 dark:text-blue-300 mb-4">Private Methods</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 292 - Private method (convention)
+def _setup_user_interface(self) -> None:
+    """Setup seluruh komponen UI."""
+    # _ prefix = internal use only</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning mt-6">
+        <h4 class="font-bold mb-2">⚠️ self Parameter</h4>
+        <p class="text-sm">Instance methods ALWAYS have <code>self</code> as first parameter.
+          Ini is reference ke object instance yang memanggil method.</p>
+      </div>
+    </div>
+
+    <!-- Callbacks -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">🔗</span> Callback Functions
+      </h3>
+
+      <div class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-orange-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+            <i class="fas fa-copy"></i>
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Line 513-517 - Button callback
+ttk.Button(
+    frame_buttons, 
+    text="▶️ START", 
+    command=self.start_simulation  # ← Callback function
+).pack(...)
+
+# Line 492 - Scale callback
+self.position_y_slider_1 = ttk.Scale(
+    container, 
+    from_=-200, 
+    to=200, 
+    command=self._on_slider_moved  # ← Called when slider moves
+)
+
+# Line 392 - Event binding callback
+self.combo_mode.bind("<<ComboboxSelected>>", self._on_mode_changed)</code></pre>
+        </div>
+
+        <div class="callout success">
+          <h4 class="font-bold mb-2">🎯 Callback Pattern</h4>
+          <p class="text-sm">Callback = function yang dipanggil "nanti" oleh framework/library saat event terjadi.
+            Tidak memanggil function secara manual, tapi pass reference-nya.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nested Functions -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">📦</span> Helper Functions (Nested)
+      </h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block">
+          <button class="copy-btn bg-indigo-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+            <i class="fas fa-copy"></i>
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Line 426-463 - Nested helper function
+def _create_ball_input_row(self, parent, title, mass_attr, ...):
+    """Membuat baris input untuk parameter satu bola."""
+    
+    # Helper function DIDALAM method
+    def create_entry(label: str, default: str, attr_name: str):
+        ttk.Label(frame_inputs, text=label).pack(side=tk.LEFT)
+        entry = ttk.Entry(frame_inputs, width=5)
+        entry.insert(0, default)
+        entry.pack(side=tk.LEFT, padx=(0, 5))
+        setattr(self, attr_name, entry)
+    
+    # Use the helper
+    create_entry("m (kg):", mass_default, mass_attr)
+    create_entry("vx (m/s):", vx_default, vx_attr)</code></pre>
+        </div>
+
+        <div class="callout tip mt-4">
+          <p class="text-sm"><strong>Pattern:</strong> Nested function bagus untuk logic yang hanya dipakai di satu
+            tempat.
+            Keeps scope local, reduces namespace pollution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- LOOPS & CONTROL FLOW SECTION -->
+<section id="loops" class="py-20 px-6 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-green mb-4">Python Fundamentals #3</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-sync mr-3"></i>Loops & Control Flow
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        For, while, enumerate, comprehensions, try-except - Flow control mastery
+      </p>
+    </div>
+
+    <!-- THEORY SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-green-100 to-teal-100 dark:from-green-900/20 dark:to-teal-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-green-600 dark:text-green-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu Loops & Control Flow?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Definisi</h4>
+          <p class="text-lg mb-4">
+            <strong>Loops</strong> adalah struktur yang mengulang block of code berkali-kali.
+            <strong>Control Flow</strong> adalah mechanism yang menentukan urutan eksekusi code -
+            which code runs, when it runs, and how many times it runs.
+          </p>
+          <p class="text-base">
+            Think of it as "program's decision-making brain" - loops handle repetition,
+            conditionals handle choices, and together they control program flow.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
+            ✅ Mengapa Loops & Control Flow Penting?
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. DRY Principle</h5>
+              <p class="text-sm">Instead of copy-paste code 100x, loop once! Saves lines and reduces errors.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Dynamic Behavior</h5>
+              <p class="text-sm">Handle unknown quantities. Process 10 items atau 10,000 items dengan same code.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Decision Making</h5>
+              <p class="text-sm">Programs must make choices: if collision, reverse velocity. Control flow enables this.
+              </p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Real-time Systems</h5>
+              <p class="text-sm">Event loops keep apps responsive, update UI every frame, process user input
+                continuously.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-3">🔄 Loop Types in Python</h4>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 class="font-bold text-lg mb-2 text-green-600 dark:text-green-400">For Loop</h5>
+              <p class="text-sm mb-3">Iterate over sequences (known count)</p>
+              <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+                for item in collection:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;process(item)
+              </code>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Use when: You know what to iterate over</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 class="font-bold text-lg mb-2 text-blue-600 dark:text-blue-400">While Loop</h5>
+              <p class="text-sm mb-3">Repeat until condition false (unknown count)</p>
+              <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+                while condition:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;do_something()
+              </code>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Use when: You don't know iterations count</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🎯 Control Flow Structures</h4>
+          <div class="space-y-4">
+            <div>
+              <h5 class="font-bold text-purple-600 dark:text-purple-400">Conditionals (if-elif-else)</h5>
+              <p class="text-sm mb-2">Make decisions based on conditions</p>
+              <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                if ball_colliding:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;reverse_velocity()<br>
+                elif out_of_bounds:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;reset_position()<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;continue_moving()
+              </code>
+            </div>
+            <div>
+              <h5 class="font-bold text-orange-600 dark:text-orange-400">Exception Handling (try-except)</h5>
+              <p class="text-sm mb-2">Handle errors gracefully without crashing</p>
+              <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                try:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;value = float(input)<br>
+                except ValueError:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;show_error("Invalid input!")
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">💡 Best Practices</h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ DO</h5>
+              <ul class="text-sm space-y-1">
+                <li>• Use <code>for</code> for iterables</li>
+                <li>• Use <code>enumerate()</code> when need index</li>
+                <li>• Guard clauses (early return) to reduce nesting</li>
+                <li>• Break complex loops into functions</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2 text-red-600 dark:text-red-400">❌ DON'T</h5>
+              <ul class="text-sm space-y-1">
+                <li>• Don't modify list while iterating it</li>
+                <li>• Avoid infinite loops without break condition</li>
+                <li>• Don't nest loops >3 levels deep</li>
+                <li>• Don't use <code>while True</code> in GUI apps</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout info">
+          <h4 class="font-bold mb-2">🎓 Program Flow Analogy</h4>
+          <p class="text-sm">
+            Think of program as a recipe: <strong>Loops</strong> = "stir until mixed",
+            <strong>Conditionals</strong> = "if too thick, add water",
+            <strong>Functions</strong> = "prepare sauce (see page 5)".
+            Control flow tells computer HOW to execute the recipe!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- For Loops -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔁 For Loops</h3>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Basic For Loop</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg"><code class="language-python"># Line 802 - Iterate over objects
+for b in (self.ball_1, self.ball_2):
+    px = b.position[0] / self.PIXELS_TO_METERS
+    # Process each ball
+
+# Line 954 - Range iteration
+for i in range(len(self.time_log)):
+    writer.writerow([self.time_log[i], ...])</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Enumerate (Index + Value)</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg"><code class="language-python"># Line 135 - Enumerate untuk index & value
+for index, (trail_x, trail_y) in enumerate(self.trail_points):
+    # index: 0, 1, 2, ...
+    # (trail_x, trail_y): tuple unpacking
+    size = 2 + (index / 30) * 5</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <h4 class="font-bold mb-2">✅ Enumerate Best Practice</h4>
+        <p class="text-sm">Use <code>enumerate()</code> instead of <code>range(len())</code> when you need both index
+          AND value. More Pythonic!</p>
+      </div>
+    </div>
+
+    <!-- Conditionals -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔀 Conditional Statements</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+        <h4 class="font-bold text-lg mb-3">If-Elif-Else Chains</h4>
+        <div class="code-block">
+          <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 806-818 - Wall collision detection
+if px - b.radius_pixels < 0:
+    b.position[0] = b.radius_pixels * self.PIXELS_TO_METERS
+    b.velocity[0] *= -1  # Reverse direction
+elif px + b.radius_pixels > cw:
+    b.position[0] = (cw - b.radius_pixels) * self.PIXELS_TO_METERS
+    b.velocity[0] *= -1
+
+# Line 842-877 - Complex conditional logic
+if dist <= min_dist:  # Collision detected
+    if v_norm < 0:  # Moving towards each other
+        # Calculate impulse
+        j = -(1 + e) * v_norm / (1.0/m1 + 1.0/m2)</code></pre>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4 class="font-bold mb-2">🎯 Guard Clauses (Early Return)</h4>
+        <div class="code-block">
+          <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 786-787 - Guard clause pattern
+if not self.is_running:
+    return  # Exit early if not running
+
+# Line 789-791 - Another guard
+if self.is_paused:
+    self.animation_callback_id = self.root.after(50, self._run_loop)
+    return  # Exit early</code></pre>
+        </div>
+        <p class="text-sm mt-3"><strong>Pattern:</strong> Check fail conditions first, return early. Reduces nesting!
+        </p>
+      </div>
+    </div>
+
+    <!-- Try-Except -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">⚠️ Error Handling (Try-Except)</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-red-600 dark:text-red-300 mb-3">Input Validation</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-red-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 714-724 - Validate user input
+try:
+    mass_1 = float(self.entry_mass_1.get())
+    velocity_1_x = float(self.entry_velocity_1_x.get())
+    velocity_1_y = float(self.entry_velocity_1_y.get())
+except ValueError:
+    messagebox.showerror(
+        "Error", 
+        "Input tidak valid! Gunakan angka."
+    )
+    return</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-orange-600 dark:text-orange-300 mb-3">File I/O Error</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-orange-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 950-963 - File writing with error handling
+try:
+    with open(path, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow([...])
+    messagebox.showinfo("Sukses", "Data berhasil diekspor")
+except Exception as e:
+    messagebox.showerror("Error", f"Gagal menyimpan file: {e}")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning mt-6">
+        <h4 class="font-bold mb-2">⚠️ Exception Handling Best Practices</h4>
+        <ul class="text-sm space-y-1">
+          <li>• Catch SPECIFIC exceptions (<code>ValueError</code>) not generic <code>Exception</code> when possible
+          </li>
+          <li>• Always provide user feedback saat error terjadi</li>
+          <li>• Use <code>try-except</code> for operations that can fail (file I/O, network, user input)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- While Loop (Event Loop) -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">⏱️ Event Loop Pattern</h3>
+
+      <div
+        class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+        <div class="code-block">
+          <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 969-971 - Main event loop
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = CollisionSimulatorApp(root)
+    root.mainloop()  # ← While loop internally (runs until window closed)
+
+# Line 784-830 - Custom loop dengan after()
+def _run_loop(self) -> None:
+    """Loop utama simulasi."""
+    if not self.is_running:
+        return  # Exit loop
+    
+    if self.is_paused:
+        self.root.after(50, self._run_loop)  # Check again later
+        return
+    
+    # Do work...
+    self.ball_1.move(self.TIME_STEP)
+    self.ball_2.move(self.TIME_STEP)
+    
+    # Schedule next iteration (recursive call)
+    self.root.after(int(self.TIME_STEP * 1000), self._run_loop)</code></pre>
+        </div>
+
+        <div class="callout info mt-4">
+          <h4 class="font-bold mb-2">🔄 Event Loop Pattern</h4>
+          <p class="text-sm">Instead of <code>while True</code>, GUI apps use <code>root.after()</code> to schedule
+            function calls.
+            This keeps UI responsive while running periodic updates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- OOP SECTION -->
+<section id="oop" class="py-20 px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-purple mb-4">Python Fundamentals #4</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-cube mr-3"></i>Object-Oriented Programming
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Classes, __init__, encapsulation, composition - Production OOP design
+      </p>
+    </div>
+
+    <!-- THEORY SECTION - ENHANCED WITH 4 PILLARS -->
+    <div
+      class="mb-16 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu OOP? (Detailed Explanation)
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Definisi Lengkap</h4>
+          <p class="text-lg mb-3">
+            <strong>Object-Oriented Programming (OOP)</strong> adalah paradigma programming yang mengorganisir code
+            sebagai "objects" - bundling data (attributes) dan behavior (methods) together. Ini mirrors how we think
+            about the world: objects memiliki properties dan dapat melakukan actions.
+          </p>
+          <p class="text-base">
+            OOP built on <strong>4 core pillars</strong>: Encapsulation, Inheritance, Polymorphism, dan Abstraction.
+          </p>
+        </div>
+
+        <!-- 4 PILLARS EXPLAINED -->
+        <div>
+          <h4 class="text-2xl font-bold mb-4 text-center">🏛️ 4 Pilar OOP (Explained)</h4>
+
+          <!-- Pillar 1 -->
+          <div class="mb-6 bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">
+              1. 🔒 Encapsulation (Data Hiding)
+            </h5>
+            <p class="text-sm mb-4">
+              <strong>Definisi:</strong> Bundling data dan methods dalam satu unit (class), hiding internal state.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+                <h6 class="font-bold mb-2">Konsep:</h6>
+                <ul class="text-sm space-y-1">
+                  <li>• Data bersifat private (_underscore)</li>
+                  <li>• Access via public methods</li>
+                  <li>• Hide implementation details</li>
+                </ul>
+              </div>
+              <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+                <h6 class="font-bold mb-2">Contoh:</h6>
+                <code class="text-xs block">
+                  self._velocity = [0, 0]  # Private<br>
+                  def get_speed(self):  # Public
+                </code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="mb-6 bg-green-50 dark:bg-green-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-green-600 dark:text-green-400">
+              2. 🌳 Inheritance (Parent-Child)
+            </h5>
+            <p class="text-sm mb-4">
+              <strong>Definisi:</strong> Class baru inherit properties dari class existing.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+                <h6 class="font-bold mb-2">Konsep:</h6>
+                <ul class="text-sm space-y-1">
+                  <li>• Child "is-a" Parent</li>
+                  <li>• Inherit all methods</li>
+                  <li>• Can override methods</li>
+                </ul>
+              </div>
+              <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+                <h6 class="font-bold mb-2">Note:</h6>
+                <p class="text-sm">Prefer <strong>Composition</strong> over Inheritance!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="mb-6 bg-purple-50 dark:bg-purple-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-purple-600 dark:text-purple-400">
+              3. 🎭 Polymorphism (Many Forms)
+            </h5>
+            <p class="text-sm mb-4">
+              <strong>De finisi:</strong> Same method call, different behavior per object type.
+            </p>
+            <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+              for obj in [ball1, ball2]:<br>
+              &nbsp;&nbsp;obj.move(0.02)  # Works for both!
+            </code>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="mb-6 bg-orange-50 dark:bg-orange-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-orange-600 dark:text-orange-400">
+              4. 🎨 Abstraction (Hide Complexity)
+            </h5>
+            <p class="text-sm mb-4">
+              <strong>Definisi:</strong> Hide complex implementation, show only essential features.
+            </p>
+            <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+              ball.move(0.02)  # Simple!<br>
+              # User tidak tau vector calculations inside
+            </code>
+          </div>
+        </div>
+
+        <!-- Core Concepts  -->
+        <div>
+          <h4 class="text-xl font-bold mb-3">🧩 Core Concepts OOP</h4>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-bold text-lg mb-2 text-blue-600 dark:text-blue-400">Class</h5>
+              <p class="text-sm">Blueprint/template untuk create objects. Defines attributes & methods yang akan
+                dimiliki object.</p>
+              <code class="text-xs mt-2 block">class Ball: # Blueprint</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-bold text-lg mb-2 text-green-600 dark:text-green-400">Object (Instance)</h5>
+              <p class="text-sm">Concrete realization dari class. Each instance punya data sendiri tapi share methods.
+              </p>
+              <code class="text-xs mt-2 block">ball1 = Ball(...) # Instance</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-bold text-lg mb-2 text-purple-600 dark:text-purple-400">Attributes</h5>
+              <p class="text-sm">Data/properties yang dimiliki object. Accessed via <code>self.attribute</code></p>
+              <code class="text-xs mt-2 block">self.position, self.velocity</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-bold text-lg mb-2 text-orange-600 dark:text-orange-400">Methods</h5>
+              <p class="text-sm">Functions defined dalam class yang operate on object's data.</p>
+              <code class="text-xs mt-2 block">def move(self): ...</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class vs Instance -->
+        <div
+          class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4">⚖️ Class vs Instance Attributes</h4>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h5 class="font-bold mb-3 text-indigo-600 dark:text-indigo-400">Class Attributes</h5>
+              <ul class="text-sm space-y-2 mb-3">
+                <li>• Shared by ALL instances</li>
+                <li>• Usually UPPERCASE constants</li>
+              </ul>
+              <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                TRAIL_MAX_LENGTH = 30  # Class
+              </code>
+            </div>
+            <div>
+              <h5 class="font-bold mb-3 text-purple-600 dark:text-purple-400">Instance Attributes</h5>
+              <ul class="text-sm space-y-2 mb-3">
+                <li>• Unique per object</li>
+                <li>• Defined in __init__</li>
+              </ul>
+              <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                self.mass = mass  # Instance
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analogy -->
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🎯 Analogi: Pabrik Cookie</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-start">
+              <span class="mr-3">🍪</span>
+              <div><strong>Class = Cookie Mold:</strong> Template defines shape & size</div>
+            </div>
+            <div class="flex items-start">
+              <span class="mr-3">🎂</span>
+              <div><strong>Objects = Cookies:</strong> Individual cookies dari mold yang sama</div>
+            </div>
+            <div class="flex items-start">
+              <span class="mr-3">🏷️</span>
+              <div><strong>Class Attributes:</strong> "Max baking time = 15min" - semua cookies</div>
+            </div>
+            <div class="flex items-start">
+              <span class="mr-3">🎨</span>
+              <div><strong>Instance Attributes:</strong> Chocolate chip count - beda per cookie</div>
+            </div>
+            <div class="flex items-start">
+              <span class="mr-3">⚡</span>
+              <div><strong>Methods:</strong> eat(), crumble() - cookie actions</div>
+            </div>
+          </div>
+          <p class="mt-4 text-sm italic border-t border-blue-200 dark:border-blue-700 pt-3">
+            <strong>Dalam code:</strong> <code>Ball</code> = mold, <code>ball_1/ball_2</code> = cookies dengan position
+            berbeda!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class Basics -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🏗️ Class Design</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+        <h4 class="font-bold text-lg mb-3">Class Ball - Contoh Lengkap</h4>
+        <div class="code-block">
+          <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 27-125 - Class definition
+class Ball:
+    """Representasi objek bola dalam simulasi fisika."""
+    
+    # Class constants (shared by all instances)
+    TRAIL_MAX_LENGTH = 30
+    TRAIL_POINT_MIN_SIZE = 2
+    TRAIL_POINT_MAX_SIZE = 5
+    BORDER_WIDTH = 2
+    
+    def __init__(self, canvas, x_pixels, y_pixels, radius_pixels, 
+                 color, mass, velocity_x, velocity_y, pixels_to_meters):
+        """Constructor - initialize instance attributes."""
+        # Instance attributes (unique per object)
+        self.canvas = canvas
+        self.radius_pixels = radius_pixels
+        self.mass = float(mass)
+        self.position = np.array([x_pixels * pixels_to_meters, 
+                                  y_pixels * pixels_to_meters], dtype=float)
+        self.velocity = np.array([velocity_x, velocity_y], dtype=float)
+        
+        # Create visual representation
+        self.canvas_id = canvas.create_oval(...)
+    
+    def move(self, time_step: float) -> None:
+        """Instance method - operate on instance data."""
+        self.position += self.velocity * time_step
+        self.update_visual_position()</code></pre>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">✅ Class vs Instance</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Class constants:</strong> UPPERCASE, shared</li>
+            <li>• <strong>Instance attributes:</strong> <code>self.attribute</code>, unique</li>
+            <li>• <strong>Methods:</strong> Functions dengan <code>self</code></li>
+          </ul>
+        </div>
+        <div class="callout info">
+          <h4 class="font-bold mb-2">📦 __init__ Constructor</h4>
+          <ul class="text-sm space-y-1">
+            <li>• Called automatically saat create object</li>
+            <li>• Initialize instance attributes</li>
+            <li>• <code>self</code> = reference to instance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Encapsulation -->
+    <div class="mb-12">
+      <!-- THEORY: Private Methods & Encapsulation -->
+      <div
+        class="mb-8 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 p-6 rounded-xl">
+        <h4 class="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-300">
+          <i class="fas fa-lock mr-2"></i>Teori: Private Methods & Encapsulation
+        </h4>
+
+        <div class="space-y-4 text-gray-800 dark:text-gray-200">
+          <div>
+            <h5 class="font-bold text-lg mb-2">📚 Apa itu Private Methods?</h5>
+            <p class="text-sm mb-3">
+              <strong>Private methods</strong> adalah methods yang dimaksudkan untuk <strong>internal use only</strong>
+              dalam class. Di Python, ini ditandai dengan <code class="text-xs">_single_underscore</code> prefix
+              (convention, bukan enforcement).
+            </p>
+            <p class="text-sm">
+              Berbeda dengan bahasa seperti Java/C++, Python tidak enforce private secara strict.
+              Single underscore adalah "gentlemen's agreement" yang berarti: <em>"Please don't touch unless you know
+                what you're doing."</em>
+            </p>
+          </div>
+
+          <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+            <h5 class="font-bold mb-3 text-green-600 dark:text-green-400">✅ Mengapa Perlu Private Methods?</h5>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h6 class="font-bold mb-1">1. Separation of Concerns</h6>
+                <p>Public methods = "what" (interface), Private methods = "how" (implementation)</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">2. Flexibility to Change</h6>
+                <p>Internal implementation bisa diubah tanpa break external code</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">3. Reduced Complexity</h6>
+                <p>User hanya perlu tahu public interface, tidak overwhelmed dengan details</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">4. Prevent Misuse</h6>
+                <p>Methods yang tidak intended untuk external use jadi clear</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/40 p-4 rounded-lg">
+            <h5 class="font-bold mb-2 text-blue-700 dark:text-blue-300">🎯 Kapan Buat Private Method?</h5>
+            <ul class="text-sm space-y-1">
+              <li>• <strong>Helper functions</strong> yang hanya dipakai internally</li>
+              <li>• <strong>Setup/initialization</strong> methods yang dipanggil dari __init__</li>
+              <li>• <strong>Implementation details</strong> yang mungkin berubah di future</li>
+              <li>• <strong>Complex logic breakdown</strong> - split big public method ke private helpers</li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg">
+            <h5 class="font-bold mb-2">💡 Pattern: Public Interface vs Private Implementation</h5>
+            <div class="grid md:grid-cols-2 gap-4 text-xs">
+              <div>
+                <p class="font-bold mb-1 text-green-600 dark:text-green-400">✅ Public (User-facing):</p>
+                <code class="block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                  def start_simulation(self):<br>
+                  &nbsp;&nbsp;"""User calls this"""<br>
+                  &nbsp;&nbsp;self._run_loop()  # Internal
+                </code>
+              </div>
+              <div>
+                <p class="font-bold mb-1 text-blue-600 dark:text-blue-400">🔒 Private (Internal):</p>
+                <code class="block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                  def _run_loop(self):<br>
+                  &nbsp;&nbsp;"""Implementation detail"""<br>
+                  &nbsp;&nbsp;# Complex logic here
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-3xl font-bold mb-6">🔒 Encapsulation (Private Methods)</h3>
+
+      <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-xl">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 292 - Private method (convention)
+def _setup_user_interface(self) -> None:
+    """Setup seluruh komponen UI."""
+    # _ prefix = internal implementation detail
+    
+# Line 307 - Private method calling other private methods
+def _setup_left_panel(self, parent: ttk.Frame) -> None:
+    """Setup panel kiri (canvas visualisasi)."""
+    # Implementation details hidden from public API
+    
+# Public Methods (no underscore)
+def start_simulation(self) -> None:
+    """Public method - part of class interface."""
+    if not self.is_running:
+        self.is_running = True
+        self._run_loop()  # ← Calls private method internally</code></pre>
+        </div>
+
+        <div class="highlight-box">
+          <h4 class="font-bold mb-2">🎯 Public vs Private</h4>
+          <ul class="text-sm space-y-2">
+            <li>• <strong>Public methods:</strong> <code>start_simulation()</code> - User calls ini</li>
+            <li>• <strong>Private methods:</strong> <code>_setup_ui()</code> - Internal helper, jangan call dari luar
+            </li>
+            <li>• <strong>Python convention:</strong> Single underscore <code>_</code> prefix = "please don't touch"
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Composition -->
+    <div class="mb-12">
+      <!-- THEORY: Composition -->
+      <div
+        class="mb-8 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 p-6 rounded-xl">
+        <h4 class="text-2xl font-bold mb-4 text-green-700 dark:text-green-300">
+          <i class="fas fa-cubes mr-2"></i>Teori: Composition (Has-A Relationship)
+        </h4>
+
+        <div class="space-y-4 text-gray-800 dark:text-gray-200">
+          <div>
+            <h5 class="font-bold text-lg mb-2">📚 Apa itu Composition?</h5>
+            <p class="text-sm mb-3">
+              <strong>Composition</strong> adalah design pattern dimana class "has-a" (memiliki) instance dari class
+              lain
+              sebagai attributes. Ini adalah cara untuk build complex objects dari simpler components.
+            </p>
+            <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded text-xs">
+              <p class="font-bold mb-1">Contoh Real-World:</p>
+              <p>• Car <strong>HAS-A</strong> Engine (bukan Car IS-A Engine)</p>
+              <p>• House <strong>HAS-A</strong> Kitchen (bukan House IS-A Kitchen)</p>
+              <p>• CollisionApp <strong>HAS-A</strong> Ball (bukan CollisionApp IS-A Ball)</p>
+            </div>
+          </div>
+
+          <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+            <h5 class="font-bold mb-3 text-green-600 dark:text-green-400">✅ Mengapa Prefer Composition over Inheritance?
+            </h5>
+            <div class="space-y-3 text-sm">
+              <div>
+                <h6 class="font-bold mb-1">1. 🔓 Flexibility (Fleksibilitas)</h6>
+                <p>Composition: Bisa swap components at runtime. Inheritance: Stuck dengan parent class.</p>
+                <code class="text-xs block mt-1">
+                  self.ball = FastBall()  # Later: self.ball = SlowBall()
+                </code>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">2. 🧩 Loose Coupling (Coupling Rendah)</h6>
+                <p>Composition: Components independent. Inheritance: Tight coupling dengan parent.</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">3. 🔧 Easy Testing</h6>
+                <p>Composition: Test components separately. Inheritance: Must test entire hierarchy.</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">4. ❌ Avoid Fragile Base Class Problem</h6>
+                <p>Inheritance: Parent changes break children. Composition: Changes isolated.</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-4 rounded-lg">
+            <h5 class="font-bold mb-3">🎯 Composition vs Inheritance - Kapan Pakai Apa?</h5>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded">
+                <h6 class="font-bold text-green-700 dark:text-green-300 mb-2">✅ Use Composition When:</h6>
+                <ul class="text-xs space-y-1">
+                  <li>• Relationship is <strong>"has-a"</strong> atau "uses-a"</li>
+                  <li>• Need <strong>flexibility</strong> to change components</li>
+                  <li>• Want <strong>loose coupling</strong></li>
+                  <li>• Building <strong>complex systems</strong> from parts</li>
+                  <li>• <strong>Default choice</strong> for most cases!</li>
+                </ul>
+              </div>
+              <div class="bg-yellow-50 dark:bg-yellow-900/30 p-3 rounded">
+                <h6 class="font-bold text-yellow-700 dark:text-yellow-300 mb-2">⚠️ Use Inheritance When:</h6>
+                <ul class="text-xs space-y-1">
+                  <li>• True <strong>"is-a"</strong> relationship</li>
+                  <li>• Polymorphism <strong>required</strong></li>
+                  <li>• Shared behavior across <strong>similar types</strong></li>
+                  <li>• Contoh: Anjing IS-A Hewan ✓</li>
+                  <li>• <strong>Rare in practice!</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/40 p-4 rounded-lg">
+            <h5 class="font-bold mb-2 text-blue-700 dark:text-blue-300">💡 Pattern dalam Code Kita:</h5>
+            <p class="text-sm mb-2">
+              <code>CollisionSimulatorApp</code> uses <strong>Composition</strong> extensively:
+            </p>
+            <ul class="text-xs space-y-1">
+              <li>• <strong>HAS-A</strong> Tk window (<code>self.root</code>)</li>
+              <li>• <strong>HAS-A</strong> Ball objects (<code>self.ball_1</code>, <code>self.ball_2</code>)</li>
+              <li>• <strong>HAS-A</strong> Canvas (<code>self.canvas</code>)</li>
+              <li>• <strong>HAS-A</strong> Matplotlib Figure (<code>self.figure</code>)</li>
+            </ul>
+            <p class="text-xs mt-2 italic">
+              Kenapa tidak inheritance? Karena CollisionApp <strong>bukan</strong> "is-a" Ball,
+              tapi "has-a" (contains) Balls!
+            </p>
+          </div>
+
+          <div class="callout tip mt-4">
+            <h6 class="font-bold text-sm mb-1">🎓 Pro Tip: "Favor Composition Over Inheritance"</h6>
+            <p class="text-xs">
+              Ini adalah famous design principle dari Gang of Four. Start dengan composition by default,
+              hanya gunakan inheritance jika ada clear "is-a" relationship dan polymorphism requirement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-3xl font-bold mb-6">🧩 Composition (Has-A Relationship)</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 233-277 - CollisionSimulatorApp HAS-A many objects
+class CollisionSimulatorApp:
+    def __init__(self, root: tk.Tk):
+        self.root = root  # ← Has-A Tk window
+        self.style = ttk.Style()  # ← Has-A Style object
+        
+        # Has-A Ball objects (created later)
+        self.ball_1 = None
+        self.ball_2 = None
+        
+        # Has-A Matplotlib components
+        self.figure = None
+        self.axes = None
+        self.chart_canvas = None
+        
+        # Has-A Tkinter widgets
+        self.canvas = None
+        self.combo_mode = None
+        self.entry_mass_1 = None
+        
+# Line 738-756 - Creating composed objects
+self.ball_1 = Ball(canvas, 50, center_y, ...)  # ← Composition
+self.ball_2 = Ball(canvas, width-50, center_y, ...)</code></pre>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="comparison-box good">
+            <p class="font-bold text-green-600 mb-2">✅ Composition (Use This)</p>
+            <code
+              class="text-xs">CollisionApp HAS-A Ball<br>CollisionApp HAS-A Canvas<br>CollisionApp HAS-A Figure</code>
+          </div>
+          <div class="comparison-box bad">
+            <p class="font-bold text-red-600 mb-2">❌ Inheritance (Avoid When Possible)</p>
+            <code class="text-xs">CollisionApp IS-A Ball (?)<br>Too tight coupling</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Object Lifecycle -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔄 Object Lifecycle</h3>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-green-600 dark:text-green-300 mb-3">1. Creation</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 738-746
+ball_1 = Ball(
+    canvas,
+    50, center_y,
+    20, "#e63946",
+    2.0, 3.0, 0.0,
+    0.01
+)</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-blue-600 dark:text-blue-300 mb-3">2. Usage</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 795-796
+ball_1.move(0.02)
+ball_1.draw_trail()
+
+# Access attributes
+pos = ball_1.position
+vel = ball_1.velocity</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-red-600 dark:text-red-300 mb-3">3. Cleanup</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 703
+canvas.delete("all")
+# ← Deletes visual
+# Python GC cleans memory
+# when no more references</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- PHYSICS & PROGRAM FLOW SECTION -->
+<section id="physics"
+  class="py-20 px-6 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-purple mb-4">Bonus Section</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-atom mr-3"></i>Fisika & Alur Program
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Belajar Python DAN Fisika sekaligus - Rumus fisika dijelaskan step-by-step dengan implementasi Python
+      </p>
+    </div>
+
+    <!-- Program Flow Overview -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-8 text-center">🔄 Alur Program Simulasi</h3>
+
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl">
+        <div class="grid md:grid-cols-5 gap-4 text-center">
+          <div class="bg-blue-100 dark:bg-blue-900/30 p-6 rounded-xl">
+            <div class="text-4xl mb-3">1️⃣</div>
+            <h4 class="font-bold mb-2">Initialization</h4>
+            <p class="text-sm">Setup GUI, create Ball objects, set parameters</p>
+            <code class="text-xs">__init__()</code>
+          </div>
+          <div class="text-3xl flex items-center justify-center">→</div>
+          <div class="bg-green-100 dark:bg-green-900/30 p-6 rounded-xl">
+            <div class="text-4xl mb-3">2️⃣</div>
+            <h4 class="font-bold mb-2">Event Loop</h4>
+            <p class="text-sm">Update positions every 20ms</p>
+            <code class="text-xs">_run_loop()</code>
+          </div>
+          <div class="text-3xl flex items-center justify-center">→</div>
+          <div class="bg-purple-100 dark:bg-purple-900/30 p-6 rounded-xl">
+            <div class="text-4xl mb-3">3️⃣</div>
+            <h4 class="font-bold mb-2">Physics</h4>
+            <p class="text-sm">Collision detection & resolution</p>
+            <code class="text-xs">_handle_collision()</code>
+          </div>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-4">
+          <div class="bg-orange-100 dark:bg-orange-900/30 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-3">4️⃣</div>
+            <h4 class="font-bold mb-2">Visualization</h4>
+            <p class="text-sm">Update canvas, draw balls & trails, plot graphs</p>
+            <code class="text-xs">update_visual_position(), draw_trail()</code>
+          </div>
+          <div class="bg-pink-100 dark:bg-pink-900/30 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-3">5️⃣</div>
+            <h4 class="font-bold mb-2">Data Logging</h4>
+            <p class="text-sm">Record momentum, energy, forces</p>
+            <code class="text-xs">_log_simulation_data()</code>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+          <p class="text-center text-sm">
+            <strong>Loop berulang setiap 20ms (50 FPS)</strong> hingga user stop atau tutup window
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Physics Concepts -->
+    <div class="mb-16">
+      <h3 class="text-3xl font-bold mb-8 text-center">⚛️ Konsep Fisika yang Digunakan</h3>
+
+      <!-- Momentum Conservation -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-8">
+        <h4 class="text-2xl font-bold mb-4 text-purple-600 dark:text-purple-400">
+          1. Hukum Kekekalan Momentum
+        </h4>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h5 class="font-bold mb-3 text-lg">📐 Rumus Matematika</h5>
+            <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4">
+              <p class="font-mono text-lg text-center mb-2">
+                <strong>Momentum:</strong> p = m × v
+              </p>
+              <p class="font-mono text-lg text-center mb-2">
+                <strong>Konservasi:</strong> p₁ + p₂ = p₁' + p₂'
+              </p>
+              <p class="font-mono text-lg text-center">
+                <strong>Total:</strong> P_total = m₁v₁ + m₂v₂
+              </p>
+            </div>
+            <div class="text-sm space-y-2">
+              <p><strong>Dimana:</strong></p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>p = momentum (kg·m/s)</li>
+                <li>m = massa (kg)</li>
+                <li>v = kecepatan (m/s)</li>
+                <li>' = setelah tumbukan</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h5 class="font-bold mb-3 text-lg">💻 Implementasi Python</h5>
+            <div class="code-block">
+              <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i>
+              </button>
+              <pre class="rounded-lg"><code class="language-python"># Line 894-898 - Calculate total momentum
+p1 = self.ball_1.mass * self.ball_1.velocity
+p2 = self.ball_2.mass * self.ball_2.velocity
+
+# Vector sum (NumPy magic!)
+p_total_vec = p1 + p2
+
+# Magnitude (scalar)
+p_total = np.linalg.norm(p_total_vec)
+
+# Log for verification
+self.momentum_log.append(p_total)</code></pre>
+            </div>
+            <div class="callout success mt-3">
+              <p class="text-sm"><strong>Insight:</strong> Dalam sistem tertutup (no external forces), momentum total
+                SELALU konstan!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collision Physics -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-8">
+        <h4 class="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400">
+          2. Fisika Tumbukan (Collision)
+        </h4>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h5 class="font-bold mb-3 text-lg">📐 Rumus Impulse-Momentum</h5>
+            <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4">
+              <p class="font-mono text-sm text-center mb-3">
+                <strong>Impulse:</strong>
+              </p>
+              <p class="font-mono text-lg text-center mb-3">
+                J = -(1 + e) × v_rel · n̂ / (1/m₁ + 1/m₂)
+              </p>
+              <p class="font-mono text-sm text-center mb-3">
+                <strong>Velocity Change:</strong>
+              </p>
+              <p class="font-mono text-base text-center mb-2">
+                Δv₁ = J × n̂ / m₁
+              </p>
+              <p class="font-mono text-base text-center">
+                Δv₂ = -J × n̂ / m₂
+              </p>
+            </div>
+            <div class="text-sm space-y-2">
+              <p><strong>Variabel:</strong></p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>J = impulse magnitude (N·s)</li>
+                <li>e = coefficient of restitution (0-1)</li>
+                <li>v_rel = relative velocity</li>
+                <li>n̂ = collision normal (unit vector)</li>
+                <li>m = mass of each ball</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h5 class="font-bold mb-3 text-lg">💻 Implementasi Python</h5>
+            <div class="code-block">
+              <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i>
+              </button>
+              <pre class="rounded-lg"><code class="language-python"># Line 837-867 - Collision resolution
+# 1. Collision normal (unit vector)
+pos_diff = b1.position - b2.position
+dist = np.linalg.norm(pos_diff)
+n = pos_diff / (dist + 1e-9)  # Normalize
+
+# 2. Relative velocity along normal
+v_rel = b1.velocity - b2.velocity
+v_norm = np.dot(v_rel, n)
+
+# 3. Check if approaching
+if v_norm < 0:  # Negative = approaching
+    # 4. Get restitution coefficient
+    e = float(self.restitution_coefficient.get())
+    
+    # 5. Calculate impulse magnitude
+    j = -(1 + e) * v_norm / (1/b1.mass + 1/b2.mass)
+    
+    # 6. Apply impulse (vector)
+    impulse_vec = j * n
+    b1.velocity += impulse_vec / b1.mass
+    b2.velocity -= impulse_vec / b2.mass</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl">
+          <h5 class="font-bold mb-3">🎯 Step-by-Step Collision Process:</h5>
+          <ol class="text-sm space-y-2">
+            <li><strong>1. Detect:</strong> Check if distance ≤ r₁ + r₂</li>
+            <li><strong>2. Normal Vector:</strong> Direction dari ball1 ke ball2</li>
+            <li><strong>3. Relative Velocity:</strong> v₁ - v₂ projected onto normal</li>
+            <li><strong>4. Calculate Impulse:</strong> Using mass ratio and restitution</li>
+            <li><strong>5. Update Velocities:</strong> Apply impulse to both balls</li>
+            <li><strong>6. Separation:</strong> Push balls apart if overlapping</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Coefficient of Restitution -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-8">
+        <h4 class="text-2xl font-bold mb-4 text-green-600 dark:text-green-400">
+          3. Koefisien Restitusi (e)
+        </h4>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-6">
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-3">e = 0</div>
+            <h5 class="font-bold mb-2">Inelastic</h5>
+            <p class="text-sm">Bola menempel setelah tumbukan</p>
+            <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Energi kinetic hilang maksimal</p>
+          </div>
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-xl text-center">
+            <div class="text-4xl mb-3">0 < e < 1</div>
+                <h5 class="font-bold mb-2">Semi-Elastic</h5>
+                <p class="text-sm">Ada energy yang hilang</p>
+                <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Realistic collision (bola basket e≈0.8)</p>
+            </div>
+            <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl text-center">
+              <div class="text-4xl mb-3">e = 1</div>
+              <h5 class="font-bold mb-2">Elastic</h5>
+              <p class="text-sm">Energy kinetic konstan</p>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Perfect bounce (ideal case)</p>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+            <h5 class="font-bold mb-3 text-center">Rumus Koefisien Restitusi</h5>
+            <p class="font-mono text-xl text-center mb-4">
+              e = (v₂' - v₁') / (v₁ - v₂)
+            </p>
+            <p class="text-sm text-center">
+              Rasio kecepatan relatif setelah dan sebelum tumbukan
+            </p>
+          </div>
+        </div>
+
+        <!-- Kinetic Energy -->
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl mb-8">
+          <h4 class="text-2xl font-bold mb-4 text-orange-600 dark:text-orange-400">
+            4. Energi Kinetik
+          </h4>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h5 class="font-bold mb-3 text-lg">📐 Rumus</h5>
+              <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                <p class="font-mono text-xl text-center mb-3">
+                  KE = ½ m v²
+                </p>
+                <p class="font-mono text-lg text-center mb-3">
+                  KE_total = KE₁ + KE₂
+                </p>
+                <p class="font-mono text-base text-center">
+                  = ½m₁v₁² + ½m₂v₂²
+                </p>
+              </div>
+              <div class="callout warning">
+                <p class="text-sm"><strong>⚠️ Perhatian:</strong> Energi kinetik HANYA konstan jika e = 1 (elastic).
+                  Jika e < 1, ada energy yang hilang menjadi panas/suara.</p>
+              </div>
+            </div>
+
+            <div>
+              <h5 class="font-bold mb-3 text-lg">💻 Implementasi Python</h5>
+              <div class="code-block">
+                <button class="copy-btn bg-orange-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+                  <i class="fas fa-copy"></i>
+                </button>
+                <pre class="rounded-lg"><code class="language-python"># Line 902-907 - Calculate kinetic energy
+# Using dot product for speed² (efficient!)
+speed_1_sq = np.dot(
+    self.ball_1.velocity, 
+    self.ball_1.velocity
+)
+speed_2_sq = np.dot(
+    self.ball_2.velocity, 
+    self.ball_2.velocity
+)
+
+# KE = 0.5 * m * v²
+ke_total = (
+    0.5 * self.ball_1.mass * speed_1_sq +
+    0.5 * self.ball_2.mass * speed_2_sq
+)
+
+self.kinetic_energy_log.append(ke_total)</code></pre>
+              </div>
+              <div class="callout tip mt-3">
+                <p class="text-sm"><strong>Optimization:</strong> Menggunakan <code>np.dot(v, v)</code> lebih cepat
+                  dari <code>np.linalg.norm(v)**2</code>!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Motion Equation -->
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+          <h4 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">
+            5. Kinematika - Persamaan Gerak
+          </h4>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h5 class="font-bold mb-3 text-lg">📐 Rumus</h5>
+              <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                <p class="font-mono text-xl text-center mb-4">
+                  s = s₀ + v·Δt
+                </p>
+                <p class="text-sm text-center mb-3">Untuk 2D (vector form):</p>
+                <p class="font-mono text-base text-center mb-2">
+                  x(t) = x₀ + v_x·Δt
+                </p>
+                <p class="font-mono text-base text-center">
+                  y(t) = y₀ + v_y·Δt
+                </p>
+              </div>
+              <div class="text-sm space-y-2">
+                <p><strong>Variabel:</strong></p>
+                <ul class="list-disc list-inside space-y-1">
+                  <li>s = posisi (m)</li>
+                  <li>s₀ = posisi awal (m)</li>
+                  <li>v = kecepatan (m/s)</li>
+                  <li>Δt = time step (s)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h5 class="font-bold mb-3 text-lg">💻 Implementasi Python</h5>
+              <div class="code-block">
+                <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+                  <i class="fas fa-copy"></i>
+                </button>
+                <pre class="rounded-lg"><code class="language-python"># Line 173-174 - Update position
+def move(self, time_step: float) -> None:
+    """Gerakkan bola berdasarkan kecepatan."""
+    
+    # Vector equation: s = s₀ + v·Δt
+    # NumPy applies to ALL elements!
+    self.position += self.velocity * time_step
+    
+    # Equivalent to (but MUCH faster than):
+    # self.position[0] += self.velocity[0] * time_step
+    # self.position[1] += self.velocity[1] * time_step
+    
+    # Update visualization
+    self.update_visual_position()</code></pre>
+              </div>
+              <div class="highlight-box mt-3">
+                <h6 class="font-bold mb-2">🚀 NumPy Vectorization Power!</h6>
+                <p class="text-sm">Satu line <code>position += velocity * dt</code> handles X DAN Y sekaligus.
+                  Ini contoh perfect kenapa NumPy amazing untuk scientific computing!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Card -->
+      <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8 rounded-2xl shadow-2xl">
+        <h3 class="text-3xl font-bold mb-6 text-center">🎓 Summary: Python Meets Physics</h3>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-xl font-bold mb-4 text-yellow-300">⚛️ Physics Learned</h4>
+            <ul class="space-y-2">
+              <li>✅ <strong>Momentum Conservation:</strong> p_total = constant</li>
+              <li>✅ <strong>Collision Physics:</strong> Impulse calculation</li>
+              <li>✅ <strong>Coefficient of Restitution:</strong> e determines bounce</li>
+              <li>✅ <strong>Kinetic Energy:</strong> KE = ½mv²</li>
+              <li>✅ <strong>Kinematics:</strong> Position update dengan velocity</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4 text-yellow-300">💻 Python Skills Applied</h4>
+            <ul class="space-y-2">
+              <li>✅ <strong>Vector Math:</strong> NumPy array operations</li>
+              <li>✅ <strong>OOP:</strong> Ball class encapsulates physics</li>
+              <li>✅ <strong>Event Loop:</strong> Real-time simulation</li>
+              <li>✅ <strong>Visualization:</strong> Tkinter + Matplotlib</li>
+              <li>✅ <strong>Data Logging:</strong> Track conservation laws</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-white/20 rounded-xl text-center">
+          <p class="text-lg font-bold">
+            🎯 Result: Kamu belajar Python sambil understand physics behind the simulation!
+          </p>
+        </div>
+      </div>
+    </div>
+</section><!-- CODE STRUCTURE SECTION -->
+<section id="structure" class="py-20 px-6 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-blue mb-4">Python Fundamentals #5</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-sitemap mr-3"></i>Code Structure & Organization
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Imports, naming conventions, comments - Professional code organization
+      </p>
+    </div>
+
+    <!-- THEORY SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Mengapa Code Structure Penting?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Apa itu Code Structure?</h4>
+          <p class="text-lg mb-3">
+            <strong>Code Structure</strong> adalah cara kita mengorganisir dan memformat code agar readable,
+            maintainable,
+            dan consistent. Ini bukan hanya soal "looks pretty", tapi fundamental untuk professional development.
+          </p>
+          <p class="text-base">
+            Think of it as "grammar and punctuation" untuk programming. Bad structure = working code tapi nightmare
+            untuk maintain!
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
+            ✅ Mengapa Structure Matters? (CRITICAL!)
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. Code is Read 10x More Than Written</h5>
+              <p class="text-sm">You'll spend WAY more time reading code than writing it. Good structure = faster
+                comprehension.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Team Collaboration</h5>
+              <p class="text-sm">Consistent structure means everyone can understand each other's code instantly.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Bug Prevention</h5>
+              <p class="text-sm">Well-structured code makes bugs obvious. Messy code hides bugs in complexity.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Professional Standard</h5>
+              <p class="text-sm">Following conventions (like PEP 8) shows you're professional, not amateur.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">📖 PEP 8: Python's Style Guide</h4>
+          <p class="text-sm mb-4">
+            <strong>PEP 8</strong> adalah official style guide untuk Python. Bukan "suggestions" - ini adalah
+            <strong>industry standard</strong> yang diexpect oleh setiap Python developer.
+          </p>
+          <div class="grid md:grid-cols-3 gap-4 text-sm">
+            <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
+              <h6 class="font-bold mb-2">Naming Conventions</h6>
+              <ul class="text-xs space-y-1">
+                <li>• Variables: <code>snake_case</code></li>
+                <li>• Functions: <code>snake_case</code></li>
+                <li>• Classes: <code>PascalCase</code></li>
+                <li>• Constants: <code>UPPER_CASE</code></li>
+              </ul>
+            </div>
+            <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
+              <h6 class="font-bold mb-2">Spacing Rules</h6>
+              <ul class="text-xs space-y-1">
+                <li>• Indentation: 4 spaces</li>
+                <li>• Max line: 79 characters</li>
+                <li>• Blank lines: 2 before class, 1 before method</li>
+              </ul>
+            </div>
+            <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
+              <h6 class="font-bold mb-2">Import Order</h6>
+              <ul class="text-xs space-y-1">
+                <li>1. Standard library</li>
+                <li>2. Third-party</li>
+                <li>3. Local imports</li>
+                <li>• Alphabetical within groups</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🎯 The "Why" Behind Structure Rules</h4>
+          <div class="space-y-3 text-sm">
+            <div>
+              <h6 class="font-bold">Why snake_case for variables?</h6>
+              <p class="text-xs">More readable than camelCase in Python. "velocity_x" clearer than "velocityX".</p>
+            </div>
+            <div>
+              <h6 class="font-bold">Why 4-space indentation?</h6>
+              <p class="text-xs">2 spaces = hard to see nesting. 8 spaces = too much horizontal space. 4 = perfect
+                balance.</p>
+            </div>
+            <div>
+              <h6 class="font-bold">Why import order matters?</h6>
+              <p class="text-xs">Instantly see dependencies. Standard lib (always available) vs third-party (need
+                install) vs local (your code).</p>
+            </div>
+            <div>
+              <h6 class="font-bold">Why max 79 characters per line?</h6>
+              <p class="text-xs">Fits on any screen, readable without horizontal scrolling, side-by-side code review.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout important">
+          <h4 class="font-bold mb-2">⚡ Key Principle: "Code for Humans, Not Machines"</h4>
+          <p class="text-sm">
+            Computers don't care about formatting. Humans do! Good structure makes code self-documenting.
+            If you have to choose between "clever" vs "clear", ALWAYS choose clear.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imports -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">📦 Import Organization</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 14-21 - Organized imports
+# 1. Standard library imports first
+import tkinter as tk
+from tkinter import ttk, filedialog, messagebox
+import csv
+from collections import deque
+from typing import Tuple, Optional
+
+# 2. Third-party imports second
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
+# 3. Local imports last (if any)
+# from mymodule import MyClass</code></pre>
+        </div>
+
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">✅ Import Best Practices (PEP 8)</h4>
+          <ul class="text-sm space-y-1">
+            <li>• Group: standard → third-party → local</li>
+            <li>• One import per line untuk from imports</li>
+            <li>• Alphabetical order dalam each group</li>
+            <li>• Avoid wildcard imports (<code>from x import *</code>)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Naming Conventions -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🏷️ Naming Conventions</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-purple-600 dark:text-purple-300 mb-3">Classes & Constants</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># PascalCase for classes
+class Ball:
+class CollisionSimulatorApp:
+
+# UPPERCASE for constants
+PIXELS_TO_METERS = 0.01
+TIME_STEP = 0.02
+BALL_RADIUS_PIXELS = 20
+CANVAS_BG_COLOR = "#f5f5f5"</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-green-600 dark:text-green-300 mb-3">Variables & Functions</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># snake_case for variables
+time_step = 0.02
+simulation_time = 0.0
+restitution_coefficient = 1.0
+
+# snake_case for functions/methods
+def move(self, time_step):
+def _handle_collision(self):
+def _setup_user_interface(self):</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box mt-6">
+        <h4 class="font-bold text-lg mb-3">📝 Naming Rules Summary</h4>
+        <table class="comparison-table w-full">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Convention</th>
+              <th>Contoh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Class</td>
+              <td>PascalCase</td>
+              <td><code>Ball</code>, <code>CollisionSimulatorApp</code></td>
+            </tr>
+            <tr>
+              <td>Constant</td>
+              <td>UPPERCASE</td>
+              <td><code>PIXELS_TO_METERS</code>, <code>TIME_STEP</code></td>
+            </tr>
+            <tr>
+              <td>Variable/Function</td>
+              <td>snake_case</td>
+              <td><code>time_step</code>, <code>move()</code></td>
+            </tr>
+            <tr>
+              <td>Private</td>
+              <td>_leading_underscore</td>
+              <td><code>_handle_collision()</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Comments & Documentation -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">💬 Comments & Documentation</h3>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Section Headers</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 24-26
+# ==========================================
+# KELAS BOLA (Ball Object)
+# ==========================================
+
+# Line 217
+# ===== KONSTANTA FISIKA =====</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Inline Comments</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 173
+# Update posisi: s = s₀ + v·Δt
+self.position += self.velocity * time_step
+
+# Line 844
+n = pos_diff / (dist + 1e-9)  # Normalisasi</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <h4 class="font-bold mb-2">⚠️ Comment Guidelines</h4>
+        <ul class="text-sm space-y-1">
+          <li>• Explain WHY, not WHAT: Code shows what it does, comments explain reasoning</li>
+          <li>• Update comments when updating code - outdated comments are worse than no comments</li>
+          <li>• Use docstrings for functions/classes, inline comments for tricky logic</li>
+          <li>• Avoid obvious comments: <code># increment i</code> ❌</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Code Grouping -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">📂 Logical Code Grouping</h3>
+
+      <div
+        class="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 p-6 rounded-xl">
+        <p class="text-lg mb-4">Kode terorganisir dalam sections yang jelas:</p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <h5 class="font-bold mb-2">CollisionSimulatorApp Structure</h5>
+            <ul class="text-sm space-y-1">
+              <li>• Constants (Lines 217-231)</li>
+              <li>• __init__ (Lines 233-277)</li>
+              <li>• Setup UI Methods (Lines 289-560)</li>
+              <li>• Event Handlers (Lines 562-623)</li>
+              <li>• Visual Helpers (Lines 625-680)</li>
+              <li>• Core Simulation (Lines 682-891)</li>
+              <li>• Data Export (Lines 939-963)</li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold mb-2">Manfaat Pengelompokan</h5>
+            <ul class="text-sm space-y-1">
+              <li>✓ Easy to find related code</li>
+              <li>✓ Clear separation of concerns</li>
+              <li>✓ Easier maintenance</li>
+              <li>✓ Better readability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- CLEAN CODE SECTION -->
+<section id="clean-code" class="py-20 px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-green mb-4">Python Fundamentals #6</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-broom mr-3"></i>Clean Code Principles
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        DRY, KISS, SRP - Write code that lasts
+      </p>
+    </div>
+
+    <!-- TEORI SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/20 dark:to-teal-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-emerald-600 dark:text-emerald-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu Clean Code?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Definisi Clean Code</h4>
+          <p class="text-lg mb-3">
+            <strong>Clean Code</strong> adalah code yang mudah dibaca, mudah dipahami, dan mudah dimodifikasi.
+            Bukan soal "bekerja dengan benar" saja - tapi bekerja dengan cara yang ELEGANT dan MAINTAINABLE.
+          </p>
+          <p class="text-base">
+            Seperti kata Uncle Bob Martin: <em>"Clean code adalah code yang ditulis oleh seseorang yang peduli."</em>
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
+            ✅ Mengapa Clean Code Penting?
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. Mengurangi Technical Debt</h5>
+              <p class="text-sm">Messy code = hutang teknis yang makin besar. Suatu hari harus dibayar dengan
+                refactoring besar-besaran.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Mempercepat Development</h5>
+              <p class="text-sm">Clean code lebih cepat dipahami = new features lebih cepat dibuat. Messy code =
+                debugging nightmare.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Mengurangi Bugs</h5>
+              <p class="text-sm">Simple, clear code = bugs lebih mudah terlihat. Complex, messy code = bugs tersembunyi
+                di complexity.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Team Productivity</h5>
+              <p class="text-sm">Team bisa collaborate lebih efektif. Tidak perlu "tanya ahlinya" untuk setiap perubahan
+                kecil.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-2xl font-bold mb-4 text-center">🎯 3 Prinsip Utama Clean Code</h4>
+
+          <!-- DRY Principle -->
+          <div class="mb-6 bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-blue-700 dark:text-blue-300">
+              1. 🔄 DRY (Don't Repeat Yourself)
+            </h5>
+
+            <div class="space-y-4 text-sm">
+              <div>
+                <h6 classfont-bold mb-2">📖 Apa itu DRY?</h6>
+                <p>Setiap piece of knowledge harus punya <strong>single, unambiguous representation</strong> dalam
+                  system.
+                  Jangan copy-paste code!</p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ Mengapa DRY Penting?</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• <strong>Single Source of Truth:</strong> Perubahan di 1 tempat, effect everywhere</li>
+                    <li>• <strong>Maintainability:</strong> Fix bug sekali, fixed di semua tempat</li>
+                    <li>• <strong>Consistency:</strong> Logic sama dijamin identik</li>
+                    <li>• <strong>Less Code:</b> Fewer lines = fewer bugs</li>
+                  </ul>
+                </div>
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-orange-600 dark:text-orange-400">💡 Kapan Extract ke Function?</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• Copy-paste <strong>2+ kali</strong>? Extract!</li>
+                    <li>• <strong>Kompleksitas</strong> bisa diisolasi? Extract!</li>
+                    <li>• Bisa diberi <strong>nama descriptive</strong>? Extract!</li>
+                    <li>• Might be <strong>reused</strong> di future? Extract!</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KISS Principle -->
+          <div class="mb-6 bg-green-50 dark:bg-green-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-green-700 dark:text-green-300">
+              2. 💚 KISS (Keep It Simple, Stupid)
+            </h5>
+
+            <div class="space-y-4 text-sm">
+              <div>
+                <h6 class="font-bold mb-2">📖 Apa itu KISS?</h6>
+                <p>Pilih solusi yang <strong>paling simple</strong>. Complexity adalah musuh.
+                  "Simplicity is the ultimate sophistication" - Leonardo da Vinci.</p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ Mengapa KISS Penting?</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• <strong>Easier to Understand:</strong> Simple code = cepat dipahami</li>
+                    <li>• <strong>Easier to Debug:</strong> Fewer moving parts = easier troubleshooting</li>
+                    <li>• <strong>Easier to Change:</strong> Simple structure flexible untuk perubahan</li>
+                    <li>• <strong>Performance:</strong> Simple solutions often faster</li>
+                  </ul>
+                </div>
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-red-600 dark:text-red-400">❌ Hindari Over-Engineering</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• Jangan buat <strong>abstraction</strong> yang tidak perlu</li>
+                    <li>• Jangan optimize <strong>prematurely</strong></li>
+                    <li>• Jangan gunakan <strong>design pattern</strong> for the sake of it</li>
+                    <li>• <strong>YAGNI:</strong> You Ain't Gonna Need It!</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-yellow-50 dark:bg-yellow-900/40 p-3 rounded">
+                <p class="text-xs italic">
+                  <strong>Prinsip:</strong> Jika ada 2 solusi yang sama-sama works, pilih yang lebih SIMPLE.
+                  Clever code itu bagus untuk ego, tapi CLEAR code bagus untuk team!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SRP Principle -->
+          <div class="mb-6 bg-purple-50 dark:bg-purple-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-purple-700 dark:text-purple-300">
+              3. 🎯 SRP (Single Responsibility Principle)
+            </h5>
+
+            <div class="space-y-4 text-sm">
+              <div>
+                <h6 class="font-bold mb-2">📖 Apa itu SRP?</h6>
+                <p>Setiap function/class harus punya <strong>satu dan hanya satu alasan untuk berubah</strong>.
+                  One job, one responsibility, one reason to exist.</p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ Mengapa SRP Penting?</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• <strong>Easier to Test:</strong> One responsibility = simple unit tests</li>
+                    <li>• <strong>Easier to Understand:</strong> Function name explains what it does</li>
+                    <li>• <strong>Easier to Reuse:</strong> Focused functions reusable di context lain</li>
+                    <li>• <strong>Change Isolation:</strong> Perubahan di 1 concern tidak affect others</li>
+                  </ul>
+                </div>
+                <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
+                  <h6 class="font-bold mb-2 text-blue-600 dark:text-blue-400">💡 Cara Detect Violation</h6>
+                  <ul class="text-xs space-y-1">
+                    <li>• Function name punya <strong>"dan"</strong>? Red flag!</li>
+                    <li>• Function >20 lines? Possibly doing too much</li>
+                    <li>• Hard to name function? Probably unclear responsibility</li>
+                    <li>• Banyak parameters? Too many concerns</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-blue-50 dark:bg-blue-900/40 p-3 rounded">
+                <p class="text-xs">
+                  <strong>Contoh:</strong> <code>_setup_user_interface()</code> ✅ GOOD - jelas setup UI saja.
+                  <code>setup_ui_and_load_data()</code> ❌ BAD - 2 responsibilities!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout success">
+          <h4 class="font-bold mb-2">🏆 The Golden Rule</h4>
+          <p class="text-sm">
+            <strong>"Buat code seolah-olah orang yang maintain code ini adalah psychopath violent yang tahu dimana kamu
+              tinggal."</strong>
+            - Cara humor untuk bilang: ALWAYS write clean, clear code!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRY -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔁 DRY: Don't Repeat Yourself</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="comparison-box bad">
+          <h4 class="font-bold text-red-600 dark:text-red-300 mb-3">❌ Repetitive Code</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># BAD: Repeating same pattern
+ttk.Label(frame, text="m (kg):")
+entry1 = ttk.Entry(frame, width=5)
+entry1.insert(0, "2.0")
+entry1.pack()
+
+ttk.Label(frame, text="vx (m/s):")
+entry2 = ttk.Entry(frame, width=5)
+entry2.insert(0, "3.0")
+entry2.pack()
+
+ttk.Label(frame, text="vy (m/s):")
+entry3 = ttk.Entry(frame, width=5)
+entry3.insert(0, "0.0")
+entry3.pack()</code></pre>
+          </div>
+        </div>
+
+        <div class="comparison-box good">
+          <h4 class="font-bold text-green-600 dark:text-green-300 mb-3">✅ Helper Function</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># GOOD: Extract to helper (Line 454-459)
+def create_entry(label, default, attr_name):
+    ttk.Label(frame, text=label).pack(...)
+    entry = ttk.Entry(frame, width=5)
+    entry.insert(0, default)
+    entry.pack(...)
+    setattr(self, attr_name, entry)
+
+# Use the helper
+create_entry("m (kg):", "2.0", "entry_mass")
+create_entry("vx (m/s):", "3.0", "entry_vx")
+create_entry("vy (m/s):", "0.0", "entry_vy")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip mt-6">
+        <p class="text-sm"><strong>DRY Rule:</strong> If you copy-paste code 3+ times, extract to a function/method!</p>
+      </div>
+    </div>
+
+    <!-- KISS -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">✨ KISS: Keep It Simple</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+        <h4 class="font-bold text-lg mb-3">Guard Clauses - Reduce Nesting</h4>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-sm text-red-600 dark:text-red-300 font-bold mb-2">❌ Deeply Nested</p>
+            <div class="code-block">
+              <pre class="rounded-lg text-sm"><code class="language-python">def process():
+    if running:
+        if not paused:
+            if data_ready:
+                # Do work
+                update()
+                render()</code></pre>
+            </div>
+          </div>
+          <div>
+            <p class="text-sm text-green-600 dark:text-green-300 font-bold mb-2">✅ Guard Clauses</p>
+            <div class="code-block">
+              <pre class="rounded-lg text-sm"><code class="language-python">def process():  # Line 784-792
+    if not running:
+        return  # ← Exit early
+    if paused:
+        return  # ← Exit early
+    if not data_ready:
+        return  # ← Exit early
+    
+    # Do work (no nesting!)
+    update()
+    render()</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4 class="font-bold mb-2">🎯 KISS Principles</h4>
+        <ul class="text-sm space-y-1">
+          <li>• Prefer simple solutions over clever ones</li>
+          <li>• Reduce nesting with early returns</li>
+          <li>• One level of abstraction per function</li>
+          <li>• Clear > compact: <code>is_paused</code> better than <code>p</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SRP -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🎯 SRP: Single Responsibility Principle</h3>
+
+      <div
+        class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+        <p class="text-lg mb-4">Each function/class should do ONE thing well:</p>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+          <div class="bg-white dark:bg-gray-700 p-4 rounded-xl">
+            <h5 class="font-bold mb-2">✅ Good SRP</h5>
+            <code class="text-sm">_handle_collision()</code>
+            <p class="text-xs mt-2">Only handles collision logic</p>
+          </div>
+          <div class="bg-white dark:bg-gray-700 p-4 rounded-xl">
+            <h5 class="font-bold mb-2">✅ Good SRP</h5>
+            <code class="text-sm">_update_info_display()</code>
+            <p class="text-xs mt-2">Only updates UI labels</p>
+          </div>
+          <div class="bg-white dark:bg-gray-700 p-4 rounded-xl">
+            <h5 class="font-bold mb-2">✅ Good SRP</h5>
+            <code class="text-sm">export_data_to_csv()</code>
+            <p class="text-xs mt-2">Only exports data</p>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <h4 class="font-bold mb-2">❌ Contoh Pelanggaran SRP</h4>
+          <p class="text-sm">Jika <code>_handle_collision()</code> also updates UI AND exports data AND renders graphs =
+            TOO MANY RESPONSIBILITIES!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Readable Names -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">📝 Readable Names</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="comparison-box bad">
+          <h4 class="font-bold text-red-600 mb-3">❌ Cryptic Names</h4>
+          <code class="text-sm">
+                        cc = 0.5<br>
+                        pt = np.array([x, y])<br>
+                        def upd():<br>
+                        &nbsp;&nbsp;self.t += self.dt
+                    </code>
+        </div>
+
+        <div class="comparison-box good">
+          <h4 class="font-bold text-green-600 mb-3">✅ Descriptive Names</h4>
+          <code class="text-sm">
+                        restitution_coefficient = 0.5<br>
+                        position = np.array([x, y])<br>
+                        def update_simulation_time():<br>
+                        &nbsp;&nbsp;self.simulation_time += self.time_step
+                    </code>
+        </div>
+      </div>
+
+      <div class="callout success mt-6">
+        <h4 class="font-bold mb-2">✅ Naming Guidelines</h4>
+        <ul class="text-sm space-y-1">
+          <li>• <strong>Be descriptive:</strong> <code>time_step</code> not <code>ts</code></li>
+          <li>• <strong>Use full words:</strong> <code>simulation_time</code> not <code>sim_t</code></li>
+          <li>• <strong>Boolean prefix:</strong> <code>is_running</code>, <code>has_collision</code></li>
+          <li>• <strong>Avoid abbreviations</strong> unless universally known (HTTP, URL ok)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section><!-- BEST PRACTICES SECTION -->
+<section id="best-practices" class="py-20 px-6 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-purple mb-4">Python Fundamentals #7</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-star mr-3"></i>Python Best Practices
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Industry-standard patterns, idioms, and performance tips
+      </p>
+    </div>
+
+    <!-- Context Managers -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔒 Context Managers (with statement)</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 951 - File I/O with context manager
+with open(path, "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["t (s)", "F (N)", "P_total (kg·m/s)", "KE_total (J)"])
+    for i in range(len(self.time_log)):
+        writer.writerow([...])
+# File automatically closed here, even if exception occurs!
+
+# Without with statement (BAD):
+f = open(path, "w")
+try:
+    writer = csv.writer(f)
+    # ... write data
+finally:
+    f.close()  # Must manually close</code></pre>
+        </div>
+
+        <div class="callout success">
+          <h4 class="font-bold mb-2">✅ Why Use with?</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Automatic resource cleanup:</strong> File closed automatically</li>
+            <li>• <strong>Exception safe:</strong> Cleanup happens even if error occurs</li>
+            <li>• <strong>Readable:</strong> Intent clear - "work with this resource"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- NumPy Vectorization -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">⚡ NumPy Vectorization</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="comparison-box bad">
+          <h4 class="font-bold text-red-600 mb-3">❌ Slow: Element-by-element</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Manual element operations (SLOW!)
+self.pos_x += self.vel_x * dt
+self.pos_y += self.vel_y * dt
+
+# Manual distance calc
+dx = x1 - x2
+dy = y1 - y2
+dist = sqrt(dx*dx + dy*dy)</code></pre>
+          </div>
+        </div>
+
+        <div class="comparison-box good">
+          <h4 class="font-bold text-green-600 mb-3">✅ Fast: Vectorized</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 174 - Vector operation (FAST!)
+self.position += self.velocity * dt
+# Operates on ENTIRE array at once
+
+# Line 838 - Vector distance (FAST!)
+dist = np.linalg.norm(pos_diff)
+# Optimized C implementation</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box mt-6">
+        <h4 class="font-bold text-lg mb-3">🚀 Performance Tip: Use NumPy for Math</h4>
+        <p class="text-sm mb-2">NumPy operations are 10-100x faster than Python loops karena implemented in C.</p>
+        <ul class="text-sm space-y-1">
+          <li>• <strong>Vector operations:</strong> <code>a + b * c</code> instead of loops</li>
+          <li>• <strong>Built-in functions:</strong> <code>np.linalg.norm()</code>, <code>np.dot()</code></li>
+          <li>• <strong>Broadcasting:</strong> Operations on arrays of different shapes</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Defensive Programming -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🛡️ Defensive Programming</h3>
+
+      <div class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <h4 class="font-bold text-lg mb-3">Input Validation</h4>
+            <div class="code-block">
+              <pre class="rounded-lg text-sm"><code class="language-python"># Line 714-724 - Validate input
+try:
+    mass = float(entry.get())
+except ValueError:
+    messagebox.showerror(
+        "Error",
+        "Input tidak valid!"
+    )
+    return  # Stop execution</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-3">Null Checks</h4>
+            <div class="code-block">
+              <pre class="rounded-lg text-sm"><code class="language-python"># Line 668 - Check if exists
+if self.center_of_mass_id is None:
+    # Create new
+else:
+    # Update existing
+
+# Line 947 - Early exit if no path
+if not path:
+    return</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <h4 class="font-bold mb-2">⚠️ Defensive Programming Rules</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Validate all user input</strong> - never trust external data</li>
+            <li>• <strong>Check for None/null</strong> before using objects</li>
+            <li>• <strong>Handle edge cases:</strong> empty lists, zero division, negative values</li>
+            <li>• <strong>Provide meaningful error messages</strong> to users</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Structures -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🗃️ Choose Right Data Structure</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Deque for Fixed-Size Buffer</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 113 - Perfect for trails
+self.trail_points = deque(maxlen=30)
+
+# Auto-evicts oldest when full
+self.trail_points.append(new_point)
+# No manual size management needed!</code></pre>
+          </div>
+          <p class="text-sm mt-2 text-green-600 dark:text-green-400">✅ O(1) append, automatic size limit</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Dict for Fast Lookups</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 262-266 - State tracking
+contact_tracker = {
+    "in_contact": False,
+    "impulse": 0.0,
+    "samples": []
+}
+# Access by key: O(1)</code></pre>
+          </div>
+          <p class="text-sm mt-2 text-green-600 dark:text-green-400">✅ Named access instead of index</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Python Idioms -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🐍 Pythonic Idioms</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+          <h4 class="font-bold mb-3">Tuple Unpacking</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 135 - Unpack tuple
+for index, (x, y) in enumerate(points):
+    # index, x, y all available
+
+# Multiple assignment
+a, b = b, a  # Swap values</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
+          <h4 class="font-bold mb-3">Negative Indexing</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 909 - Last element
+last = momentum_log[-1]
+
+# Last 5 elements
+recent = time_log[-5:]</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-center">🎓 Key Takeaways</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="font-bold text-lg mb-3 text-yellow-300">✅ ALWAYS Do</h4>
+          <ul class="space-y-2 text-sm">
+            <li>• Use type hints for functions</li>
+            <li>• Write docstrings</li>
+            <li>• Use context managers (with)</li>
+            <li>• Validate user input</li>
+            <li>• Choose right data structure</li>
+            <li>• Use NumPy for math</li>
+            <li>• Follow PEP 8 naming</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-3 text-yellow-300">❌ NEVER Do</h4>
+          <ul class="space-y-2 text-sm">
+            <li>• Repeat code (use DRY)</li>
+            <li>• Deep nesting (use guards)</li>
+            <li>• Cryptic variable names</li>
+            <li>• Catch all exceptions blindly</li>
+            <li>• Forget to close resources</li>
+            <li>• Put multiple responsibilities in one function</li>
+            <li>• Assume input is valid</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- FOOTER -->
+<footer class="bg-gray-900 text-gray-300 py-12 text-center">
+<p class="text-xl mb-2">Python Learning - 972 Lines of Real Code</p>
+<p class="text-sm">All examples from actual physics simulation application</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="js/main.js"></script>
+</body></html>

@@ -1,0 +1,581 @@
+<!-- OOP SECTION -->
+<section id="oop" class="py-20 px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-purple mb-4">Python Fundamentals #4</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-cube mr-3"></i>Object-Oriented Programming
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Classes, __init__, encapsulation, composition - Production OOP design
+      </p>
+    </div>
+
+    <!-- THEORY SECTION - ENHANCED WITH 4 PILLARS -->
+    <div
+      class="mb-16 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu OOP? (Detailed Explanation)
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Definisi Lengkap</h4>
+          <p class="text-lg mb-3">
+            <strong>Object-Oriented Programming (OOP)</strong> adalah paradigma programming yang mengorganisir code
+            sebagai "objects" - bundling data (attributes) dan behavior (methods) together. Ini mirrors how we think
+            about the world: objects memiliki properties dan dapat melakukan actions.
+          </p>
+          <p class="text-base">
+            OOP built on <strong>4 core pillars</strong>: Encapsulation, Inheritance, Polymorphism, dan Abstraction.
+          </p>
+        </div>
+
+        <!-- 4 PILLARS EXPLAINED -->
+        <div>
+          <h4 class="text-2xl font-bold mb-4 text-center">🏛️ 4 Pilar OOP (Explained)</h4>
+
+          <!-- Pillar 1 -->
+          <div class="mb-6 bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400">
+              1. 🔒 Encapsulation (Data Hiding)
+            </h5>
+            <p class="text-sm mb-4">
+              <strong>Definisi:</strong> Bundling data dan methods dalam satu unit (class), hiding internal state.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+                <h6 class="font-bold mb-2">Konsep:</h6>
+                <ul class="text-sm space-y-1">
+                  <li>• Data bersifat private (_underscore)</li>
+                  <li>• Access via public methods</li>
+                  <li>• Hide implementation details</li>
+                </ul>
+              </div>
+              <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+                <h6 class="font-bold mb-2">Contoh:</h6>
+                <code class="text-xs block">
+                  self._velocity = [0, 0]  # Private<br>
+                  def get_speed(self):  # Public
+                </code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="mb-6 bg-green-50 dark:bg-green-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-green-600 dark:text-green-400">
+              2. 🌳 Inheritance (Parent-Child)
+            </h5>
+            <p class="text-sm mb-4">
+              <strong>Definisi:</strong> Class baru inherit properties dari class existing.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+                <h6 class="font-bold mb-2">Konsep:</h6>
+                <ul class="text-sm space-y-1">
+                  <li>• Child "is-a" Parent</li>
+                  <li>• Inherit all methods</li>
+                  <li>• Can override methods</li>
+                </ul>
+              </div>
+              <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+                <h6 class="font-bold mb-2">Note:</h6>
+                <p class="text-sm">Prefer <strong>Composition</strong> over Inheritance!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="mb-6 bg-purple-50 dark:bg-purple-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-purple-600 dark:text-purple-400">
+              3. 🎭 Polymorphism (Many Forms)
+            </h5>
+            <p class="text-sm mb-4">
+              <strong>De finisi:</strong> Same method call, different behavior per object type.
+            </p>
+            <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+              for obj in [ball1, ball2]:<br>
+              &nbsp;&nbsp;obj.move(0.02)  # Works for both!
+            </code>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="mb-6 bg-orange-50 dark:bg-orange-900/30 p-6 rounded-xl">
+            <h5 class="text-xl font-bold mb-3 text-orange-600 dark:text-orange-400">
+              4. 🎨 Abstraction (Hide Complexity)
+            </h5>
+            <p class="text-sm mb-4">
+              <strong>Definisi:</strong> Hide complex implementation, show only essential features.
+            </p>
+            <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+              ball.move(0.02)  # Simple!<br>
+              # User tidak tau vector calculations inside
+            </code>
+          </div>
+        </div>
+
+        <!-- Core Concepts  -->
+        <div>
+          <h4 class="text-xl font-bold mb-3">🧩 Core Concepts OOP</h4>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-bold text-lg mb-2 text-blue-600 dark:text-blue-400">Class</h5>
+              <p class="text-sm">Blueprint/template untuk create objects. Defines attributes & methods yang akan
+                dimiliki object.</p>
+              <code class="text-xs mt-2 block">class Ball: # Blueprint</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-bold text-lg mb-2 text-green-600 dark:text-green-400">Object (Instance)</h5>
+              <p class="text-sm">Concrete realization dari class. Each instance punya data sendiri tapi share methods.
+              </p>
+              <code class="text-xs mt-2 block">ball1 = Ball(...) # Instance</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-bold text-lg mb-2 text-purple-600 dark:text-purple-400">Attributes</h5>
+              <p class="text-sm">Data/properties yang dimiliki object. Accessed via <code>self.attribute</code></p>
+              <code class="text-xs mt-2 block">self.position, self.velocity</code>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h5 class="font-bold text-lg mb-2 text-orange-600 dark:text-orange-400">Methods</h5>
+              <p class="text-sm">Functions defined dalam class yang operate on object's data.</p>
+              <code class="text-xs mt-2 block">def move(self): ...</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class vs Instance -->
+        <div
+          class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4">⚖️ Class vs Instance Attributes</h4>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h5 class="font-bold mb-3 text-indigo-600 dark:text-indigo-400">Class Attributes</h5>
+              <ul class="text-sm space-y-2 mb-3">
+                <li>• Shared by ALL instances</li>
+                <li>• Usually UPPERCASE constants</li>
+              </ul>
+              <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                TRAIL_MAX_LENGTH = 30  # Class
+              </code>
+            </div>
+            <div>
+              <h5 class="font-bold mb-3 text-purple-600 dark:text-purple-400">Instance Attributes</h5>
+              <ul class="text-sm space-y-2 mb-3">
+                <li>• Unique per object</li>
+                <li>• Defined in __init__</li>
+              </ul>
+              <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                self.mass = mass  # Instance
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analogy -->
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🎯 Analogi: Pabrik Cookie</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-start">
+              <span class="mr-3">🍪</span>
+              <div><strong>Class = Cookie Mold:</strong> Template defines shape & size</div>
+            </div>
+            <div class="flex items-start">
+              <span class="mr-3">🎂</span>
+              <div><strong>Objects = Cookies:</strong> Individual cookies dari mold yang sama</div>
+            </div>
+            <div class="flex items-start">
+              <span class="mr-3">🏷️</span>
+              <div><strong>Class Attributes:</strong> "Max baking time = 15min" - semua cookies</div>
+            </div>
+            <div class="flex items-start">
+              <span class="mr-3">🎨</span>
+              <div><strong>Instance Attributes:</strong> Chocolate chip count - beda per cookie</div>
+            </div>
+            <div class="flex items-start">
+              <span class="mr-3">⚡</span>
+              <div><strong>Methods:</strong> eat(), crumble() - cookie actions</div>
+            </div>
+          </div>
+          <p class="mt-4 text-sm italic border-t border-blue-200 dark:border-blue-700 pt-3">
+            <strong>Dalam code:</strong> <code>Ball</code> = mold, <code>ball_1/ball_2</code> = cookies dengan position
+            berbeda!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class Basics -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🏗️ Class Design</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+        <h4 class="font-bold text-lg mb-3">Class Ball - Contoh Lengkap</h4>
+        <div class="code-block">
+          <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 27-125 - Class definition
+class Ball:
+    """Representasi objek bola dalam simulasi fisika."""
+    
+    # Class constants (shared by all instances)
+    TRAIL_MAX_LENGTH = 30
+    TRAIL_POINT_MIN_SIZE = 2
+    TRAIL_POINT_MAX_SIZE = 5
+    BORDER_WIDTH = 2
+    
+    def __init__(self, canvas, x_pixels, y_pixels, radius_pixels, 
+                 color, mass, velocity_x, velocity_y, pixels_to_meters):
+        """Constructor - initialize instance attributes."""
+        # Instance attributes (unique per object)
+        self.canvas = canvas
+        self.radius_pixels = radius_pixels
+        self.mass = float(mass)
+        self.position = np.array([x_pixels * pixels_to_meters, 
+                                  y_pixels * pixels_to_meters], dtype=float)
+        self.velocity = np.array([velocity_x, velocity_y], dtype=float)
+        
+        # Create visual representation
+        self.canvas_id = canvas.create_oval(...)
+    
+    def move(self, time_step: float) -> None:
+        """Instance method - operate on instance data."""
+        self.position += self.velocity * time_step
+        self.update_visual_position()</code></pre>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">✅ Class vs Instance</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Class constants:</strong> UPPERCASE, shared</li>
+            <li>• <strong>Instance attributes:</strong> <code>self.attribute</code>, unique</li>
+            <li>• <strong>Methods:</strong> Functions dengan <code>self</code></li>
+          </ul>
+        </div>
+        <div class="callout info">
+          <h4 class="font-bold mb-2">📦 __init__ Constructor</h4>
+          <ul class="text-sm space-y-1">
+            <li>• Called automatically saat create object</li>
+            <li>• Initialize instance attributes</li>
+            <li>• <code>self</code> = reference to instance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Encapsulation -->
+    <div class="mb-12">
+      <!-- THEORY: Private Methods & Encapsulation -->
+      <div
+        class="mb-8 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 p-6 rounded-xl">
+        <h4 class="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-300">
+          <i class="fas fa-lock mr-2"></i>Teori: Private Methods & Encapsulation
+        </h4>
+
+        <div class="space-y-4 text-gray-800 dark:text-gray-200">
+          <div>
+            <h5 class="font-bold text-lg mb-2">📚 Apa itu Private Methods?</h5>
+            <p class="text-sm mb-3">
+              <strong>Private methods</strong> adalah methods yang dimaksudkan untuk <strong>internal use only</strong>
+              dalam class. Di Python, ini ditandai dengan <code class="text-xs">_single_underscore</code> prefix
+              (convention, bukan enforcement).
+            </p>
+            <p class="text-sm">
+              Berbeda dengan bahasa seperti Java/C++, Python tidak enforce private secara strict.
+              Single underscore adalah "gentlemen's agreement" yang berarti: <em>"Please don't touch unless you know
+                what you're doing."</em>
+            </p>
+          </div>
+
+          <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+            <h5 class="font-bold mb-3 text-green-600 dark:text-green-400">✅ Mengapa Perlu Private Methods?</h5>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h6 class="font-bold mb-1">1. Separation of Concerns</h6>
+                <p>Public methods = "what" (interface), Private methods = "how" (implementation)</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">2. Flexibility to Change</h6>
+                <p>Internal implementation bisa diubah tanpa break external code</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">3. Reduced Complexity</h6>
+                <p>User hanya perlu tahu public interface, tidak overwhelmed dengan details</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">4. Prevent Misuse</h6>
+                <p>Methods yang tidak intended untuk external use jadi clear</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/40 p-4 rounded-lg">
+            <h5 class="font-bold mb-2 text-blue-700 dark:text-blue-300">🎯 Kapan Buat Private Method?</h5>
+            <ul class="text-sm space-y-1">
+              <li>• <strong>Helper functions</strong> yang hanya dipakai internally</li>
+              <li>• <strong>Setup/initialization</strong> methods yang dipanggil dari __init__</li>
+              <li>• <strong>Implementation details</strong> yang mungkin berubah di future</li>
+              <li>• <strong>Complex logic breakdown</strong> - split big public method ke private helpers</li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg">
+            <h5 class="font-bold mb-2">💡 Pattern: Public Interface vs Private Implementation</h5>
+            <div class="grid md:grid-cols-2 gap-4 text-xs">
+              <div>
+                <p class="font-bold mb-1 text-green-600 dark:text-green-400">✅ Public (User-facing):</p>
+                <code class="block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                  def start_simulation(self):<br>
+                  &nbsp;&nbsp;"""User calls this"""<br>
+                  &nbsp;&nbsp;self._run_loop()  # Internal
+                </code>
+              </div>
+              <div>
+                <p class="font-bold mb-1 text-blue-600 dark:text-blue-400">🔒 Private (Internal):</p>
+                <code class="block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                  def _run_loop(self):<br>
+                  &nbsp;&nbsp;"""Implementation detail"""<br>
+                  &nbsp;&nbsp;# Complex logic here
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-3xl font-bold mb-6">🔒 Encapsulation (Private Methods)</h3>
+
+      <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-xl">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 292 - Private method (convention)
+def _setup_user_interface(self) -> None:
+    """Setup seluruh komponen UI."""
+    # _ prefix = internal implementation detail
+    
+# Line 307 - Private method calling other private methods
+def _setup_left_panel(self, parent: ttk.Frame) -> None:
+    """Setup panel kiri (canvas visualisasi)."""
+    # Implementation details hidden from public API
+    
+# Public Methods (no underscore)
+def start_simulation(self) -> None:
+    """Public method - part of class interface."""
+    if not self.is_running:
+        self.is_running = True
+        self._run_loop()  # ← Calls private method internally</code></pre>
+        </div>
+
+        <div class="highlight-box">
+          <h4 class="font-bold mb-2">🎯 Public vs Private</h4>
+          <ul class="text-sm space-y-2">
+            <li>• <strong>Public methods:</strong> <code>start_simulation()</code> - User calls ini</li>
+            <li>• <strong>Private methods:</strong> <code>_setup_ui()</code> - Internal helper, jangan call dari luar
+            </li>
+            <li>• <strong>Python convention:</strong> Single underscore <code>_</code> prefix = "please don't touch"
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Composition -->
+    <div class="mb-12">
+      <!-- THEORY: Composition -->
+      <div
+        class="mb-8 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 p-6 rounded-xl">
+        <h4 class="text-2xl font-bold mb-4 text-green-700 dark:text-green-300">
+          <i class="fas fa-cubes mr-2"></i>Teori: Composition (Has-A Relationship)
+        </h4>
+
+        <div class="space-y-4 text-gray-800 dark:text-gray-200">
+          <div>
+            <h5 class="font-bold text-lg mb-2">📚 Apa itu Composition?</h5>
+            <p class="text-sm mb-3">
+              <strong>Composition</strong> adalah design pattern dimana class "has-a" (memiliki) instance dari class
+              lain
+              sebagai attributes. Ini adalah cara untuk build complex objects dari simpler components.
+            </p>
+            <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded text-xs">
+              <p class="font-bold mb-1">Contoh Real-World:</p>
+              <p>• Car <strong>HAS-A</strong> Engine (bukan Car IS-A Engine)</p>
+              <p>• House <strong>HAS-A</strong> Kitchen (bukan House IS-A Kitchen)</p>
+              <p>• CollisionApp <strong>HAS-A</strong> Ball (bukan CollisionApp IS-A Ball)</p>
+            </div>
+          </div>
+
+          <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
+            <h5 class="font-bold mb-3 text-green-600 dark:text-green-400">✅ Mengapa Prefer Composition over Inheritance?
+            </h5>
+            <div class="space-y-3 text-sm">
+              <div>
+                <h6 class="font-bold mb-1">1. 🔓 Flexibility (Fleksibilitas)</h6>
+                <p>Composition: Bisa swap components at runtime. Inheritance: Stuck dengan parent class.</p>
+                <code class="text-xs block mt-1">
+                  self.ball = FastBall()  # Later: self.ball = SlowBall()
+                </code>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">2. 🧩 Loose Coupling (Coupling Rendah)</h6>
+                <p>Composition: Components independent. Inheritance: Tight coupling dengan parent.</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">3. 🔧 Easy Testing</h6>
+                <p>Composition: Test components separately. Inheritance: Must test entire hierarchy.</p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-1">4. ❌ Avoid Fragile Base Class Problem</h6>
+                <p>Inheritance: Parent changes break children. Composition: Changes isolated.</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-4 rounded-lg">
+            <h5 class="font-bold mb-3">🎯 Composition vs Inheritance - Kapan Pakai Apa?</h5>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded">
+                <h6 class="font-bold text-green-700 dark:text-green-300 mb-2">✅ Use Composition When:</h6>
+                <ul class="text-xs space-y-1">
+                  <li>• Relationship is <strong>"has-a"</strong> atau "uses-a"</li>
+                  <li>• Need <strong>flexibility</strong> to change components</li>
+                  <li>• Want <strong>loose coupling</strong></li>
+                  <li>• Building <strong>complex systems</strong> from parts</li>
+                  <li>• <strong>Default choice</strong> for most cases!</li>
+                </ul>
+              </div>
+              <div class="bg-yellow-50 dark:bg-yellow-900/30 p-3 rounded">
+                <h6 class="font-bold text-yellow-700 dark:text-yellow-300 mb-2">⚠️ Use Inheritance When:</h6>
+                <ul class="text-xs space-y-1">
+                  <li>• True <strong>"is-a"</strong> relationship</li>
+                  <li>• Polymorphism <strong>required</strong></li>
+                  <li>• Shared behavior across <strong>similar types</strong></li>
+                  <li>• Contoh: Anjing IS-A Hewan ✓</li>
+                  <li>• <strong>Rare in practice!</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/40 p-4 rounded-lg">
+            <h5 class="font-bold mb-2 text-blue-700 dark:text-blue-300">💡 Pattern dalam Code Kita:</h5>
+            <p class="text-sm mb-2">
+              <code>CollisionSimulatorApp</code> uses <strong>Composition</strong> extensively:
+            </p>
+            <ul class="text-xs space-y-1">
+              <li>• <strong>HAS-A</strong> Tk window (<code>self.root</code>)</li>
+              <li>• <strong>HAS-A</strong> Ball objects (<code>self.ball_1</code>, <code>self.ball_2</code>)</li>
+              <li>• <strong>HAS-A</strong> Canvas (<code>self.canvas</code>)</li>
+              <li>• <strong>HAS-A</strong> Matplotlib Figure (<code>self.figure</code>)</li>
+            </ul>
+            <p class="text-xs mt-2 italic">
+              Kenapa tidak inheritance? Karena CollisionApp <strong>bukan</strong> "is-a" Ball,
+              tapi "has-a" (contains) Balls!
+            </p>
+          </div>
+
+          <div class="callout tip mt-4">
+            <h6 class="font-bold text-sm mb-1">🎓 Pro Tip: "Favor Composition Over Inheritance"</h6>
+            <p class="text-xs">
+              Ini adalah famous design principle dari Gang of Four. Start dengan composition by default,
+              hanya gunakan inheritance jika ada clear "is-a" relationship dan polymorphism requirement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-3xl font-bold mb-6">🧩 Composition (Has-A Relationship)</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 233-277 - CollisionSimulatorApp HAS-A many objects
+class CollisionSimulatorApp:
+    def __init__(self, root: tk.Tk):
+        self.root = root  # ← Has-A Tk window
+        self.style = ttk.Style()  # ← Has-A Style object
+        
+        # Has-A Ball objects (created later)
+        self.ball_1 = None
+        self.ball_2 = None
+        
+        # Has-A Matplotlib components
+        self.figure = None
+        self.axes = None
+        self.chart_canvas = None
+        
+        # Has-A Tkinter widgets
+        self.canvas = None
+        self.combo_mode = None
+        self.entry_mass_1 = None
+        
+# Line 738-756 - Creating composed objects
+self.ball_1 = Ball(canvas, 50, center_y, ...)  # ← Composition
+self.ball_2 = Ball(canvas, width-50, center_y, ...)</code></pre>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="comparison-box good">
+            <p class="font-bold text-green-600 mb-2">✅ Composition (Use This)</p>
+            <code
+              class="text-xs">CollisionApp HAS-A Ball<br>CollisionApp HAS-A Canvas<br>CollisionApp HAS-A Figure</code>
+          </div>
+          <div class="comparison-box bad">
+            <p class="font-bold text-red-600 mb-2">❌ Inheritance (Avoid When Possible)</p>
+            <code class="text-xs">CollisionApp IS-A Ball (?)<br>Too tight coupling</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Object Lifecycle -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔄 Object Lifecycle</h3>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-green-600 dark:text-green-300 mb-3">1. Creation</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 738-746
+ball_1 = Ball(
+    canvas,
+    50, center_y,
+    20, "#e63946",
+    2.0, 3.0, 0.0,
+    0.01
+)</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-blue-600 dark:text-blue-300 mb-3">2. Usage</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 795-796
+ball_1.move(0.02)
+ball_1.draw_trail()
+
+# Access attributes
+pos = ball_1.position
+vel = ball_1.velocity</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-red-600 dark:text-red-300 mb-3">3. Cleanup</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 703
+canvas.delete("all")
+# ← Deletes visual
+# Python GC cleans memory
+# when no more references</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

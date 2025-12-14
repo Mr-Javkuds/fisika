@@ -1,0 +1,399 @@
+/* ===================================
+   CUSTOM STYLES - PYTHON LEARNING DOCS
+   =================================== */
+
+/* ----- BASE & TYPOGRAPHY ----- */
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+code,
+pre {
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ----- GRADIENT UTILITIES ----- */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-purple {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-blue {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gradient-green {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.gradient-orange {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* ----- CARD EFFECTS ----- */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ----- ANIMATIONS ----- */
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ----- CODE BLOCK STYLING ----- */
+.code-block {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.code-block pre {
+    margin: 0;
+    border-radius: 0.5rem;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.code-block:hover .copy-btn {
+    opacity: 1;
+}
+
+/* ----- TABS STYLING ----- */
+.code-tab {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.code-tab:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.code-tab.active {
+    border-bottom-color: #667eea;
+    background-color: rgba(102, 126, 234, 0.1);
+}
+
+/* Dark mode tab styling */
+.dark .code-tab:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .code-tab.active {
+    background-color: rgba(102, 126, 234, 0.2);
+}
+
+/* ----- DARK MODE ----- */
+.dark {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+.dark .bg-white {
+    background-color: #2d3748;
+}
+
+.dark .bg-gray-50 {
+    background-color: #1a202c;
+}
+
+.dark .bg-gray-100 {
+    background-color: #2d3748;
+}
+
+.dark .text-gray-900 {
+    color: #f7fafc;
+}
+
+.dark .text-gray-800 {
+    color: #e2e8f0;
+}
+
+.dark .text-gray-700 {
+    color: #cbd5e0;
+}
+
+.dark .text-gray-600 {
+    color: #a0aec0;
+}
+
+.dark .border-gray-200 {
+    border-color: #4a5568;
+}
+
+/* ----- NAVIGATION ----- */
+nav {
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* ----- SECTION SPACING ----- */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* ----- COMPARISON BOXES ----- */
+.comparison-box {
+    border: 2px solid;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.comparison-box.bad {
+    border-color: #f56565;
+    background-color: rgba(245, 101, 101, 0.05);
+}
+
+.comparison-box.good {
+    border-color: #48bb78;
+    background-color: rgba(72, 187, 120, 0.05);
+}
+
+.dark .comparison-box.bad {
+    background-color: rgba(245, 101, 101, 0.1);
+}
+
+.dark .comparison-box.good {
+    background-color: rgba(72, 187, 120, 0.1);
+}
+
+/* ----- CALLOUT BOXES ----- */
+.callout {
+    border-left: 4px solid;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+.callout.tip {
+    border-color: #4299e1;
+    background-color: rgba(66, 153, 225, 0.1);
+}
+
+.callout.warning {
+    border-color: #ed8936;
+    background-color: rgba(237, 137, 54, 0.1);
+}
+
+.callout.info {
+    border-color: #667eea;
+    background-color: rgba(102, 126, 234, 0.1);
+}
+
+.callout.success {
+    border-color: #48bb78;
+    background-color: rgba(72, 187, 120, 0.1);
+}
+
+/* ----- ACCORDION ----- */
+.accordion-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.dark .accordion-item {
+    border-color: #4a5568;
+}
+
+.accordion-header {
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    background-color: #f7fafc;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dark .accordion-header {
+    background-color: #2d3748;
+}
+
+.accordion-header:hover {
+    background-color: #edf2f7;
+}
+
+.dark .accordion-header:hover {
+    background-color: #374151;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-content.active {
+    max-height: 2000px;
+}
+
+/* ----- HIGHLIGHT BOX ----- */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-left: 4px solid #667eea;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+/* ----- RESPONSIVE UTILITIES ----- */
+@media (max-width: 768px) {
+    .code-tab {
+        font-size: 0.875rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .copy-btn {
+        opacity: 1;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* ----- LOADING ANIMATIONS ----- */
+.pulse-animation {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ----- SCROLL INDICATOR ----- */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    z-index: 9999;
+    transition: width 0.2s ease;
+}
+
+/* ----- TABLE STYLING ----- */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.comparison-table th {
+    background-color: #667eea;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.comparison-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dark .comparison-table td {
+    border-bottom-color: #4a5568;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.dark .comparison-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* ----- BADGE STYLING ----- */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-purple {
+    background-color: rgba(102, 126, 234, 0.2);
+    color: #667eea;
+}
+
+.badge-green {
+    background-color: rgba(72, 187, 120, 0.2);
+    color: #48bb78;
+}
+
+.badge-red {
+    background-color: rgba(245, 101, 101, 0.2);
+    color: #f56565;
+}
+
+.badge-blue {
+    background-color: rgba(66, 153, 225, 0.2);
+    color: #4299e1;
+}

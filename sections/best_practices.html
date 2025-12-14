@@ -1,0 +1,237 @@
+<!-- BEST PRACTICES SECTION -->
+<section id="best-practices" class="py-20 px-6 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-purple mb-4">Python Fundamentals #7</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-star mr-3"></i>Python Best Practices
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Industry-standard patterns, idioms, and performance tips
+      </p>
+    </div>
+
+    <!-- Context Managers -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔒 Context Managers (with statement)</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 951 - File I/O with context manager
+with open(path, "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["t (s)", "F (N)", "P_total (kg·m/s)", "KE_total (J)"])
+    for i in range(len(self.time_log)):
+        writer.writerow([...])
+# File automatically closed here, even if exception occurs!
+
+# Without with statement (BAD):
+f = open(path, "w")
+try:
+    writer = csv.writer(f)
+    # ... write data
+finally:
+    f.close()  # Must manually close</code></pre>
+        </div>
+
+        <div class="callout success">
+          <h4 class="font-bold mb-2">✅ Why Use with?</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Automatic resource cleanup:</strong> File closed automatically</li>
+            <li>• <strong>Exception safe:</strong> Cleanup happens even if error occurs</li>
+            <li>• <strong>Readable:</strong> Intent clear - "work with this resource"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- NumPy Vectorization -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">⚡ NumPy Vectorization</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="comparison-box bad">
+          <h4 class="font-bold text-red-600 mb-3">❌ Slow: Element-by-element</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Manual element operations (SLOW!)
+self.pos_x += self.vel_x * dt
+self.pos_y += self.vel_y * dt
+
+# Manual distance calc
+dx = x1 - x2
+dy = y1 - y2
+dist = sqrt(dx*dx + dy*dy)</code></pre>
+          </div>
+        </div>
+
+        <div class="comparison-box good">
+          <h4 class="font-bold text-green-600 mb-3">✅ Fast: Vectorized</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 174 - Vector operation (FAST!)
+self.position += self.velocity * dt
+# Operates on ENTIRE array at once
+
+# Line 838 - Vector distance (FAST!)
+dist = np.linalg.norm(pos_diff)
+# Optimized C implementation</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box mt-6">
+        <h4 class="font-bold text-lg mb-3">🚀 Performance Tip: Use NumPy for Math</h4>
+        <p class="text-sm mb-2">NumPy operations are 10-100x faster than Python loops karena implemented in C.</p>
+        <ul class="text-sm space-y-1">
+          <li>• <strong>Vector operations:</strong> <code>a + b * c</code> instead of loops</li>
+          <li>• <strong>Built-in functions:</strong> <code>np.linalg.norm()</code>, <code>np.dot()</code></li>
+          <li>• <strong>Broadcasting:</strong> Operations on arrays of different shapes</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Defensive Programming -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🛡️ Defensive Programming</h3>
+
+      <div class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <h4 class="font-bold text-lg mb-3">Input Validation</h4>
+            <div class="code-block">
+              <pre class="rounded-lg text-sm"><code class="language-python"># Line 714-724 - Validate input
+try:
+    mass = float(entry.get())
+except ValueError:
+    messagebox.showerror(
+        "Error",
+        "Input tidak valid!"
+    )
+    return  # Stop execution</code></pre>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-3">Null Checks</h4>
+            <div class="code-block">
+              <pre class="rounded-lg text-sm"><code class="language-python"># Line 668 - Check if exists
+if self.center_of_mass_id is None:
+    # Create new
+else:
+    # Update existing
+
+# Line 947 - Early exit if no path
+if not path:
+    return</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <h4 class="font-bold mb-2">⚠️ Defensive Programming Rules</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Validate all user input</strong> - never trust external data</li>
+            <li>• <strong>Check for None/null</strong> before using objects</li>
+            <li>• <strong>Handle edge cases:</strong> empty lists, zero division, negative values</li>
+            <li>• <strong>Provide meaningful error messages</strong> to users</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Structures -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🗃️ Choose Right Data Structure</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Deque for Fixed-Size Buffer</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 113 - Perfect for trails
+self.trail_points = deque(maxlen=30)
+
+# Auto-evicts oldest when full
+self.trail_points.append(new_point)
+# No manual size management needed!</code></pre>
+          </div>
+          <p class="text-sm mt-2 text-green-600 dark:text-green-400">✅ O(1) append, automatic size limit</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Dict for Fast Lookups</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 262-266 - State tracking
+contact_tracker = {
+    "in_contact": False,
+    "impulse": 0.0,
+    "samples": []
+}
+# Access by key: O(1)</code></pre>
+          </div>
+          <p class="text-sm mt-2 text-green-600 dark:text-green-400">✅ Named access instead of index</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Python Idioms -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🐍 Pythonic Idioms</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+          <h4 class="font-bold mb-3">Tuple Unpacking</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 135 - Unpack tuple
+for index, (x, y) in enumerate(points):
+    # index, x, y all available
+
+# Multiple assignment
+a, b = b, a  # Swap values</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
+          <h4 class="font-bold mb-3">Negative Indexing</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 909 - Last element
+last = momentum_log[-1]
+
+# Last 5 elements
+recent = time_log[-5:]</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-center">🎓 Key Takeaways</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="font-bold text-lg mb-3 text-yellow-300">✅ ALWAYS Do</h4>
+          <ul class="space-y-2 text-sm">
+            <li>• Use type hints for functions</li>
+            <li>• Write docstrings</li>
+            <li>• Use context managers (with)</li>
+            <li>• Validate user input</li>
+            <li>• Choose right data structure</li>
+            <li>• Use NumPy for math</li>
+            <li>• Follow PEP 8 naming</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-3 text-yellow-300">❌ NEVER Do</h4>
+          <ul class="space-y-2 text-sm">
+            <li>• Repeat code (use DRY)</li>
+            <li>• Deep nesting (use guards)</li>
+            <li>• Cryptic variable names</li>
+            <li>• Catch all exceptions blindly</li>
+            <li>• Forget to close resources</li>
+            <li>• Put multiple responsibilities in one function</li>
+            <li>• Assume input is valid</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

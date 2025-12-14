@@ -1,0 +1,284 @@
+<!-- FUNCTIONS SECTION -->
+<section id="functions" class="py-20 px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-blue mb-4">Python Fundamentals #2</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-code mr-3"></i>Functions & Methods
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Function definition, type hints, docstrings, callbacks - Production-ready patterns
+      </p>
+    </div>
+
+    <!-- THEORY SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu Functions?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <p class="text-lg">
+          <strong>Functions (fungsi)</strong> adalah reusable blocks of code yang perform specific task.
+          Think of them as mini-programs dalam program. Kamu write code sekali dalam function,
+          lalu call function itu berkali-kali whenever needed.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+            <h4 class="font-bold text-lg mb-3 text-green-600 dark:text-green-400">✅ Why Use Functions?</h4>
+            <ul class="text-sm space-y-2">
+              <li><strong>• DRY Principle:</strong> Don't Repeat Yourself - write once, use many times</li>
+              <li><strong>• Modularity:</strong> Break complex problems into smaller pieces</li>
+              <li><strong>• Readability:</strong> <code>calculate_momentum()</code> lebih jelas dari inline code</li>
+              <li><strong>• Testing:</strong> Easier to test individual functions</li>
+              <li><strong>• Reusability:</strong> Use same function in different parts</li>
+            </ul>
+          </div>
+
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+            <h4 class="font-bold text-lg mb-3 text-purple-600 dark:text-purple-400">🎯 When to Create Function?</h4>
+            <ul class="text-sm space-y-2">
+              <li><strong>• Repetition:</strong> Copy-paste code 3+ times? Make it a function!</li>
+              <li><strong>• Complexity:</strong> Code block doing complex task? Extract to function</li>
+              <li><strong>• Logical Unit:</strong> Self-contained task? Perfect for function</li>
+              <li><strong>• Readability:</strong> Name describes what code does better than code itself</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">📐 Function Anatomy</h4>
+          <div class="code-block">
+            <pre class="rounded-lg"><code class="language-python">def function_name(parameter: type) -> return_type:
+    """Docstring: what function does"""
+    # Function body
+    result = do_something(parameter)
+    return result  # Optional
+
+# Call the function
+output = function_name(input_value)</code></pre>
+          </div>
+          <p class="text-sm mt-3">
+            <strong>Components:</strong> <code>def</code> keyword, name, parameters, type hints,
+            docstring, body, and optional return value.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Function Basics -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">⚙️</span> Definisi Function dengan Type Hints
+      </h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+        <div class="code-block">
+          <button class="copy-btn bg-blue-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+            <i class="fas fa-copy"></i>
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Line 164-172 - Function dengan type hints
+def move(self, time_step: float) -> None:
+    """
+    Gerakkan bola berdasarkan kecepatan dan waktu.
+    
+    Parameter:
+    -----------
+    time_step : float
+        Delta waktu (detik)
+    """
+    # Update posisi: s = s₀ + v·Δt
+    self.position += self.velocity * time_step</code></pre>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">✅ Manfaat Type Hints</h4>
+          <ul class="text-sm space-y-1">
+            <li>• IDE autocomplete & suggestions</li>
+            <li>• Catch bugs before runtime</li>
+            <li>• Self-documenting code</li>
+            <li>• Better code maintenance</li>
+          </ul>
+        </div>
+        <div class="callout info">
+          <h4 class="font-bold mb-2">📖 Type Hint Syntax</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <code>param: type</code> - Parameter type</li>
+            <li>• <code>-> type</code> - Return type</li>
+            <li>• <code>-> None</code> - No return value</li>
+            <li>• <code>Optional[type]</code> - Can be None</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Docstrings -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">📚</span> Docstrings - Documentation
+      </h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block">
+          <button class="copy-btn bg-green-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+            <i class="fas fa-copy"></i>
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Line 832-833 - Function docstring
+def _handle_collision(self) -> None:
+    """Deteksi dan tangani tumbukan antara ball_1 dan ball_2."""
+    # Implementation...
+
+# Line 28-48 - Class docstring dengan ATRIBUT
+class Ball:
+    """
+    Representasi objek bola dalam simulasi fisika.
+    
+    ATRIBUT:
+    --------
+    canvas : tk.Canvas
+        Canvas Tkinter untuk menggambar
+    radius_pixels : float
+        Jari-jari bola dalam piksel
+    mass : float
+        Massa bola (kg)
+    position : np.array
+        Posisi [x, y] dalam meter
+    velocity : np.array
+        Kecepatan [vx, vy] dalam m/s
+    """</code></pre>
+        </div>
+      </div>
+
+      <div class="highlight-box mt-6">
+        <h4 class="font-bold text-lg mb-3">✨ Docstring Best Practices</h4>
+        <ul class="text-sm space-y-2">
+          <li>• <strong>Triple quotes</strong> <code>"""docstring"""</code> even for one-line</li>
+          <li>• <strong>First line:</strong> Short summary (imperative mood: "Calculate..." not "Calculates...")</li>
+          <li>• <strong>Parameter:</strong> Jelaskan setiap parameter dengan type dan artinya</li>
+          <li>• <strong>Return:</strong> Jelaskan nilai return jika ada</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Methods vs Functions -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">🔧</span> Methods (Functions dalam Class)
+      </h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-4">Instance Methods</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-purple-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 127-132 - Instance method
+def draw_trail(self) -> None:
+    """Menggambar jejak pergerakan bola."""
+    for trail_id in self.trail_ids:
+        self.canvas.delete(trail_id)
+    # Akses instance attributes via self</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold text-blue-600 dark:text-blue-300 mb-4">Private Methods</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 292 - Private method (convention)
+def _setup_user_interface(self) -> None:
+    """Setup seluruh komponen UI."""
+    # _ prefix = internal use only</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning mt-6">
+        <h4 class="font-bold mb-2">⚠️ self Parameter</h4>
+        <p class="text-sm">Instance methods ALWAYS have <code>self</code> as first parameter.
+          Ini is reference ke object instance yang memanggil method.</p>
+      </div>
+    </div>
+
+    <!-- Callbacks -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">🔗</span> Callback Functions
+      </h3>
+
+      <div class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-orange-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+            <i class="fas fa-copy"></i>
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Line 513-517 - Button callback
+ttk.Button(
+    frame_buttons, 
+    text="▶️ START", 
+    command=self.start_simulation  # ← Callback function
+).pack(...)
+
+# Line 492 - Scale callback
+self.position_y_slider_1 = ttk.Scale(
+    container, 
+    from_=-200, 
+    to=200, 
+    command=self._on_slider_moved  # ← Called when slider moves
+)
+
+# Line 392 - Event binding callback
+self.combo_mode.bind("<<ComboboxSelected>>", self._on_mode_changed)</code></pre>
+        </div>
+
+        <div class="callout success">
+          <h4 class="font-bold mb-2">🎯 Callback Pattern</h4>
+          <p class="text-sm">Callback = function yang dipanggil "nanti" oleh framework/library saat event terjadi.
+            Tidak memanggil function secara manual, tapi pass reference-nya.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nested Functions -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+        <span class="text-4xl mr-3">📦</span> Helper Functions (Nested)
+      </h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block">
+          <button class="copy-btn bg-indigo-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
+            <i class="fas fa-copy"></i>
+          </button>
+          <pre class="rounded-lg"><code class="language-python"># Line 426-463 - Nested helper function
+def _create_ball_input_row(self, parent, title, mass_attr, ...):
+    """Membuat baris input untuk parameter satu bola."""
+    
+    # Helper function DIDALAM method
+    def create_entry(label: str, default: str, attr_name: str):
+        ttk.Label(frame_inputs, text=label).pack(side=tk.LEFT)
+        entry = ttk.Entry(frame_inputs, width=5)
+        entry.insert(0, default)
+        entry.pack(side=tk.LEFT, padx=(0, 5))
+        setattr(self, attr_name, entry)
+    
+    # Use the helper
+    create_entry("m (kg):", mass_default, mass_attr)
+    create_entry("vx (m/s):", vx_default, vx_attr)</code></pre>
+        </div>
+
+        <div class="callout tip mt-4">
+          <p class="text-sm"><strong>Pattern:</strong> Nested function bagus untuk logic yang hanya dipakai di satu
+            tempat.
+            Keeps scope local, reduces namespace pollution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

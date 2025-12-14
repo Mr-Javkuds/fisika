@@ -1,0 +1,325 @@
+<!-- CODE STRUCTURE SECTION -->
+<section id="structure" class="py-20 px-6 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-blue mb-4">Python Fundamentals #5</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-sitemap mr-3"></i>Code Structure & Organization
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Imports, naming conventions, comments - Professional code organization
+      </p>
+    </div>
+
+    <!-- THEORY SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Mengapa Code Structure Penting?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Apa itu Code Structure?</h4>
+          <p class="text-lg mb-3">
+            <strong>Code Structure</strong> adalah cara kita mengorganisir dan memformat code agar readable,
+            maintainable,
+            dan consistent. Ini bukan hanya soal "looks pretty", tapi fundamental untuk professional development.
+          </p>
+          <p class="text-base">
+            Think of it as "grammar and punctuation" untuk programming. Bad structure = working code tapi nightmare
+            untuk maintain!
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
+            ✅ Mengapa Structure Matters? (CRITICAL!)
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. Code is Read 10x More Than Written</h5>
+              <p class="text-sm">You'll spend WAY more time reading code than writing it. Good structure = faster
+                comprehension.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Team Collaboration</h5>
+              <p class="text-sm">Consistent structure means everyone can understand each other's code instantly.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Bug Prevention</h5>
+              <p class="text-sm">Well-structured code makes bugs obvious. Messy code hides bugs in complexity.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Professional Standard</h5>
+              <p class="text-sm">Following conventions (like PEP 8) shows you're professional, not amateur.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">📖 PEP 8: Python's Style Guide</h4>
+          <p class="text-sm mb-4">
+            <strong>PEP 8</strong> adalah official style guide untuk Python. Bukan "suggestions" - ini adalah
+            <strong>industry standard</strong> yang diexpect oleh setiap Python developer.
+          </p>
+          <div class="grid md:grid-cols-3 gap-4 text-sm">
+            <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
+              <h6 class="font-bold mb-2">Naming Conventions</h6>
+              <ul class="text-xs space-y-1">
+                <li>• Variables: <code>snake_case</code></li>
+                <li>• Functions: <code>snake_case</code></li>
+                <li>• Classes: <code>PascalCase</code></li>
+                <li>• Constants: <code>UPPER_CASE</code></li>
+              </ul>
+            </div>
+            <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
+              <h6 class="font-bold mb-2">Spacing Rules</h6>
+              <ul class="text-xs space-y-1">
+                <li>• Indentation: 4 spaces</li>
+                <li>• Max line: 79 characters</li>
+                <li>• Blank lines: 2 before class, 1 before method</li>
+              </ul>
+            </div>
+            <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
+              <h6 class="font-bold mb-2">Import Order</h6>
+              <ul class="text-xs space-y-1">
+                <li>1. Standard library</li>
+                <li>2. Third-party</li>
+                <li>3. Local imports</li>
+                <li>• Alphabetical within groups</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🎯 The "Why" Behind Structure Rules</h4>
+          <div class="space-y-3 text-sm">
+            <div>
+              <h6 class="font-bold">Why snake_case for variables?</h6>
+              <p class="text-xs">More readable than camelCase in Python. "velocity_x" clearer than "velocityX".</p>
+            </div>
+            <div>
+              <h6 class="font-bold">Why 4-space indentation?</h6>
+              <p class="text-xs">2 spaces = hard to see nesting. 8 spaces = too much horizontal space. 4 = perfect
+                balance.</p>
+            </div>
+            <div>
+              <h6 class="font-bold">Why import order matters?</h6>
+              <p class="text-xs">Instantly see dependencies. Standard lib (always available) vs third-party (need
+                install) vs local (your code).</p>
+            </div>
+            <div>
+              <h6 class="font-bold">Why max 79 characters per line?</h6>
+              <p class="text-xs">Fits on any screen, readable without horizontal scrolling, side-by-side code review.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout important">
+          <h4 class="font-bold mb-2">⚡ Key Principle: "Code for Humans, Not Machines"</h4>
+          <p class="text-sm">
+            Computers don't care about formatting. Humans do! Good structure makes code self-documenting.
+            If you have to choose between "clever" vs "clear", ALWAYS choose clear.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imports -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">📦 Import Organization</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+        <div class="code-block mb-4">
+          <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 14-21 - Organized imports
+# 1. Standard library imports first
+import tkinter as tk
+from tkinter import ttk, filedialog, messagebox
+import csv
+from collections import deque
+from typing import Tuple, Optional
+
+# 2. Third-party imports second
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
+# 3. Local imports last (if any)
+# from mymodule import MyClass</code></pre>
+        </div>
+
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">✅ Import Best Practices (PEP 8)</h4>
+          <ul class="text-sm space-y-1">
+            <li>• Group: standard → third-party → local</li>
+            <li>• One import per line untuk from imports</li>
+            <li>• Alphabetical order dalam each group</li>
+            <li>• Avoid wildcard imports (<code>from x import *</code>)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Naming Conventions -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🏷️ Naming Conventions</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-purple-600 dark:text-purple-300 mb-3">Classes & Constants</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># PascalCase for classes
+class Ball:
+class CollisionSimulatorApp:
+
+# UPPERCASE for constants
+PIXELS_TO_METERS = 0.01
+TIME_STEP = 0.02
+BALL_RADIUS_PIXELS = 20
+CANVAS_BG_COLOR = "#f5f5f5"</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-green-600 dark:text-green-300 mb-3">Variables & Functions</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># snake_case for variables
+time_step = 0.02
+simulation_time = 0.0
+restitution_coefficient = 1.0
+
+# snake_case for functions/methods
+def move(self, time_step):
+def _handle_collision(self):
+def _setup_user_interface(self):</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box mt-6">
+        <h4 class="font-bold text-lg mb-3">📝 Naming Rules Summary</h4>
+        <table class="comparison-table w-full">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Convention</th>
+              <th>Contoh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Class</td>
+              <td>PascalCase</td>
+              <td><code>Ball</code>, <code>CollisionSimulatorApp</code></td>
+            </tr>
+            <tr>
+              <td>Constant</td>
+              <td>UPPERCASE</td>
+              <td><code>PIXELS_TO_METERS</code>, <code>TIME_STEP</code></td>
+            </tr>
+            <tr>
+              <td>Variable/Function</td>
+              <td>snake_case</td>
+              <td><code>time_step</code>, <code>move()</code></td>
+            </tr>
+            <tr>
+              <td>Private</td>
+              <td>_leading_underscore</td>
+              <td><code>_handle_collision()</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Comments & Documentation -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">💬 Comments & Documentation</h3>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Section Headers</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 24-26
+# ==========================================
+# KELAS BOLA (Ball Object)
+# ==========================================
+
+# Line 217
+# ===== KONSTANTA FISIKA =====</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Inline Comments</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 173
+# Update posisi: s = s₀ + v·Δt
+self.position += self.velocity * time_step
+
+# Line 844
+n = pos_diff / (dist + 1e-9)  # Normalisasi</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <h4 class="font-bold mb-2">⚠️ Comment Guidelines</h4>
+        <ul class="text-sm space-y-1">
+          <li>• Explain WHY, not WHAT: Code shows what it does, comments explain reasoning</li>
+          <li>• Update comments when updating code - outdated comments are worse than no comments</li>
+          <li>• Use docstrings for functions/classes, inline comments for tricky logic</li>
+          <li>• Avoid obvious comments: <code># increment i</code> ❌</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Code Grouping -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">📂 Logical Code Grouping</h3>
+
+      <div
+        class="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 p-6 rounded-xl">
+        <p class="text-lg mb-4">Kode terorganisir dalam sections yang jelas:</p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <h5 class="font-bold mb-2">CollisionSimulatorApp Structure</h5>
+            <ul class="text-sm space-y-1">
+              <li>• Constants (Lines 217-231)</li>
+              <li>• __init__ (Lines 233-277)</li>
+              <li>• Setup UI Methods (Lines 289-560)</li>
+              <li>• Event Handlers (Lines 562-623)</li>
+              <li>• Visual Helpers (Lines 625-680)</li>
+              <li>• Core Simulation (Lines 682-891)</li>
+              <li>• Data Export (Lines 939-963)</li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold mb-2">Manfaat Pengelompokan</h5>
+            <ul class="text-sm space-y-1">
+              <li>✓ Easy to find related code</li>
+              <li>✓ Clear separation of concerns</li>
+              <li>✓ Easier maintenance</li>
+              <li>✓ Better readability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

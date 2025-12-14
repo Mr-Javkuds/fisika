@@ -1,0 +1,330 @@
+<!-- LOOPS & CONTROL FLOW SECTION -->
+<section id="loops" class="py-20 px-6 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <span class="badge badge-green mb-4">Python Fundamentals #3</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <i class="fas fa-sync mr-3"></i>Loops & Control Flow
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        For, while, enumerate, comprehensions, try-except - Flow control mastery
+      </p>
+    </div>
+
+    <!-- THEORY SECTION -->
+    <div
+      class="mb-16 bg-gradient-to-br from-green-100 to-teal-100 dark:from-green-900/20 dark:to-teal-900/20 p-8 rounded-2xl">
+      <h3 class="text-3xl font-bold mb-6 text-green-600 dark:text-green-400">
+        <i class="fas fa-graduation-cap mr-3"></i>Apa itu Loops & Control Flow?
+      </h3>
+
+      <div class="space-y-6 text-gray-800 dark:text-gray-200">
+        <div>
+          <h4 class="text-xl font-bold mb-3">📚 Definisi</h4>
+          <p class="text-lg mb-4">
+            <strong>Loops</strong> adalah struktur yang mengulang block of code berkali-kali.
+            <strong>Control Flow</strong> adalah mechanism yang menentukan urutan eksekusi code -
+            which code runs, when it runs, and how many times it runs.
+          </p>
+          <p class="text-base">
+            Think of it as "program's decision-making brain" - loops handle repetition,
+            conditionals handle choices, and together they control program flow.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
+            ✅ Mengapa Loops & Control Flow Penting?
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. DRY Principle</h5>
+              <p class="text-sm">Instead of copy-paste code 100x, loop once! Saves lines and reduces errors.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Dynamic Behavior</h5>
+              <p class="text-sm">Handle unknown quantities. Process 10 items atau 10,000 items dengan same code.</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Decision Making</h5>
+              <p class="text-sm">Programs must make choices: if collision, reverse velocity. Control flow enables this.
+              </p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Real-time Systems</h5>
+              <p class="text-sm">Event loops keep apps responsive, update UI every frame, process user input
+                continuously.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-3">🔄 Loop Types in Python</h4>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 class="font-bold text-lg mb-2 text-green-600 dark:text-green-400">For Loop</h5>
+              <p class="text-sm mb-3">Iterate over sequences (known count)</p>
+              <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+                for item in collection:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;process(item)
+              </code>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Use when: You know what to iterate over</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
+              <h5 class="font-bold text-lg mb-2 text-blue-600 dark:text-blue-400">While Loop</h5>
+              <p class="text-sm mb-3">Repeat until condition false (unknown count)</p>
+              <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+                while condition:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;do_something()
+              </code>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Use when: You don't know iterations count</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🎯 Control Flow Structures</h4>
+          <div class="space-y-4">
+            <div>
+              <h5 class="font-bold text-purple-600 dark:text-purple-400">Conditionals (if-elif-else)</h5>
+              <p class="text-sm mb-2">Make decisions based on conditions</p>
+              <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                if ball_colliding:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;reverse_velocity()<br>
+                elif out_of_bounds:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;reset_position()<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;continue_moving()
+              </code>
+            </div>
+            <div>
+              <h5 class="font-bold text-orange-600 dark:text-orange-400">Exception Handling (try-except)</h5>
+              <p class="text-sm mb-2">Handle errors gracefully without crashing</p>
+              <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
+                try:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;value = float(input)<br>
+                except ValueError:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;show_error("Invalid input!")
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">💡 Best Practices</h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ DO</h5>
+              <ul class="text-sm space-y-1">
+                <li>• Use <code>for</code> for iterables</li>
+                <li>• Use <code>enumerate()</code> when need index</li>
+                <li>• Guard clauses (early return) to reduce nesting</li>
+                <li>• Break complex loops into functions</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2 text-red-600 dark:text-red-400">❌ DON'T</h5>
+              <ul class="text-sm space-y-1">
+                <li>• Don't modify list while iterating it</li>
+                <li>• Avoid infinite loops without break condition</li>
+                <li>• Don't nest loops >3 levels deep</li>
+                <li>• Don't use <code>while True</code> in GUI apps</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout info">
+          <h4 class="font-bold mb-2">🎓 Program Flow Analogy</h4>
+          <p class="text-sm">
+            Think of program as a recipe: <strong>Loops</strong> = "stir until mixed",
+            <strong>Conditionals</strong> = "if too thick, add water",
+            <strong>Functions</strong> = "prepare sauce (see page 5)".
+            Control flow tells computer HOW to execute the recipe!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- For Loops -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔁 For Loops</h3>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Basic For Loop</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg"><code class="language-python"># Line 802 - Iterate over objects
+for b in (self.ball_1, self.ball_2):
+    px = b.position[0] / self.PIXELS_TO_METERS
+    # Process each ball
+
+# Line 954 - Range iteration
+for i in range(len(self.time_log)):
+    writer.writerow([self.time_log[i], ...])</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="font-bold text-lg mb-3">Enumerate (Index + Value)</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg"><code class="language-python"># Line 135 - Enumerate untuk index & value
+for index, (trail_x, trail_y) in enumerate(self.trail_points):
+    # index: 0, 1, 2, ...
+    # (trail_x, trail_y): tuple unpacking
+    size = 2 + (index / 30) * 5</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <h4 class="font-bold mb-2">✅ Enumerate Best Practice</h4>
+        <p class="text-sm">Use <code>enumerate()</code> instead of <code>range(len())</code> when you need both index
+          AND value. More Pythonic!</p>
+      </div>
+    </div>
+
+    <!-- Conditionals -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">🔀 Conditional Statements</h3>
+
+      <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+        <h4 class="font-bold text-lg mb-3">If-Elif-Else Chains</h4>
+        <div class="code-block">
+          <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 806-818 - Wall collision detection
+if px - b.radius_pixels < 0:
+    b.position[0] = b.radius_pixels * self.PIXELS_TO_METERS
+    b.velocity[0] *= -1  # Reverse direction
+elif px + b.radius_pixels > cw:
+    b.position[0] = (cw - b.radius_pixels) * self.PIXELS_TO_METERS
+    b.velocity[0] *= -1
+
+# Line 842-877 - Complex conditional logic
+if dist <= min_dist:  # Collision detected
+    if v_norm < 0:  # Moving towards each other
+        # Calculate impulse
+        j = -(1 + e) * v_norm / (1.0/m1 + 1.0/m2)</code></pre>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4 class="font-bold mb-2">🎯 Guard Clauses (Early Return)</h4>
+        <div class="code-block">
+          <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 786-787 - Guard clause pattern
+if not self.is_running:
+    return  # Exit early if not running
+
+# Line 789-791 - Another guard
+if self.is_paused:
+    self.animation_callback_id = self.root.after(50, self._run_loop)
+    return  # Exit early</code></pre>
+        </div>
+        <p class="text-sm mt-3"><strong>Pattern:</strong> Check fail conditions first, return early. Reduces nesting!
+        </p>
+      </div>
+    </div>
+
+    <!-- Try-Except -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">⚠️ Error Handling (Try-Except)</h3>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-red-600 dark:text-red-300 mb-3">Input Validation</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-red-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 714-724 - Validate user input
+try:
+    mass_1 = float(self.entry_mass_1.get())
+    velocity_1_x = float(self.entry_velocity_1_x.get())
+    velocity_1_y = float(self.entry_velocity_1_y.get())
+except ValueError:
+    messagebox.showerror(
+        "Error", 
+        "Input tidak valid! Gunakan angka."
+    )
+    return</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl">
+          <h4 class="font-bold text-lg text-orange-600 dark:text-orange-300 mb-3">File I/O Error</h4>
+          <div class="code-block">
+            <button class="copy-btn bg-orange-500 text-white px-2 py-1 rounded text-sm"
+              onclick="copyCode(this)">Copy</button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 950-963 - File writing with error handling
+try:
+    with open(path, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow([...])
+    messagebox.showinfo("Sukses", "Data berhasil diekspor")
+except Exception as e:
+    messagebox.showerror("Error", f"Gagal menyimpan file: {e}")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning mt-6">
+        <h4 class="font-bold mb-2">⚠️ Exception Handling Best Practices</h4>
+        <ul class="text-sm space-y-1">
+          <li>• Catch SPECIFIC exceptions (<code>ValueError</code>) not generic <code>Exception</code> when possible
+          </li>
+          <li>• Always provide user feedback saat error terjadi</li>
+          <li>• Use <code>try-except</code> for operations that can fail (file I/O, network, user input)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- While Loop (Event Loop) -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">⏱️ Event Loop Pattern</h3>
+
+      <div
+        class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+        <div class="code-block">
+          <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
+            onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-python"># Line 969-971 - Main event loop
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = CollisionSimulatorApp(root)
+    root.mainloop()  # ← While loop internally (runs until window closed)
+
+# Line 784-830 - Custom loop dengan after()
+def _run_loop(self) -> None:
+    """Loop utama simulasi."""
+    if not self.is_running:
+        return  # Exit loop
+    
+    if self.is_paused:
+        self.root.after(50, self._run_loop)  # Check again later
+        return
+    
+    # Do work...
+    self.ball_1.move(self.TIME_STEP)
+    self.ball_2.move(self.TIME_STEP)
+    
+    # Schedule next iteration (recursive call)
+    self.root.after(int(self.TIME_STEP * 1000), self._run_loop)</code></pre>
+        </div>
+
+        <div class="callout info mt-4">
+          <h4 class="font-bold mb-2">🔄 Event Loop Pattern</h4>
+          <p class="text-sm">Instead of <code>while True</code>, GUI apps use <code>root.after()</code> to schedule
+            function calls.
+            This keeps UI responsive while running periodic updates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
