@@ -1,12 +1,12 @@
-# Proyek Pembelajaran Python - Fisika
+# Proyek Pembelajaran python - Fisika
 
-Proyek pembelajaran Python dengan fokus pada simulasi fisika dan dokumentasi interaktif.
+Proyek pembelajaran python dengan fokus pada simulasi fisika dan dokumentasi interaktif.
 
 ## 📁 Struktur Proyek
 
 ```
 fisika/
-├── src/                    # Source code Python
+├── src/                    # Source code py
 │   └── momentum_2d.py     # Aplikasi simulasi fisika
 ├── build/                  # Build scripts
 │   ├── build_sections.py
@@ -36,7 +36,7 @@ Kemudian buka browser ke: `http://localhost:8000`
 ### 🌐 Cara 2: Manual Web Server
 ```bash
 cd docs
-python -m http.server 8000
+py -m http.server 8000
 ```
 Kemudian buka `http://localhost:8000`
 
@@ -46,18 +46,44 @@ Kemudian buka `http://localhost:8000`
 
 ### Menjalankan Simulasi Fisika
 ```bash
-python src/momentum_2d.py
+py src/momentum_2d.py
 ```
+
+### 📖 Membuka Dokumentasi
+
+**⚠️ PENTING**: Dokumentasi **HARUS** dibuka dengan web server (tidak bisa double-click HTML)!
+
+#### **Opsi 1: One-Click Launcher** ⭐ TERMUDAH!
+1. **Double-click** file `start-server.bat`
+2. Browser otomatis ke: `http://localhost:8000`
+3. Dokumentasi langsung terbuka dengan semua fitur!
+
+#### **Opsi 2: Manual dengan py**
+```bash
+cd docs
+py -m http.server 8000
+```
+Lalu buka browser ke: `http://localhost:8000`
+
+#### **Opsi 3: VS Code Live Server**
+1. Install extension "Live Server" di VS Code
+2. Right-click `docs/index.html`
+3. Pilih "Open with Live Server"
+
+#### **Troubleshooting**
+- Sections tidak muncul? → Pastikan buka dengan web server (bukan file://)
+- Port 8000 sudah dipakai? → Ganti ke port lain: `py -m http.server 8080`
+- Lihat `docs/CORS-FIX.md` untuk detail troubleshooting
 
 ## 📚 Fitur
 
 - **Simulasi Momentum 2D**: Aplikasi interaktif dengan visualisasi real-time
-- **Dokumentasi Lengkap**: Tutorial Python dari basic hingga advanced
+- **Dokumentasi Lengkap**: Tutorial py dari basic hingga advanced
 - **Clean Code Examples**: Contoh-contoh best practices
 
 ## 🛠️ Teknologi
 
-- Python 3.x
+- py 3.x
 - Tkinter (GUI)
 - NumPy (Komputasi)
 - HTML/CSS/JavaScript (Dokumentasi)
