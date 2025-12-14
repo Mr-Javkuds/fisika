@@ -13,7 +13,7 @@
 
     <!-- Context Managers -->
     <div class="mb-12">
-      <h3 class="text-3xl font-bold mb-6">🔒 Context Managers (with statement)</h3>
+      <h3 class="text-3xl font-bold mb-6">🔒 Pengelola Konteks (Context Managers)</h3>
 
       <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
         <div class="code-block mb-4">
@@ -37,11 +37,11 @@ finally:
         </div>
 
         <div class="callout success">
-          <h4 class="font-bold mb-2">✅ Why Use with?</h4>
+          <h4 class="font-bold mb-2">✅ Kenapa Pakai 'with'?</h4>
           <ul class="text-sm space-y-1">
-            <li>• <strong>Automatic resource cleanup:</strong> File closed automatically</li>
-            <li>• <strong>Exception safe:</strong> Cleanup happens even if error occurs</li>
-            <li>• <strong>Readable:</strong> Intent clear - "work with this resource"</li>
+            <li>• <strong>Otomatis bersih-bersih:</strong> File ditutup otomatis</li>
+            <li>• <strong>Aman dari error:</strong> Tetap dibersihkan meski ada masalah</li>
+            <li>• <strong>Mudah dibaca:</strong> Jelas maksudnya - "bekerja dengan file ini"</li>
           </ul>
         </div>
       </div>
@@ -49,11 +49,11 @@ finally:
 
     <!-- NumPy Vectorization -->
     <div class="mb-12">
-      <h3 class="text-3xl font-bold mb-6">⚡ NumPy Vectorization</h3>
+      <h3 class="text-3xl font-bold mb-6">⚡ Vektorisasi NumPy (Hitung Cepat)</h3>
 
       <div class="grid md:grid-cols-2 gap-6">
         <div class="comparison-box bad">
-          <h4 class="font-bold text-red-600 mb-3">❌ Slow: Element-by-element</h4>
+          <h4 class="font-bold text-red-600 mb-3">❌ Lambat: Satu-persatu</h4>
           <div class="code-block">
             <pre class="rounded-lg text-sm"><code class="language-python"># Manual element operations (SLOW!)
 self.pos_x += self.vel_x * dt
@@ -67,7 +67,7 @@ dist = sqrt(dx*dx + dy*dy)</code></pre>
         </div>
 
         <div class="comparison-box good">
-          <h4 class="font-bold text-green-600 mb-3">✅ Fast: Vectorized</h4>
+          <h4 class="font-bold text-green-600 mb-3">✅ Cepat: Sekaligus (Vektor)</h4>
           <div class="code-block">
             <pre class="rounded-lg text-sm"><code class="language-python"># Line 174 - Vector operation (FAST!)
 self.position += self.velocity * dt
@@ -81,8 +81,8 @@ dist = np.linalg.norm(pos_diff)
       </div>
 
       <div class="highlight-box mt-6">
-        <h4 class="font-bold text-lg mb-3">🚀 Performance Tip: Use NumPy for Math</h4>
-        <p class="text-sm mb-2">NumPy operations are 10-100x faster than Python loops karena implemented in C.</p>
+        <h4 class="font-bold text-lg mb-3">🚀 Tips Kecepatan: Pakai NumPy untuk Matematika</h4>
+        <p class="text-sm mb-2">Operasi NumPy 10-100x lebih cepat dari loop biasa karena dibuat pakai bahasa C.</p>
         <ul class="text-sm space-y-1">
           <li>• <strong>Vector operations:</strong> <code>a + b * c</code> instead of loops</li>
           <li>• <strong>Built-in functions:</strong> <code>np.linalg.norm()</code>, <code>np.dot()</code></li>
@@ -93,12 +93,12 @@ dist = np.linalg.norm(pos_diff)
 
     <!-- Defensive Programming -->
     <div class="mb-12">
-      <h3 class="text-3xl font-bold mb-6">🛡️ Defensive Programming</h3>
+      <h3 class="text-3xl font-bold mb-6">🛡️ Pemrograman Defensif (Hati-Hati)</h3>
 
       <div class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div>
-            <h4 class="font-bold text-lg mb-3">Input Validation</h4>
+            <h4 class="font-bold text-lg mb-3">Validasi Input</h4>
             <div class="code-block">
               <pre class="rounded-lg text-sm"><code class="language-python"># Line 714-724 - Validate input
 try:
@@ -112,7 +112,7 @@ except ValueError:
             </div>
           </div>
           <div>
-            <h4 class="font-bold text-lg mb-3">Null Checks</h4>
+            <h4 class="font-bold text-lg mb-3">Cek Nilai Kosong</h4>
             <div class="code-block">
               <pre class="rounded-lg text-sm"><code class="language-python"># Line 668 - Check if exists
 if self.center_of_mass_id is None:
@@ -128,12 +128,12 @@ if not path:
         </div>
 
         <div class="callout warning">
-          <h4 class="font-bold mb-2">⚠️ Defensive Programming Rules</h4>
+          <h4 class="font-bold mb-2">⚠️ Aturan Pemrograman Defensif</h4>
           <ul class="text-sm space-y-1">
-            <li>• <strong>Validate all user input</strong> - never trust external data</li>
-            <li>• <strong>Check for None/null</strong> before using objects</li>
-            <li>• <strong>Handle edge cases:</strong> empty lists, zero division, negative values</li>
-            <li>• <strong>Provide meaningful error messages</strong> to users</li>
+            <li>• <strong>Validasi semua input</strong> - jangan percaya data dari luar</li>
+            <li>• <strong>Cek None/kosong</strong> sebelum pakai objek</li>
+            <li>• <strong>Jaga-jaga kasus aneh:</strong> list kosong, pembagian nol, angka negatif</li>
+            <li>• <strong>Kasih pesan error yang jelas</strong> ke user</li>
           </ul>
         </div>
       </div>
@@ -141,62 +141,62 @@ if not path:
 
     <!-- Data Structures -->
     <div class="mb-12">
-      <h3 class="text-3xl font-bold mb-6">🗃️ Choose Right Data Structure</h3>
+      <h3 class="text-3xl font-bold mb-6">🗃️ Pilih Struktur Data yang Pas</h3>
 
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
-          <h4 class="font-bold text-lg mb-3">Deque for Fixed-Size Buffer</h4>
+          <h4 class="font-bold text-lg mb-3">Deque untuk Buffer Tetap</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 113 - Perfect for trails
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 113 - Sempurna untuk efek jejak (trails)
 self.trail_points = deque(maxlen=30)
 
-# Auto-evicts oldest when full
+# Otomatis hapus data terlama saat penuh
 self.trail_points.append(new_point)
-# No manual size management needed!</code></pre>
+# Tidak perlu urus ukuran manual!</code></pre>
           </div>
-          <p class="text-sm mt-2 text-green-600 dark:text-green-400">✅ O(1) append, automatic size limit</p>
+          <p class="text-sm mt-2 text-green-600 dark:text-green-400">✅ O(1) append, batas ukuran otomatis</p>
         </div>
 
         <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
-          <h4 class="font-bold text-lg mb-3">Dict for Fast Lookups</h4>
+          <h4 class="font-bold text-lg mb-3">Dict untuk Pencarian Cepat</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 262-266 - State tracking
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 262-266 - Pelacakan Status
 contact_tracker = {
     "in_contact": False,
     "impulse": 0.0,
     "samples": []
 }
-# Access by key: O(1)</code></pre>
+# Akses dengan kunci: O(1)</code></pre>
           </div>
-          <p class="text-sm mt-2 text-green-600 dark:text-green-400">✅ Named access instead of index</p>
+          <p class="text-sm mt-2 text-green-600 dark:text-green-400">✅ Akses pakai nama bukan indeks</p>
         </div>
       </div>
     </div>
 
     <!-- Python Idioms -->
     <div class="mb-12">
-      <h3 class="text-3xl font-bold mb-6">🐍 Pythonic Idioms</h3>
+      <h3 class="text-3xl font-bold mb-6">🐍 Gaya Bahasa Python (Idiom)</h3>
 
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
-          <h4 class="font-bold mb-3">Tuple Unpacking</h4>
+          <h4 class="font-bold mb-3">Tuple Unpacking (Buka Bungkus)</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 135 - Unpack tuple
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 135 - Buka tuple
 for index, (x, y) in enumerate(points):
-    # index, x, y all available
+    # index, x, y semua tersedia
 
-# Multiple assignment
-a, b = b, a  # Swap values</code></pre>
+# Multiple assignment (tukar posisi)
+a, b = b, a  # Tukar nilai</code></pre>
           </div>
         </div>
 
         <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
-          <h4 class="font-bold mb-3">Negative Indexing</h4>
+          <h4 class="font-bold mb-3">Negative Indexing (Indeks Negatif)</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 909 - Last element
+            <pre class="rounded-lg text-sm"><code class="language-python"># Line 909 - Elemen terakhir
 last = momentum_log[-1]
 
-# Last 5 elements
+# 5 elemen terakhir
 recent = time_log[-5:]</code></pre>
           </div>
         </div>
@@ -205,30 +205,30 @@ recent = time_log[-5:]</code></pre>
 
     <!-- Summary -->
     <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-8 rounded-2xl">
-      <h3 class="text-3xl font-bold mb-6 text-center">🎓 Key Takeaways</h3>
+      <h3 class="text-3xl font-bold mb-6 text-center">🎓 Poin Penting</h3>
       <div class="grid md:grid-cols-2 gap-6">
         <div>
-          <h4 class="font-bold text-lg mb-3 text-yellow-300">✅ ALWAYS Do</h4>
+          <h4 class="font-bold text-lg mb-3 text-yellow-300">✅ SELALU Lakukan</h4>
           <ul class="space-y-2 text-sm">
-            <li>• Use type hints for functions</li>
-            <li>• Write docstrings</li>
-            <li>• Use context managers (with)</li>
-            <li>• Validate user input</li>
-            <li>• Choose right data structure</li>
-            <li>• Use NumPy for math</li>
-            <li>• Follow PEP 8 naming</li>
+            <li>• Pakai petunjuk tipe (hints) untuk fungsi</li>
+            <li>• Tulis docstrings (keterangan)</li>
+            <li>• Pakai context managers (with)</li>
+            <li>• Validasi input user</li>
+            <li>• Pilih struktur data yang pas</li>
+            <li>• Pakai NumPy untuk matematika</li>
+            <li>• Ikuti penamaan PEP 8</li>
           </ul>
         </div>
         <div>
-          <h4 class="font-bold text-lg mb-3 text-yellow-300">❌ NEVER Do</h4>
+          <h4 class="font-bold text-lg mb-3 text-yellow-300">❌ JANGAN Lakukan</h4>
           <ul class="space-y-2 text-sm">
-            <li>• Repeat code (use DRY)</li>
-            <li>• Deep nesting (use guards)</li>
-            <li>• Cryptic variable names</li>
-            <li>• Catch all exceptions blindly</li>
-            <li>• Forget to close resources</li>
-            <li>• Put multiple responsibilities in one function</li>
-            <li>• Assume input is valid</li>
+            <li>• Ulangi kode (Gunakan DRY)</li>
+            <li>• Bersarang terlalu dalam (pakai guards)</li>
+            <li>• Nama variabel aneh/rahasia</li>
+            <li>• Tangkap semua error buta-buta</li>
+            <li>• Lupa tutup resource (file/database)</li>
+            <li>• Taruh banyak tugas di satu fungsi</li>
+            <li>• Asumsi input pasti benar</li>
           </ul>
         </div>
       </div>

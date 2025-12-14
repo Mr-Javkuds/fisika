@@ -22,13 +22,13 @@
         <div>
           <h4 class="text-xl font-bold mb-3">📚 Definisi</h4>
           <p class="text-lg mb-4">
-            <strong>Loops</strong> adalah struktur yang mengulang block of code berkali-kali.
-            <strong>Control Flow</strong> adalah mechanism yang menentukan urutan eksekusi code -
-            which code runs, when it runs, and how many times it runs.
+            <strong>Loops</strong> adalah struktur yang mengulang blok kode berkali-kali.
+            <strong>Control Flow (Alur Kontrol)</strong> adalah mekanisme yang menentukan urutan kode -
+            kode mana yang dijalankan, kapan dijalankan, dan berapa kali dijalankan.
           </p>
           <p class="text-base">
-            Think of it as "program's decision-making brain" - loops handle repetition,
-            conditionals handle choices, and together they control program flow.
+            Bayangkan sebagai "otak" pembuat keputusan program - loops untuk pengulangan,
+            conditionals untuk pilihan, dan keduanya mengatur jalan cerita program.
           </p>
         </div>
 
@@ -38,56 +38,58 @@
           </h4>
           <div class="grid md:grid-cols-2 gap-4">
             <div>
-              <h5 class="font-bold mb-2">1. DRY Principle</h5>
-              <p class="text-sm">Instead of copy-paste code 100x, loop once! Saves lines and reduces errors.</p>
+              <h5 class="font-bold mb-2">1. Prinsip DRY (Jangan Ulangi)</h5>
+              <p class="text-sm">Daripada copy-paste kode 100x, loop sekali saja! Hemat baris dan kurangi error.</p>
             </div>
             <div>
               <h5 class="font-bold mb-2">2. Dynamic Behavior</h5>
-              <p class="text-sm">Handle unknown quantities. Process 10 items atau 10,000 items dengan same code.</p>
+              <p class="text-sm">Bisa atur jumlah data yang tidak pasti. Proses 10 barang atau 10.000 barang kodenya
+                sama.</p>
             </div>
             <div>
               <h5 class="font-bold mb-2">3. Decision Making</h5>
-              <p class="text-sm">Programs must make choices: if collision, reverse velocity. Control flow enables this.
+              <p class="text-sm">Program harus memilih: jika tabrakan, balik arah. Control flow yang mengatur ini.
               </p>
             </div>
             <div>
               <h5 class="font-bold mb-2">4. Real-time Systems</h5>
-              <p class="text-sm">Event loops keep apps responsive, update UI every frame, process user input
-                continuously.</p>
+              <p class="text-sm">Aplikasi harus terus berjalan merespon user setiap saat, update layar terus menerus.
+              </p>
             </div>
           </div>
         </div>
 
         <div>
-          <h4 class="text-xl font-bold mb-3">🔄 Loop Types in Python</h4>
+          <h4 class="text-xl font-bold mb-3">🔄 Jenis-Jenis Loop di Python</h4>
           <div class="grid md:grid-cols-2 gap-6">
             <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-green-500">
               <h5 class="font-bold text-lg mb-2 text-green-600 dark:text-green-400">For Loop</h5>
-              <p class="text-sm mb-3">Iterate over sequences (known count)</p>
+              <p class="text-sm mb-3">Iterasi urutan (jumlah diketahui)</p>
               <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
                 for item in collection:<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;process(item)
               </code>
-              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Use when: You know what to iterate over</p>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Gunakan saat: Kamu tahu apa yang mau diulang</p>
             </div>
             <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
               <h5 class="font-bold text-lg mb-2 text-blue-600 dark:text-blue-400">While Loop</h5>
-              <p class="text-sm mb-3">Repeat until condition false (unknown count)</p>
+              <p class="text-sm mb-3">Ulangi sampai kondisi salah (jumlah tak tentu)</p>
               <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
                 while condition:<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;do_something()
               </code>
-              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Use when: You don't know iterations count</p>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-400">Gunakan saat: Kamu tidak tahu berapa kali harus
+                mengulang</p>
             </div>
           </div>
         </div>
 
         <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
-          <h4 class="text-xl font-bold mb-3">🎯 Control Flow Structures</h4>
+          <h4 class="text-xl font-bold mb-3">🎯 Struktur Kontrol Alur</h4>
           <div class="space-y-4">
             <div>
-              <h5 class="font-bold text-purple-600 dark:text-purple-400">Conditionals (if-elif-else)</h5>
-              <p class="text-sm mb-2">Make decisions based on conditions</p>
+              <h5 class="font-bold text-purple-600 dark:text-purple-400">Pengandaian (if-elif-else)</h5>
+              <p class="text-sm mb-2">Membuat keputusan berdasarkan kondisi</p>
               <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
                 if ball_colliding:<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;reverse_velocity()<br>
@@ -99,7 +101,7 @@
             </div>
             <div>
               <h5 class="font-bold text-orange-600 dark:text-orange-400">Exception Handling (try-except)</h5>
-              <p class="text-sm mb-2">Handle errors gracefully without crashing</p>
+              <p class="text-sm mb-2">Menangani error tanpa bikin program crash</p>
               <code class="text-xs block bg-white/50 dark:bg-gray-800/50 p-2 rounded">
                 try:<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;value = float(input)<br>
@@ -112,7 +114,7 @@
 
         <div
           class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
-          <h4 class="text-xl font-bold mb-3">💡 Best Practices</h4>
+          <h4 class="text-xl font-bold mb-3">💡 Tips Terbaik (Best Practices)</h4>
           <div class="grid md:grid-cols-2 gap-4">
             <div>
               <h5 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ DO</h5>
@@ -120,7 +122,7 @@
                 <li>• Use <code>for</code> for iterables</li>
                 <li>• Use <code>enumerate()</code> when need index</li>
                 <li>• Guard clauses (early return) to reduce nesting</li>
-                <li>• Break complex loops into functions</li>
+                <li>• Pecah loop yang rumit jadi function kecil</li>
               </ul>
             </div>
             <div>
@@ -136,12 +138,12 @@
         </div>
 
         <div class="callout info">
-          <h4 class="font-bold mb-2">🎓 Program Flow Analogy</h4>
+          <h4 class="font-bold mb-2">🎓 Analogi Alur Program</h4>
           <p class="text-sm">
-            Think of program as a recipe: <strong>Loops</strong> = "stir until mixed",
-            <strong>Conditionals</strong> = "if too thick, add water",
-            <strong>Functions</strong> = "prepare sauce (see page 5)".
-            Control flow tells computer HOW to execute the recipe!
+            Bayangkan program sebagai resep: <strong>Loops</strong> = "aduk sampai rata",
+            <strong>Conditionals</strong> = "jika terlalu kental, tambah air",
+            <strong>Functions</strong> = "siapkan saus (lihat halaman 5)".
+            Control flow memberitahu komputer BAGAIMANA cara menjalankan resepnya!
           </p>
         </div>
       </div>
@@ -279,7 +281,7 @@ except Exception as e:
         <ul class="text-sm space-y-1">
           <li>• Catch SPECIFIC exceptions (<code>ValueError</code>) not generic <code>Exception</code> when possible
           </li>
-          <li>• Always provide user feedback saat error terjadi</li>
+          <li>• Selalu beri tahu user saat error terjadi</li>
           <li>• Use <code>try-except</code> for operations that can fail (file I/O, network, user input)</li>
         </ul>
       </div>

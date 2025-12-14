@@ -23,38 +23,40 @@
 
       <div class="space-y-6 text-gray-800 dark:text-gray-200">
         <div>
-          <h4 class="text-xl font-bold mb-3">📚 Definisi</h4>
-          <p class="text-lg">
-            <strong>Tipe Data (Data Types)</strong> adalah classification yang menentukan jenis nilai yang bisa
-            disimpan dalam variable dan operasi apa yang bisa dilakukan pada nilai tersebut. Think of it as
-            "aturan main" untuk setiap variable - apakah itu number, text, true/false, atau collection of items.
+          <h4 class="text-xl font-bold mb-3">📚 Apa itu Tipe Data?</h4>
+          <p class="text-lg mb-3">
+            <strong>Tipe Data</strong> adalah jenis-jenis nilai yang bisa kamu simpan dalam program.
+            Seperti di kehidupan nyata ada angka, tulisan, benar/salah - di Python juga sama!
+          </p>
+          <p class="text-base">
+            Bayangkan seperti kotak penyimpanan: kotak angka (untuk nomor), kotak tulisan (untuk nama),
+            kotak ya/tidak (untuk jawaban). Setiap kotak punya aturan sendiri!
           </p>
         </div>
 
         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
           <h4 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">
-            ✅ Mengapa Tipe Data Penting?
+            ✅ Kenapa Tipe Data Penting?
           </h4>
           <div class="grid md:grid-cols-2 gap-4">
             <div>
-              <h5 class="font-bold mb-2">1. Type Safety</h5>
-              <p class="text-sm">Mencegah operasi invalid: <code>"5" + 3</code> adalah error karena string + int tidak
-                kompatibel.</p>
+              <h5 class="font-bold mb-2">1. Cegah Kesalahan</h5>
+              <p class="text-sm">Seperti tidak bisa memasukkan air ke tempat pensil - Python juga akan bilang "salah!"
+                kalau kamu salah taruh data.</p>
             </div>
             <div>
-              <h5 class="font-bold mb-2">2. Memory Efficiency</h5>
-              <p class="text-sm">Different types use different memory. Integer lebih efficient dari string untuk
-                numbers.</p>
+              <h5 class="font-bold mb-2">2. Hemat Memori</h5>
+              <p class="text-sm">Angka kecil butuh ruang kecil, angka besar butuh ruang besar. Python atur otomatis buat
+                kamu!</p>
             </div>
             <div>
-              <h5 class="font-bold mb-2">3. Code Clarity</h5>
-              <p class="text-sm">Type hints make code self-documenting: <code>mass: float</code> jelas lebih
-                informative.</p>
+              <h5 class="font-bold mb-2">3. Kode Lebih Jelas</h5>
+              <p class="text-sm">Kalau ditulis <code>umur: int</code>, langsung tau itu angka. Kamu dan teman bisa
+                langsung paham!</p>
             </div>
             <div>
-              <h5 class="font-bold mb-2">4. Performance</h5>
-              <p class="text-sm">Right type = faster operations. NumPy arrays jauh lebih cepat untuk math operations vs
-                lists.</p>
+              <h5 class="font-bold mb-2">4. Lebih Cepat</h5>
+              <p class="text-sm">Pakai tipe data yang tepat = program jalan lebih kencang!</p>
             </div>
           </div>
         </div>
@@ -63,42 +65,42 @@
           <h4 class="text-xl font-bold mb-3">🎯 Python's Type System</h4>
           <div class="grid md:grid-cols-3 gap-4">
             <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-purple-500">
-              <h5 class="font-bold text-lg mb-2">Dynamic Typing</h5>
-              <p class="text-sm mb-2">Variables can change type:</p>
+              <h5 class="font-bold text-lg mb-2">Pengetikan Dinamis (Dynamic Typing)</h5>
+              <p class="text-sm mb-2">Variabel bisa berubah tipe:</p>
               <code class="text-xs block">x = 5<br>x = "hello"  # OK!</code>
             </div>
             <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
-              <h5 class="font-bold text-lg mb-2">Strong Typing</h5>
-              <p class="text-sm mb-2">No implicit conversions:</p>
+              <h5 class="font-bold text-lg mb-2">Pengetikan Kuat (Strong Typing)</h5>
+              <p class="text-sm mb-2">Tidak ada perubahan otomatis yang aneh:</p>
               <code class="text-xs block">"5" + 3  # ERROR<br>int("5") + 3  # OK!</code>
             </div>
             <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-green-500">
-              <h5 class="font-bold text-lg mb-2">Duck Typing</h5>
-              <p class="text-sm mb-2">"If it quacks like a duck..."</p>
+              <h5 class="font-bold text-lg mb-2">Duck Typing (Bebek)</h5>
+              <p class="text-sm mb-2">"Kalau suaranya kwek-kwek, anggap saja bebek..."</p>
               <code class="text-xs block">Any object with __iter__<br>can be looped</code>
             </div>
           </div>
         </div>
 
         <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
-          <h4 class="text-xl font-bold mb-3">🏗️ Data Type Categories</h4>
+          <h4 class="text-xl font-bold mb-3">🏗️ Kategori Tipe Data</h4>
           <div class="grid md:grid-cols-2 gap-6">
             <div>
-              <h5 class="font-bold mb-2 text-purple-600 dark:text-purple-400">Primitive Types</h5>
+              <h5 class="font-bold mb-2 text-purple-600 dark:text-purple-400">Tipe Dasar (Primitive)</h5>
               <ul class="text-sm space-y-1">
-                <li>• <code>int</code> - Whole numbers: <code>42</code>, <code>-17</code></li>
-                <li>• <code>float</code> - Decimals: <code>3.14</code>, <code>0.01</code></li>
-                <li>• <code>str</code> - Text: <code>"Hello"</code>, <code>'Python'</code></li>
-                <li>• <code>bool</code> - True/False: <code>True</code>, <code>False</code></li>
+                <li>• <code>int</code> - Bilangan bulat: <code>42</code>, <code>-17</code></li>
+                <li>• <code>float</code> - Desimal: <code>3.14</code>, <code>0.01</code></li>
+                <li>• <code>str</code> - Teks: <code>"Hello"</code>, <code>'Python'</code></li>
+                <li>• <code>bool</code> - Benar/Salah: <code>True</code>, <code>False</code></li>
               </ul>
             </div>
             <div>
-              <h5 class="font-bold mb-2 text-green-600 dark:text-green-400">Collection Types</h5>
+              <h5 class="font-bold mb-2 text-green-600 dark:text-green-400">Tipe Koleksi (Kumpulan)</h5>
               <ul class="text-sm space-y-1">
-                <li>• <code>list</code> - Ordered, mutable: <code>[1, 2, 3]</code></li>
-                <li>• <code>tuple</code> - Ordered, immutable: <code>(1, 2)</code></li>
-                <li>• <code>dict</code> - Key-value pairs: <code>{"x": 5}</code></li>
-                <li>• <code>set</code> - Unique values: <code>{1, 2, 3}</code></li>
+                <li>• <code>list</code> - Urut, bisa diubah: <code>[1, 2, 3]</code></li>
+                <li>• <code>tuple</code> - Urut, tetap: <code>(1, 2)</code></li>
+                <li>• <code>dict</code> - Pasangan kunci-nilai: <code>{"x": 5}</code></li>
+                <li>• <code>set</code> - Nilai unik: <code>{1, 2, 3}</code></li>
               </ul>
             </div>
           </div>
@@ -106,18 +108,18 @@
 
         <div
           class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-xl">
-          <h4 class="text-xl font-bold mb-3">💡 Type Conversion Strategy</h4>
+          <h4 class="text-xl font-bold mb-3">💡 Strategi Konversi Tipe Data</h4>
           <p class="text-sm mb-4">
-            <strong>Golden Rule:</strong> Always be explicit dengan type conversions, terutama untuk user input!
+            <strong>Aturan Emas:</strong> Selalu perjelas tipe data, terutama saat minta input dari user!
           </p>
           <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
-              <h6 class="font-bold text-red-600 dark:text-red-400 mb-2">❌ Dangerous</h6>
+              <h6 class="font-bold text-red-600 dark:text-red-400 mb-2">❌ Berbahaya (Dangerous)</h6>
               <code
                 class="text-xs block">mass = entry.get()<br># mass is str "2.5"<br>force = mass * 9.8  # ERROR!</code>
             </div>
             <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
-              <h6 class="font-bold text-green-600 dark:text-green-400 mb-2">✅ Safe</h6>
+              <h6 class="font-bold text-green-600 dark:text-green-400 mb-2">✅ Aman (Safe)</h6>
               <code
                 class="text-xs block">mass = float(entry.get())<br># mass is float 2.5<br>force = mass * 9.8  # OK!</code>
             </div>
@@ -127,8 +129,8 @@
         <div class="callout tip">
           <h4 class="font-bold mb-2">🎓 Learning Path</h4>
           <p class="text-sm">
-            Start dengan primitive types (int, float, str, bool) → lalu collections (list, dict) →
-            advanced types (NumPy arrays, deque). Setiap type punya use case specific!
+            Mulai dengan tipe dasar (int, float, str, bool) → lalu koleksi (list, dict) →
+            tipe canggih (NumPy arrays, deque). Setiap tipe punya kegunaan masing-masing!
           </p>
         </div>
       </div>

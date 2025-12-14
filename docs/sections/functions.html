@@ -20,31 +20,64 @@
 
       <div class="space-y-6 text-gray-800 dark:text-gray-200">
         <p class="text-lg">
-          <strong>Functions (fungsi)</strong> adalah reusable blocks of code yang perform specific task.
-          Think of them as mini-programs dalam program. Kamu write code sekali dalam function,
-          lalu call function itu berkali-kali whenever needed.
+          <strong>Functions (fungsi)</strong> adalah blok kode yang dapat digunakan kembali yang melakukan tugas
+          spesifik.
+          Anggap mereka sebagai mini-program dalam program. Kamu tulis kode sekali dalam function,
+          lalu panggil function itu berkali-kali kapanpun dibutuhkan.
         </p>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
-            <h4 class="font-bold text-lg mb-3 text-green-600 dark:text-green-400">✅ Why Use Functions?</h4>
-            <ul class="text-sm space-y-2">
-              <li><strong>• DRY Principle:</strong> Don't Repeat Yourself - write once, use many times</li>
-              <li><strong>• Modularity:</strong> Break complex problems into smaller pieces</li>
-              <li><strong>• Readability:</strong> <code>calculate_momentum()</code> lebih jelas dari inline code</li>
-              <li><strong>• Testing:</strong> Easier to test individual functions</li>
-              <li><strong>• Reusability:</strong> Use same function in different parts</li>
-            </ul>
-          </div>
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-3">🎯 Analogi Gampang: Resep Masakan!</h4>
+          <p class="text-sm mb-3">
+            Function itu seperti <strong>resep masak</strong>:
+          </p>
+          <ul class="text-sm space-y-2">
+            <li>• <strong>Nama resep</strong> = nama function (contoh: <code>buatMieGoreng()</code>)</li>
+            <li>• <strong>Bahan-bahan</strong> = parameter/input (mie, telur, bumbu)</li>
+            <li>• <strong>Langkah-langkah</strong> = isi function (rebus, goreng, aduk)</li>
+            <li>• <strong>Makanan jadi</strong> = return value/hasil (mie goreng siap makan!)</li>
+          </ul>
+          <p class="text-xs mt-3 italic">
+            Sekali kamu punya resep, kamu bisa masak berulang-ulang tanpa harus ingat-ingat langkahnya!
+          </p>
+        </div>
 
-          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
-            <h4 class="font-bold text-lg mb-3 text-purple-600 dark:text-purple-400">🎯 When to Create Function?</h4>
-            <ul class="text-sm space-y-2">
-              <li><strong>• Repetition:</strong> Copy-paste code 3+ times? Make it a function!</li>
-              <li><strong>• Complexity:</strong> Code block doing complex task? Extract to function</li>
-              <li><strong>• Logical Unit:</strong> Self-contained task? Perfect for function</li>
-              <li><strong>• Readability:</strong> Name describes what code does better than code itself</li>
-            </ul>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h4 class="text-xl font-bold mb-4 text-purple-600 dark:text-purple-400">✅ Kenapa Pakai Function?</h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-bold mb-2">1. Tidak Perlu Nulis Ulang (DRY)</h5>
+              <p class="text-sm">Tulis sekali, pakai berkali-kali. Seperti punya resep di buku - tinggal buka aja!</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">2. Lebih Rapi</h5>
+              <p class="text-sm">Program besar jadi kecil-kecil. Seperti rumah punya kamar-kamar, bukan cuma 1 ruang
+                gede!</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">3. Gampang Dibaca</h5>
+              <p class="text-sm">Nama function jelasin kerjanya. <code>hitungLuas()</code> lebih jelas daripada formula
+                math panjang!</p>
+            </div>
+            <div>
+              <h5 class="font-bold mb-2">4. Gampang Diperbaiki</h5>
+              <p class="text-sm">Ada bug? Tinggal benerin 1 function. Semua yang pakai otomatis ke-fix!</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 p-6 rounded-xl">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-xl">
+              <h4 class="font-bold text-lg mb-3 text-purple-600 dark:text-purple-400">🎯 Kapan Buat Function?</h4>
+              <ul class="text-sm space-y-2">
+                <li><strong>• Kalau Copy-Paste:</strong> Kode yang sama 3+ kali? Bikin function!</li>
+                <li><strong>• Kalau Ribet:</strong> Kode panjang dan susah? Pecah jadi function kecil-kecil!</li>
+                <li><strong>• Kalau Ada Nama:</strong> Bisa dikasih nama yang jelas? Perfect untuk function!</li>
+                <li><strong>• Kalau Berguna Lagi:</strong> Mungkin dipakai lagi nanti? Bikin function!</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -61,8 +94,8 @@
 output = function_name(input_value)</code></pre>
           </div>
           <p class="text-sm mt-3">
-            <strong>Components:</strong> <code>def</code> keyword, name, parameters, type hints,
-            docstring, body, and optional return value.
+            <strong>Komponen:</strong> <code>def</code> keyword, nama, parameter, type hints,
+            docstring, isi function, dan nilai return (opsional).
           </p>
         </div>
       </div>
@@ -71,7 +104,7 @@ output = function_name(input_value)</code></pre>
     <!-- Function Basics -->
     <div class="mb-12">
       <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-        <span class="text-4xl mr-3">⚙️</span> Definisi Function dengan Type Hints
+        <span class="text-4xl mr-3">⚙️</span> Anatomi Function (Bagian-Bagiannya)
       </h3>
 
       <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
@@ -96,12 +129,12 @@ def move(self, time_step: float) -> None:
 
       <div class="grid md:grid-cols-2 gap-6">
         <div class="callout tip">
-          <h4 class="font-bold mb-2">✅ Manfaat Type Hints</h4>
+          <h4 class="font-bold mb-2">✅ Manfaat Petunjuk Tipe</h4>
           <ul class="text-sm space-y-1">
-            <li>• IDE autocomplete & suggestions</li>
-            <li>• Catch bugs before runtime</li>
-            <li>• Self-documenting code</li>
-            <li>• Better code maintenance</li>
+            <li>• Program bisa kasih saran otomatis</li>
+            <li>• Tangkap error sebelum program jalan</li>
+            <li>• Kode jadi jelas dengan sendirinya</li>
+            <li>• Lebih gampang diperbaiki nanti</li>
           </ul>
         </div>
         <div class="callout info">

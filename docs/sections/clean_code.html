@@ -4,10 +4,10 @@
     <div class="text-center mb-16">
       <span class="badge badge-green mb-4">Python Fundamentals #6</span>
       <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-        <i class="fas fa-broom mr-3"></i>Clean Code Principles
+        <i class="fas fa-broom mr-3"></i>Prinsip Clean Code
       </h2>
       <p class="text-xl text-gray-600 dark:text-gray-400">
-        DRY, KISS, SRP - Write code that lasts
+        DRY, KISS, SRP - Tulis kode yang rapi dan tahan lama
       </p>
     </div>
 
@@ -22,11 +22,11 @@
         <div>
           <h4 class="text-xl font-bold mb-3">📚 Definisi Clean Code</h4>
           <p class="text-lg mb-3">
-            <strong>Clean Code</strong> adalah code yang mudah dibaca, mudah dipahami, dan mudah dimodifikasi.
+            <strong>Clean Code</strong> adalah kode yang mudah dibaca, mudah dipahami, dan mudah dimodifikasi.
             Bukan soal "bekerja dengan benar" saja - tapi bekerja dengan cara yang ELEGANT dan MAINTAINABLE.
           </p>
           <p class="text-base">
-            Seperti kata Uncle Bob Martin: <em>"Clean code adalah code yang ditulis oleh seseorang yang peduli."</em>
+            Seperti kata Uncle Bob Martin: <em>"Clean code adalah kode yang ditulis oleh seseorang yang peduli."</em>
           </p>
         </div>
 
@@ -37,22 +37,24 @@
           <div class="grid md:grid-cols-2 gap-4">
             <div>
               <h5 class="font-bold mb-2">1. Mengurangi Technical Debt</h5>
-              <p class="text-sm">Messy code = hutang teknis yang makin besar. Suatu hari harus dibayar dengan
-                refactoring besar-besaran.</p>
+              <p class="text-sm">Kode berantakan = hutang teknis yang makin besar. Suatu hari harus dibayar dengan
+                perbaikan besar-besaran.</p>
             </div>
             <div>
               <h5 class="font-bold mb-2">2. Mempercepat Development</h5>
-              <p class="text-sm">Clean code lebih cepat dipahami = new features lebih cepat dibuat. Messy code =
-                debugging nightmare.</p>
+              <p class="text-sm">Kode bersih lebih cepat dipahami = fitur baru lebih cepat dibuat. Kode berantakan =
+                mimpi buruk debugging (cari error).</p>
+              debugging nightmare.</p>
             </div>
             <div>
               <h5 class="font-bold mb-2">3. Mengurangi Bugs</h5>
-              <p class="text-sm">Simple, clear code = bugs lebih mudah terlihat. Complex, messy code = bugs tersembunyi
+              <p class="text-sm">Kode simple dan jelas = bug lebih mudah terlihat. Kode kompleks dan berantakan = bug
+                tersembunyi
                 di complexity.</p>
             </div>
             <div>
-              <h5 class="font-bold mb-2">4. Team Productivity</h5>
-              <p class="text-sm">Team bisa collaborate lebih efektif. Tidak perlu "tanya ahlinya" untuk setiap perubahan
+              <h5 class="font-bold mb-2">4. Produktivitas Tim</h5>
+              <p class="text-sm">Tim bisa kerjasama lebih efektif. Tidak perlu "tanya ahlinya" untuk setiap perubahan
                 kecil.</p>
             </div>
           </div>
@@ -70,28 +72,27 @@
             <div class="space-y-4 text-sm">
               <div>
                 <h6 classfont-bold mb-2">📖 Apa itu DRY?</h6>
-                <p>Setiap piece of knowledge harus punya <strong>single, unambiguous representation</strong> dalam
-                  system.
-                  Jangan copy-paste code!</p>
+                <p>Setiap potongan pengetahuan harus punya <strong>satu tempat yang jelas</strong> dalam sistem.
+                  Jangan copy-paste kode!</p>
               </div>
 
               <div class="grid md:grid-cols-2 gap-4">
                 <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
                   <h6 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ Mengapa DRY Penting?</h6>
                   <ul class="text-xs space-y-1">
-                    <li>• <strong>Single Source of Truth:</strong> Perubahan di 1 tempat, effect everywhere</li>
-                    <li>• <strong>Maintainability:</strong> Fix bug sekali, fixed di semua tempat</li>
-                    <li>• <strong>Consistency:</strong> Logic sama dijamin identik</li>
-                    <li>• <strong>Less Code:</b> Fewer lines = fewer bugs</li>
+                    <li>• <strong>Satu Sumber Kebenaran:</strong> Perubahan di 1 tempat, berubah di semua tempat</li>
+                    <li>• <strong>Mudah Dirawat:</strong> Fix bug sekali, beres di semua tempat</li>
+                    <li>• <strong>Konsisten:</strong> Logika sama dijamin kembar</li>
+                    <li>• <strong>Lebih Sedikit Kode:</b> Baris lebih sedikit = bug lebih sedikit</li>
                   </ul>
                 </div>
                 <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
                   <h6 class="font-bold mb-2 text-orange-600 dark:text-orange-400">💡 Kapan Extract ke Function?</h6>
                   <ul class="text-xs space-y-1">
-                    <li>• Copy-paste <strong>2+ kali</strong>? Extract!</li>
-                    <li>• <strong>Kompleksitas</strong> bisa diisolasi? Extract!</li>
-                    <li>• Bisa diberi <strong>nama descriptive</strong>? Extract!</li>
-                    <li>• Might be <strong>reused</strong> di future? Extract!</li>
+                    <li>• Copy-paste <strong>2+ kali</strong>? Pecah ke fungsi!</li>
+                    <li>• <strong>Kerumitan</strong> bisa dipisah? Pecah ke fungsi!</li>
+                    <li>• Bisa diberi <strong>nama yang jelas</strong>? Pecah ke fungsi!</li>
+                    <li>• Mungkin <strong>dipakai lagi</strong> nanti? Pecah ke fungsi!</li>
                   </ul>
                 </div>
               </div>
@@ -115,19 +116,19 @@
                 <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
                   <h6 class="font-bold mb-2 text-green-600 dark:text-green-400">✅ Mengapa KISS Penting?</h6>
                   <ul class="text-xs space-y-1">
-                    <li>• <strong>Easier to Understand:</strong> Simple code = cepat dipahami</li>
-                    <li>• <strong>Easier to Debug:</strong> Fewer moving parts = easier troubleshooting</li>
-                    <li>• <strong>Easier to Change:</strong> Simple structure flexible untuk perubahan</li>
-                    <li>• <strong>Performance:</strong> Simple solutions often faster</li>
+                    <li>• <strong>Lebih Mudah Dipahami:</strong> Kode simple = cepat dimengerti</li>
+                    <li>• <strong>Lebih Mudah Debug:</strong> Bagian bergerak sedikit = masalah gampang ketemu</li>
+                    <li>• <strong>Lebih Mudah Ganti:</strong> Struktur simple fleksibel untuk perubahan</li>
+                    <li>• <strong>Performa:</strong> Solusi simple biasanya lebih cepat</li>
                   </ul>
                 </div>
                 <div class="bg-white/50 dark:bg-gray-800/50 p-4 rounded">
                   <h6 class="font-bold mb-2 text-red-600 dark:text-red-400">❌ Hindari Over-Engineering</h6>
                   <ul class="text-xs space-y-1">
-                    <li>• Jangan buat <strong>abstraction</strong> yang tidak perlu</li>
-                    <li>• Jangan optimize <strong>prematurely</strong></li>
-                    <li>• Jangan gunakan <strong>design pattern</strong> for the sake of it</li>
-                    <li>• <strong>YAGNI:</strong> You Ain't Gonna Need It!</li>
+                    <li>• Jangan buat <strong>abstraksi</strong> yang tidak perlu</li>
+                    <li>• Jangan optimasi <strong>terlalu dini</strong></li>
+                    <li>• Jangan pakai <strong>design pattern</strong> asal-asalan</li>
+                    <li>• <strong>YAGNI:</strong> Kamu Nggak Bakal Butuh Itu!</li>
                   </ul>
                 </div>
               </div>
@@ -135,7 +136,7 @@
               <div class="bg-yellow-50 dark:bg-yellow-900/40 p-3 rounded">
                 <p class="text-xs italic">
                   <strong>Prinsip:</strong> Jika ada 2 solusi yang sama-sama works, pilih yang lebih SIMPLE.
-                  Clever code itu bagus untuk ego, tapi CLEAR code bagus untuk team!
+                  Kode clever itu bagus untuk ego, tapi kode JELAS bagus untuk team!
                 </p>
               </div>
             </div>
@@ -242,7 +243,8 @@ create_entry("vy (m/s):", "0.0", "entry_vy")</code></pre>
       </div>
 
       <div class="callout tip mt-6">
-        <p class="text-sm"><strong>DRY Rule:</strong> If you copy-paste code 3+ times, extract to a function/method!</p>
+        <p class="text-sm"><strong>Aturan DRY:</strong> Jika kamu copy-paste kode 3+ kali, extract ke function/method!
+        </p>
       </div>
     </div>
 

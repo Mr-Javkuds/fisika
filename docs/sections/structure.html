@@ -22,12 +22,13 @@
         <div>
           <h4 class="text-xl font-bold mb-3">📚 Apa itu Code Structure?</h4>
           <p class="text-lg mb-3">
-            <strong>Code Structure</strong> adalah cara kita mengorganisir dan memformat code agar readable,
+            <strong>Code Structure</strong> adalah cara kita mengorganisir dan memformat kode agar mudah dibaca,
             maintainable,
             dan consistent. Ini bukan hanya soal "looks pretty", tapi fundamental untuk professional development.
           </p>
           <p class="text-base">
-            Think of it as "grammar and punctuation" untuk programming. Bad structure = working code tapi nightmare
+            Anggap ini sebagai "tata bahasa dan tanda baca" untuk pemrograman. Struktur buruk = kode yang bekerja tapi
+            mimpi buruk untuk di-maintain!
             untuk maintain!
           </p>
         </div>
@@ -38,21 +39,23 @@
           </h4>
           <div class="grid md:grid-cols-2 gap-4">
             <div>
-              <h5 class="font-bold mb-2">1. Code is Read 10x More Than Written</h5>
-              <p class="text-sm">You'll spend WAY more time reading code than writing it. Good structure = faster
-                comprehension.</p>
+              <h5 class="font-bold mb-2">1. Kode Dibaca 10x Lebih Sering Daripada Ditulis</h5>
+              <p class="text-sm">Kamu akan menghabiskan JAUH lebih banyak waktu membaca kode daripada menulisnya.
+                Struktur yang baik = pemahaman lebih cepat.</p>
             </div>
             <div>
               <h5 class="font-bold mb-2">2. Team Collaboration</h5>
-              <p class="text-sm">Consistent structure means everyone can understand each other's code instantly.</p>
+              <p class="text-sm">Struktur yang konsisten berarti semua orang bisa memahami kode satu sama lain dengan
+                instant.</p>
             </div>
             <div>
               <h5 class="font-bold mb-2">3. Bug Prevention</h5>
-              <p class="text-sm">Well-structured code makes bugs obvious. Messy code hides bugs in complexity.</p>
+              <p class="text-sm">Kode yang terstruktur baik membuat bug jadi jelas. Kode berantakan menyembunyikan bug
+                dalam kompleksitas.</p>
             </div>
             <div>
-              <h5 class="font-bold mb-2">4. Professional Standard</h5>
-              <p class="text-sm">Following conventions (like PEP 8) shows you're professional, not amateur.</p>
+              <h5 class="font-bold mb-2">4. Standar Profesional</h5>
+              <p class="text-sm">Mengikuti konvensi (seperti PEP 8) menunjukkan kamu profesional, bukan amatir.</p>
             </div>
           </div>
         </div>
@@ -60,12 +63,12 @@
         <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-xl">
           <h4 class="text-xl font-bold mb-3">📖 PEP 8: Python's Style Guide</h4>
           <p class="text-sm mb-4">
-            <strong>PEP 8</strong> adalah official style guide untuk Python. Bukan "suggestions" - ini adalah
-            <strong>industry standard</strong> yang diexpect oleh setiap Python developer.
+            <strong>PEP 8</strong> adalah panduan gaya resmi untuk Python. Bukan cuma "saran" - ini adalah
+            <strong>standar industri</strong> yang diharapkan oleh setiap programmer Python.
           </p>
           <div class="grid md:grid-cols-3 gap-4 text-sm">
             <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
-              <h6 class="font-bold mb-2">Naming Conventions</h6>
+              <h6 class="font-bold mb-2">Aturan Penamaan</h6>
               <ul class="text-xs space-y-1">
                 <li>• Variables: <code>snake_case</code></li>
                 <li>• Functions: <code>snake_case</code></li>
@@ -74,7 +77,7 @@
               </ul>
             </div>
             <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
-              <h6 class="font-bold mb-2">Spacing Rules</h6>
+              <h6 class="font-bold mb-2">Aturan Spasi</h6>
               <ul class="text-xs space-y-1">
                 <li>• Indentation: 4 spaces</li>
                 <li>• Max line: 79 characters</li>
@@ -82,12 +85,12 @@
               </ul>
             </div>
             <div class="bg-white/50 dark:bg-gray-800/50 p-3 rounded">
-              <h6 class="font-bold mb-2">Import Order</h6>
+              <h6 class="font-bold mb-2">Urutan Import</h6>
               <ul class="text-xs space-y-1">
-                <li>1. Standard library</li>
-                <li>2. Third-party</li>
-                <li>3. Local imports</li>
-                <li>• Alphabetical within groups</li>
+                <li>1. Library Standar</li>
+                <li>2. Pihak Ketiga (Third-party)</li>
+                <li>3. Import Lokal</li>
+                <li>• Urut abjad di setiap grup</li>
               </ul>
             </div>
           </div>
@@ -98,23 +101,22 @@
           <h4 class="text-xl font-bold mb-3">🎯 The "Why" Behind Structure Rules</h4>
           <div class="space-y-3 text-sm">
             <div>
-              <h6 class="font-bold">Why snake_case for variables?</h6>
-              <p class="text-xs">More readable than camelCase in Python. "velocity_x" clearer than "velocityX".</p>
+              <h6 class="font-bold">Kenapa snake_case untuk variables?</h6>
+              <p class="text-xs">Lebih mudah dibaca daripada camelCase di Python. "velocity_x" lebih jelas dari
+                "velocityX".</p>
             </div>
             <div>
-              <h6 class="font-bold">Why 4-space indentation?</h6>
-              <p class="text-xs">2 spaces = hard to see nesting. 8 spaces = too much horizontal space. 4 = perfect
-                balance.</p>
+              <h6 class="font-bold">Kenapa pakai 4 spasi untuk indentasi?</h6>
+              <p class="text-xs">2 spasi = susah lihat struktur. 8 spasi = terlalu lebar. 4 = seimbang sempurna.</p>
             </div>
             <div>
-              <h6 class="font-bold">Why import order matters?</h6>
-              <p class="text-xs">Instantly see dependencies. Standard lib (always available) vs third-party (need
-                install) vs local (your code).</p>
+              <h6 class="font-bold">Kenapa urutan import penting?</h6>
+              <p class="text-xs">Langsung lihat dependensi. Lib standar (selalu ada) vs pihak ketiga (perlu
+                install) vs lokal (kodemu).</p>
             </div>
             <div>
-              <h6 class="font-bold">Why max 79 characters per line?</h6>
-              <p class="text-xs">Fits on any screen, readable without horizontal scrolling, side-by-side code review.
-              </p>
+              <h6 class="font-bold">Kenapa maksimal 79 karakter per baris?</h6>
+              <p class="text-xs">Pas di layar apa saja, terbaca tanpa scroll samping, review kode jejer.</p>
             </div>
           </div>
         </div>
@@ -122,8 +124,9 @@
         <div class="callout important">
           <h4 class="font-bold mb-2">⚡ Key Principle: "Code for Humans, Not Machines"</h4>
           <p class="text-sm">
-            Computers don't care about formatting. Humans do! Good structure makes code self-documenting.
-            If you have to choose between "clever" vs "clear", ALWAYS choose clear.
+            Komputer tidak peduli dengan formatting. Manusia peduli! Struktur yang baik membuat kode mendokumentasikan
+            diri sendiri.
+            Jika harus pilih antara "pintar" vs "jelas", SELALU pilih jelas.
           </p>
         </div>
       </div>
@@ -131,14 +134,14 @@
 
     <!-- Imports -->
     <div class="mb-12">
-      <h3 class="text-3xl font-bold mb-6">📦 Import Organization</h3>
+      <h3 class="text-3xl font-bold mb-6">📦 Pengaturan Import</h3>
 
       <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
         <div class="code-block mb-4">
           <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
           <pre class="rounded-lg"><code class="language-python"># Line 14-21 - Organized imports
-# 1. Standard library imports first
+# 1. Standard library imports first (Library standar duluan)
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 import csv
