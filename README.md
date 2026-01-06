@@ -42,10 +42,10 @@ Project ini adalah **pembelajaran Python hands-on** yang menggabungkan:
 - Responsive design (mobile-friendly)
 
 ### 🏗️ Modern Architecture
-- Modular project structure (src/, build/, docs/)
-- Dynamic section loading (true modularity!)
-- Clean separation of concerns
-- Professional file organization
+- **Modular codebase**: Refactored dari monolithic ke modular (app.py, ball.py, physics.py, ui_components.py)
+- Clean separation of concerns (Model-View-Controller inspired)
+- Dynamic section loading untuk dokumentasi (true modularity!)
+- Professional file organization (src/, build/, docs/, dist/)
 
 ---
 
@@ -53,8 +53,16 @@ Project ini adalah **pembelajaran Python hands-on** yang menggabungkan:
 
 ```
 fisika/
-├── 📦 src/                      # Source Code Python
-│   └── momentum_2d.py          # Main application (972 lines)
+├── 📦 src/                      # Source Code Python (Modular Architecture)
+│   ├── main.py                 # Entry point
+│   ├── app.py                  # Main application class (Physics simulator)
+│   ├── ball.py                 # Ball class (object model)
+│   ├── physics.py              # Physics engine (collision calculations)
+│   ├── ui_components.py        # UI components (control panels, plots)
+│   ├── constants.py            # Constants & configuration
+│   ├── code_snap.py            # Code snippet examples
+│   ├── momentum_2d.py          # Original monolithic version (972 lines)
+│   └── __init__.py             # Package initialization
 │
 ├── 🔨 build/                    # Build Scripts
 │   ├── html_helpers.py         # HTML generation utilities
@@ -89,6 +97,7 @@ fisika/
 ├── 📖 docs_source/              # Learning Materials
 │   └── examples/
 │
+├── 📄 UAS Fisika.docx           # UAS documentation (Word)
 ├── start-server.bat            # One-click documentation server
 ├── README.md                   # This file
 └── .gitignore                  # Git ignore rules
@@ -125,8 +134,15 @@ fisika/
 
 ### 1️⃣ Menjalankan Simulasi Fisika
 
+**Opsi A: Modular Version** ⭐ **RECOMMENDED**
 ```bash
-# Langsung jalankan aplikasi
+# Jalankan dari entry point (modular architecture)
+py src/main.py
+```
+
+**Opsi B: Monolithic Version**
+```bash
+# Jalankan versi original (single file)
 py src/momentum_2d.py
 ```
 
@@ -244,6 +260,84 @@ Output: `dist/python_learning_complete.html` (dapat dibuka tanpa server)
 - Defensive programming
 - Data structure selection
 - Python idioms
+
+---
+
+## 🏛️ Modular Architecture
+
+Proyek ini telah di-refactor dari **monolithic** (single file 972 lines) menjadi **modular architecture** untuk meningkatkan maintainability dan scalability.
+
+### 📁 File Structure
+
+#### 🎯 `main.py` - Entry Point
+```python
+# Entry point sederhana
+from src.app import PhysicsSimulator
+if __name__ == "__main__":
+    app = PhysicsSimulator()
+    app.run()
+```
+
+#### 🎮 `app.py` - Main Application
+- **Class**: `PhysicsSimulator`
+- **Responsibility**: Orchestrating aplikasi, managing simulation loop
+- **Lines**: ~600 lines
+- **Key methods**: `__init__()`, `run()`, `update()`, `handle_collisions()`
+
+#### ⚽ `ball.py` - Ball Model
+- **Class**: `Ball`
+- **Responsibility**: Representing ball objects dengan properties fisik
+- **Lines**: ~150 lines
+- **Key methods**: `__init__()`, `update_position()`, `draw()`, `draw_trail()`
+
+#### 🔬 `physics.py` - Physics Engine
+- **Functions**: Physics computation (collision detection, impulse calculation)
+- **Responsibility**: Pure physics calculations (stateless)
+- **Lines**: ~200 lines
+- **Key functions**: `detect_collision()`, `calculate_impulse()`, `apply_collision()`
+
+#### 🎨 `ui_components.py` - UI Components
+- **Classes**: `ControlPanel`, `PlotManager`
+- **Responsibility**: User interface (Tkinter controls, Matplotlib plots)
+- **Lines**: ~230 lines
+- **Key methods**: `create_controls()`, `update_plots()`
+
+#### ⚙️ `constants.py` - Configuration
+- **Constants**: Application-wide constants
+- **Responsibility**: Centralized configuration
+- **Lines**: ~20 lines
+- **Examples**: `CANVAS_WIDTH`, `CANVAS_HEIGHT`, `GRAVITY`, `FPS`
+
+### ✅ Benefits of Modular Architecture
+
+1. **Separation of Concerns**: Setiap file punya tanggung jawab yang jelas
+2. **Easier Maintenance**: Bug fixing lebih mudah karena lokasi issue jelas
+3. **Better Testing**: Setiap modul bisa di-test secara independent
+4. **Reusability**: Components bisa di-reuse di project lain
+5. **Team Collaboration**: Multiple developers bisa work on different files
+6. **Scalability**: Lebih mudah untuk menambah fitur baru
+
+### 🔄 Migration Path
+
+**Original**: `momentum_2d.py` (972 lines) - Monolithic
+```
+[All code in one file]
+- Hard to navigate
+- Difficult to maintain
+- Challenging to test
+```
+
+**Refactored**: Modular Architecture
+```
+main.py (entry point)
+  └─ app.py (orchestration)
+      ├─ ball.py (model)
+      ├─ physics.py (calculations)
+      ├─ ui_components.py (view)
+      └─ constants.py (config)
+```
+
+**Note**: File `momentum_2d.py` tetap tersedia untuk backward compatibility dan referensi pembelajaran.
 
 ---
 
@@ -393,11 +487,14 @@ Dibuat dengan ❤️ untuk pembelajaran Python
 
 ## � Project Stats
 
-- **Total Lines**: 972 (Python application)
+- **Modular Architecture**: 6 core modules (main, app, ball, physics, ui_components, constants)
+- **Total Lines (Modular)**: ~1,200 lines (distributed across modules)
+- **Total Lines (Monolithic)**: 972 lines (momentum_2d.py - untuk referensi)
 - **Documentation Sections**: 8
 - **Code Examples**: 50+
 - **File Size Reduction**: 97% (3098 → 116 lines in index.html)
-- **Architecture**: Modular & scalable
+- **Architecture Pattern**: MVC-inspired separation
+- **Code Reusability**: ⭐⭐⭐⭐⭐
 
 ---
 
@@ -406,8 +503,9 @@ Dibuat dengan ❤️ untuk pembelajaran Python
 Jika ada pertanyaan atau menemukan bug:
 1. Lihat **Troubleshooting** section di atas
 2. Check `docs/CORS-FIX.md` untuk documentation issues
-3. Review code comments di `src/momentum_2d.py`
-4. Open an issue di repository
+3. Review code comments di `src/momentum_2d.py` atau module files
+4. Check `UAS Fisika.docx` untuk dokumentasi teknis
+5. Open an issue di repository
 
 ---
 
