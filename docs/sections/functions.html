@@ -112,18 +112,29 @@ output = function_name(input_value)</code></pre>
           <button class="copy-btn bg-blue-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
             <i class="fas fa-copy"></i>
           </button>
-          <pre class="rounded-lg"><code class="language-python"># Line 164-172 - Function dengan type hints
+          <pre class="rounded-lg"><code class="language-python"># ball.py - Function dengan type hints dan docstring lengkap
 def move(self, time_step: float) -> None:
     """
     Gerakkan bola berdasarkan kecepatan dan waktu.
     
-    Parameter:
+    Parameters:
     -----------
     time_step : float
         Delta waktu (detik)
     """
     # Update posisi: s = s₀ + v·Δt
-    self.position += self.velocity * time_step</code></pre>
+    self.position += self.velocity * time_step
+    
+    # Konversi ke piksel untuk visual
+    pixels_x = self.position[0] / self.pixels_to_meters
+    pixels_y = self.position[1] / self.pixels_to_meters
+    
+    # Simpan posisi untuk jejak
+    self.trail_points.append((pixels_x, pixels_y))
+    
+    # Update visual
+    self.draw_trail()
+    self.update_visual_position()</code></pre>
         </div>
       </div>
 
@@ -160,12 +171,31 @@ def move(self, time_step: float) -> None:
           <button class="copy-btn bg-green-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
             <i class="fas fa-copy"></i>
           </button>
-          <pre class="rounded-lg"><code class="language-python"># Line 832-833 - Function docstring
-def _handle_collision(self) -> None:
-    """Deteksi dan tangani tumbukan antara ball_1 dan ball_2."""
-    # Implementation...
+          <pre class="rounded-lg"><code class="language-python"># physics.py - Function docstring dengan Parameters dan Returns
+def calculate_collision(ball_1: Ball, ball_2: Ball, 
+                       restitution: float,
+                       contact_tracker: Dict[str, Any]) -> Tuple[float, float]:
+    """
+    Deteksi dan tangani tumbukan antara dua bola.
+    
+    Parameters:
+    -----------
+    ball_1 : Ball
+        Bola pertama
+    ball_2 : Ball
+        Bola kedua
+    restitution : float
+        Koefisien restitusi (0.0 - 1.0)
+    contact_tracker : dict
+        Dictionary untuk tracking kontak tumbukan
+        
+    Returns:
+    --------
+    Tuple[float, float]
+        (gaya_tumbukan, impuls_selesai)
+    """
 
-# Line 28-48 - Class docstring dengan ATRIBUT
+# ball.py - Class docstring dengan ATRIBUT
 class Ball:
     """
     Representasi objek bola dalam simulasi fisika.
@@ -182,6 +212,8 @@ class Ball:
         Posisi [x, y] dalam meter
     velocity : np.array
         Kecepatan [vx, vy] dalam m/s
+    trail_points : deque
+        Queue titik-titik jejak bola
     """</code></pre>
         </div>
       </div>
@@ -210,7 +242,7 @@ class Ball:
             <button class="copy-btn bg-purple-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
               <i class="fas fa-copy"></i>
             </button>
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 127-132 - Instance method
+            <pre class="rounded-lg text-sm"><code class="language-python"># ball.py - Instance method
 def draw_trail(self) -> None:
     """Menggambar jejak pergerakan bola."""
     for trail_id in self.trail_ids:
@@ -225,7 +257,7 @@ def draw_trail(self) -> None:
             <button class="copy-btn bg-blue-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
               <i class="fas fa-copy"></i>
             </button>
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 292 - Private method (convention)
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - Private method (convention)
 def _setup_user_interface(self) -> None:
     """Setup seluruh komponen UI."""
     # _ prefix = internal use only</code></pre>
@@ -251,23 +283,23 @@ def _setup_user_interface(self) -> None:
           <button class="copy-btn bg-orange-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
             <i class="fas fa-copy"></i>
           </button>
-          <pre class="rounded-lg"><code class="language-python"># Line 513-517 - Button callback
+          <pre class="rounded-lg"><code class="language-python"># ui_components.py - Button callback
 ttk.Button(
     frame_buttons, 
     text="▶️ START", 
-    command=self.start_simulation  # ← Callback function
+    command=start_callback  # ← Callback function
 ).pack(...)
 
-# Line 492 - Scale callback
-self.position_y_slider_1 = ttk.Scale(
+# ui_components.py - Scale callback
+position_y_slider_1 = ttk.Scale(
     container, 
     from_=-200, 
     to=200, 
-    command=self._on_slider_moved  # ← Called when slider moves
+    command=on_slider_moved  # ← Called when slider moves
 )
 
-# Line 392 - Event binding callback
-self.combo_mode.bind("<<ComboboxSelected>>", self._on_mode_changed)</code></pre>
+# ui_components.py - Event binding callback
+combo_mode.bind("<<ComboboxSelected>>", on_change_callback)</code></pre>
         </div>
 
         <div class="callout success">
@@ -289,17 +321,17 @@ self.combo_mode.bind("<<ComboboxSelected>>", self._on_mode_changed)</code></pre>
           <button class="copy-btn bg-indigo-500 text-white px-3 py-1 rounded text-sm" onclick="copyCode(this)">
             <i class="fas fa-copy"></i>
           </button>
-          <pre class="rounded-lg"><code class="language-python"># Line 426-463 - Nested helper function
-def _create_ball_input_row(self, parent, title, mass_attr, ...):
+          <pre class="rounded-lg"><code class="language-python"># ui_components.py - Nested helper function
+def create_ball_input_row(parent, owner, title, mass_attr, ...):
     """Membuat baris input untuk parameter satu bola."""
     
-    # Helper function DIDALAM method
+    # Helper function DIDALAM function  
     def create_entry(label: str, default: str, attr_name: str):
         ttk.Label(frame_inputs, text=label).pack(side=tk.LEFT)
         entry = ttk.Entry(frame_inputs, width=5)
         entry.insert(0, default)
         entry.pack(side=tk.LEFT, padx=(0, 5))
-        setattr(self, attr_name, entry)
+        setattr(owner, attr_name, entry)
     
     # Use the helper
     create_entry("m (kg):", mass_default, mass_attr)

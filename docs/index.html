@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tutorial Python lengkap dengan 972 baris kode real dari aplikasi fisika">
-  <title>Master Python - Tutorial Lengkap 972 Baris</title>
+  <meta name="description"
+    content="Tutorial Python lengkap dengan 1200+ baris kode modular dari aplikasi simulasi fisika">
+  <title>Master Python - Tutorial Lengkap Modular Architecture</title>
 
   <!-- External CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -37,25 +38,180 @@
 <body class="bg-gray-50 dark:bg-gray-900">
 
   <!-- NAVIGATION -->
-  <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-md z-50">
+  <nav
+    class="fixed top-0 w-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300">
     <div class="container mx-auto px-6 py-4">
       <div class="flex justify-between items-center">
-        <h1 class="text-2xl font-bold gradient-text">
-          <i class="fas fa-python mr-2"></i>Python Complete
-        </h1>
-        <div class="hidden md:flex items-center space-x-4 text-sm">
-          <a href="#data-types" class="hover:text-purple-600 transition-colors">Data</a>
-          <a href="#functions" class="hover:text-purple-600 transition-colors">Functions</a>
-          <a href="#loops" class="hover:text-purple-600 transition-colors">Loops</a>
-          <a href="#oop" class="hover:text-purple-600 transition-colors">OOP</a>
-          <a href="#structure" class="hover:text-purple-600 transition-colors">Structure</a>
-          <a href="#clean-code" class="hover:text-purple-600 transition-colors">Clean</a>
-          <a href="#best-practices" class="hover:text-purple-600 transition-colors">Best</a>
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300">
+          <i class="fas fa-python mr-2 animate-pulse"></i>Python Complete
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-4">
+          <!-- Python Basics Dropdown -->
+          <div class="relative dropdown-container">
+            <button
+              class="dropdown-trigger px-3 py-2 rounded-lg hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center gap-1 text-sm font-medium">
+              <i class="fas fa-book mr-1"></i>Python Basics
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div
+              class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 hidden opacity-0 transform scale-95 transition-all duration-200">
+
+              <a href="#data-types"
+                class="block px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all">
+                <i class="fas fa-database mr-2"></i>Data Types
+              </a>
+              <a href="#functions"
+                class="block px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all">
+                <i class="fas fa-code mr-2"></i>Functions
+              </a>
+              <a href="#loops"
+                class="block px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white rounded-b-lg transition-all">
+                <i class="fas fa-sync mr-2"></i>Loops
+              </a>
+            </div>
+          </div>
+
+          <!-- Advanced Topics Dropdown -->
+          <div class="relative dropdown-container">
+            <button
+              class="dropdown-trigger px-3 py-2 rounded-lg hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center gap-1 text-sm font-medium">
+              <i class="fas fa-rocket mr-1"></i>Advanced
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div
+              class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 hidden opacity-0 transform scale-95 transition-all duration-200">
+              <a href="#oop"
+                class="block px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white rounded-t-lg transition-all">
+                <i class="fas fa-cube mr-2"></i>OOP
+              </a>
+              <a href="#structure"
+                class="block px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white rounded-b-lg transition-all">
+                <i class="fas fa-sitemap mr-2"></i>Structure
+              </a>
+            </div>
+          </div>
+
+          <!-- Code Quality Dropdown -->
+          <div class="relative dropdown-container">
+            <button
+              class="dropdown-trigger px-3 py-2 rounded-lg hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center gap-1 text-sm font-medium">
+              <i class="fas fa-award mr-1"></i>Quality
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div
+              class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 hidden opacity-0 transform scale-95 transition-all duration-200">
+              <a href="#clean-code"
+                class="block px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white rounded-t-lg transition-all">
+                <i class="fas fa-broom mr-2"></i>Clean Code
+              </a>
+              <a href="#best-practices"
+                class="block px-4 py-2 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white rounded-b-lg transition-all">
+                <i class="fas fa-star mr-2"></i>Best Practices
+              </a>
+            </div>
+          </div>
+
+          <!-- Physics App Link (Direct) -->
+          <a href="#physics"
+            class="px-3 py-2 rounded-lg hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 transform hover:scale-105 text-sm font-medium">
+            <i class="fas fa-flask mr-1"></i>Physics App
+          </a>
+
+          <!-- Dark Mode Toggle -->
           <button id="darkModeToggle"
-            class="p-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            class="p-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-110 shadow-md">
             <i class="fas fa-moon"></i>
           </button>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuToggle"
+          class="md:hidden p-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 transition-all duration-300">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-2 animate-fadeIn">
+        <!-- Python Basics Section -->
+        <div class="mobile-dropdown-section">
+          <button
+            class="mobile-category-toggle w-full px-4 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold flex items-center justify-between transition-all duration-300">
+            <span><i class="fas fa-book mr-2"></i>Python Basics</span>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden mt-1 ml-4 space-y-1">
+            <a href="#intro-theory"
+              class="mobile-nav-link block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+              <i class="fas fa-lightbulb mr-2"></i>Intro & Theory
+            </a>
+            <a href="#data-types"
+              class="mobile-nav-link block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+              <i class="fas fa-database mr-2"></i>Data Types
+            </a>
+            <a href="#functions"
+              class="mobile-nav-link block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+              <i class="fas fa-code mr-2"></i>Functions
+            </a>
+            <a href="#loops"
+              class="mobile-nav-link block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+              <i class="fas fa-sync mr-2"></i>Loops
+            </a>
+          </div>
+        </div>
+
+        <!-- Advanced Topics Section -->
+        <div class="mobile-dropdown-section">
+          <button
+            class="mobile-category-toggle w-full px-4 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold flex items-center justify-between transition-all duration-300">
+            <span><i class="fas fa-rocket mr-2"></i>Advanced Topics</span>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden mt-1 ml-4 space-y-1">
+            <a href="#oop"
+              class="mobile-nav-link block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+              <i class="fas fa-cube mr-2"></i>OOP
+            </a>
+            <a href="#structure"
+              class="mobile-nav-link block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+              <i class="fas fa-sitemap mr-2"></i>Structure
+            </a>
+          </div>
+        </div>
+
+        <!-- Code Quality Section -->
+        <div class="mobile-dropdown-section">
+          <button
+            class="mobile-category-toggle w-full px-4 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold flex items-center justify-between transition-all duration-300">
+            <span><i class="fas fa-award mr-2"></i>Code Quality</span>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden mt-1 ml-4 space-y-1">
+            <a href="#clean-code"
+              class="mobile-nav-link block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+              <i class="fas fa-broom mr-2"></i>Clean Code
+            </a>
+            <a href="#best-practices"
+              class="mobile-nav-link block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+              <i class="fas fa-star mr-2"></i>Best Practices
+            </a>
+          </div>
+        </div>
+
+        <!-- Physics App (Direct Link) -->
+        <a href="#physics"
+          class="mobile-nav-link block px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300">
+          <i class="fas fa-flask mr-2"></i>Physics App
+        </a>
+
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggleMobile"
+          class="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-md">
+          <i class="fas fa-moon mr-2"></i>Toggle Dark Mode
+        </button>
       </div>
     </div>
   </nav>
@@ -65,10 +221,10 @@
     <div class="container mx-auto text-center">
       <h1 class="text-6xl font-bold mb-6">
         Master Python<br>
-        <span class="text-yellow-300">972 Baris Real Code</span>
+        <span class="text-yellow-300">1200+ Baris Modular Code</span>
       </h1>
       <p class="text-xl mb-8">
-        Belajar LENGKAP: Types, Functions, Loops, OOP, Structure, Clean Code, Best Practices
+        Belajar LENGKAP: Types, Functions, Loops, OOP, <strong>Modular Architecture</strong>, Clean Code, Best Practices
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="#data-types"
@@ -90,10 +246,11 @@
 
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-gray-300 py-12 text-center">
-    <p class="text-xl mb-2">Python Learning - 972 Lines of Real Code</p>
-    <p class="text-sm">All examples from actual physics simulation application</p>
+    <p class="text-xl mb-2">Python Learning - 1200+ Lines of Modular Code</p>
+    <p class="text-sm">All examples from actual physics simulation application with 7 modular files</p>
     <p class="text-xs mt-4 text-gray-500">
-      Built with ❤️ using modular architecture
+      Built with ❤️ using modular architecture: main.py → app.py → ball.py + physics.py + ui_components.py +
+      constants.py
     </p>
   </footer>
 
@@ -104,6 +261,75 @@
 
   <!-- Load sections dynamically -->
   <script src="assets/js/section-loader.js"></script>
+
+  <!-- Dropdown Menu Functionality -->
+  <script>
+    // Desktop Dropdown Hover Functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdowns = document.querySelectorAll('.dropdown-container');
+
+      dropdowns.forEach(dropdown => {
+        const menu = dropdown.querySelector('.dropdown-menu');
+        let closeTimeout = null;
+
+        if (menu) {
+          // Function to show dropdown
+          const showDropdown = () => {
+            // Clear any pending close timeout
+            if (closeTimeout) {
+              clearTimeout(closeTimeout);
+              closeTimeout = null;
+            }
+            menu.classList.remove('hidden');
+            setTimeout(() => {
+              menu.classList.remove('opacity-0', 'scale-95');
+              menu.classList.add('opacity-100', 'scale-100');
+            }, 10);
+          };
+
+          // Function to hide dropdown
+          const hideDropdown = () => {
+            closeTimeout = setTimeout(() => {
+              menu.classList.remove('opacity-100', 'scale-100');
+              menu.classList.add('opacity-0', 'scale-95');
+              setTimeout(() => menu.classList.add('hidden'), 300);
+            }, 200);
+          };
+
+          // Show dropdown when hovering over container (trigger button)
+          dropdown.addEventListener('mouseenter', showDropdown);
+
+          // Hide dropdown when leaving container
+          dropdown.addEventListener('mouseleave', hideDropdown);
+
+          // Keep dropdown open when hovering over the menu itself
+          menu.addEventListener('mouseenter', showDropdown);
+
+          // Hide dropdown when leaving the menu
+          menu.addEventListener('mouseleave', hideDropdown);
+        }
+      });
+
+      // Mobile Category Toggle Functionality
+      const categoryToggles = document.querySelectorAll('.mobile-category-toggle');
+
+      categoryToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          const icon = toggle.querySelector('.fa-chevron-down');
+
+          if (content && content.classList.contains('mobile-dropdown-content')) {
+            content.classList.toggle('hidden');
+            if (icon) {
+              icon.style.transform = content.classList.contains('hidden')
+                ? 'rotate(0deg)'
+                : 'rotate(180deg)';
+            }
+          }
+        });
+      });
+    });
+  </script>
 
   <!-- Main interactive features -->
   <script src="assets/js/main.js"></script>

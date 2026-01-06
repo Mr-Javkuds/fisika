@@ -159,12 +159,16 @@
               onclick="copyCode(this)">
               <i class="fas fa-copy mr-1"></i>Copy
             </button>
-            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 218
+            <pre class="rounded-lg"><code class="language-python"># constants.py - Integer constants
 BALL_RADIUS_PIXELS = 20
+TRAIL_MAX_LENGTH = 30
+TRAIL_POINT_MIN_SIZE = 2
+TRAIL_POINT_MAX_SIZE = 5
+GRID_STEP_PIXELS = 50
+BALL_BORDER_WIDTH = 2
 
-# Konversi ke int
-frame_delay = int(TIME_STEP * 1000)
-# TIME_STEP = 0.02 → 20ms</code></pre>
+# app.py - Konversi ke int
+frame_delay = int(TIME_STEP * 1000)  # 0.02 * 1000 = 20ms</code></pre>
           </div>
         </div>
 
@@ -180,12 +184,14 @@ frame_delay = int(TIME_STEP * 1000)
               onclick="copyCode(this)">
               <i class="fas fa-copy mr-1"></i>Copy
             </button>
-            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 218-219
-PIXELS_TO_METERS = 0.01  # float literal
-TIME_STEP = 0.02
+            <pre class="rounded-lg"><code class="language-python"># constants.py - Float constants
+PIXELS_TO_METERS = 0.01  # 1 px = 0.01 m
+TIME_STEP = 0.02  # 20 ms per frame
+COLLISION_DURATION = 0.05  # Asumsi durasi tumbukan (s)
 
-# Type conversion
-mass = float(entry_mass.get())  # "2.0" → 2.0</code></pre>
+# app.py - Type conversion from user input
+mass_1 = float(self.entry_mass_1.get())  # "2.0" → 2.0
+velocity_1_x = float(self.entry_velocity_1_x.get())</code></pre>
           </div>
         </div>
 
@@ -201,11 +207,11 @@ mass = float(entry_mass.get())  # "2.0" → 2.0</code></pre>
               onclick="copyCode(this)">
               <i class="fas fa-copy mr-1"></i>Copy
             </button>
-            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 103, 858
-self.mass = float(mass)  # Ensure float type
+            <pre class="rounded-lg"><code class="language-python"># ball.py - Ensure float type
+self.mass = float(mass)
 
-# String to float
-e = float(self.restitution_coefficient.get())</code></pre>
+# app.py - String to float from combobox
+restitution = float(self.restitution_coefficient.get())</code></pre>
           </div>
         </div>
       </div>
@@ -237,14 +243,16 @@ e = float(self.restitution_coefficient.get())</code></pre>
               onclick="copyCode(this)">
               <i class="fas fa-copy mr-1"></i>Copy
             </button>
-            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 223-225
-BALL_1_COLOR = "#e63946"  # Hex color code
-BALL_2_COLOR = "#457b9d"
+            <pre class="rounded-lg"><code class="language-python"># constants.py - Color and visual constants
+BALL_1_COLOR = "#e63946"  # Merah
+BALL_2_COLOR = "#457b9d"  # Biru
+CENTER_OF_MASS_COLOR = "#2a9d8f"  # Hijau tosca
 CANVAS_BG_COLOR = "#f5f5f5"
+GRID_COLOR = "#e0e0e0"
 
-# Unicode emoji dalam strings
-ttk.Label(text="⚙️ Parameter Fisika")
-ttk.Button(text="▶️ START")</code></pre>
+# app.py - UI labels dengan emoji
+ttk.Label(left_panel, text="Visualisasi Area Tumbukan", font=("Segoe UI", 11, "bold"))
+self.root.title("Simulasi Tumbukan Interaktif - Physics Engine v2.0")</code></pre>
           </div>
         </div>
 
@@ -255,7 +263,7 @@ ttk.Button(text="▶️ START")</code></pre>
               onclick="copyCode(this)">
               <i class="fas fa-copy mr-1"></i>Copy
             </button>
-            <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 909-912
+            <pre class="rounded-lg"><code class="language-python"># app.py - F-strings for real-time display
 # Modern Python string formatting dengan f-strings
 txt = (
     f"t: {self.simulation_time:.2f}s | "
@@ -308,22 +316,22 @@ txt = (
             onclick="copyCode(this)">
             <i class="fas fa-copy mr-1"></i>Copy
           </button>
-          <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 247-249 - State Flags
+          <pre class="rounded-lg"><code class="language-python"># app.py - State Flags
 self.is_running = False
 self.is_paused = False
 
-# Dari kode: Line 263 - Dictionary values
+# app.py - Dictionary with boolean values
 self.contact_tracker = {
     "in_contact": False,  # Boolean flag
     "impulse_accumulated": 0.0,
     "force_samples": []
 }
 
-# Penggunaan dalam conditional
-if not self.is_running:  # Line 786
+# app.py - Penggunaan dalam conditional
+if not self.is_running:
     return
 
-if self.is_paused:  # Line 789
+if self.is_paused:
     # ...schedule next check</code></pre>
         </div>
 
@@ -359,14 +367,14 @@ if self.is_paused:  # Line 789
                 onclick="copyCode(this)">
                 <i class="fas fa-copy mr-1"></i>Copy
               </button>
-              <pre class="rounded-lg"><code class="language-python"># Dari kode: Line 802 - Iterate over balls
+              <pre class="rounded-lg"><code class="language-python"># app.py - Iterate over ball tuple
 for b in (self.ball_1, self.ball_2):
     # b adalah reference ke Ball object
 
-# Dari kode: Line 385-386 - Combobox values
+# ui_components.py - Combobox values
 values=["1D", "2D (semi)"]
 
-# Menyimpan time series data
+# app.py - Menyimpan time series data
 self.time_log = []  # Empty list
 self.force_log = []
 self.momentum_log = []</code></pre>
@@ -380,17 +388,17 @@ self.momentum_log = []</code></pre>
                 onclick="copyCode(this)">
                 <i class="fas fa-copy mr-1"></i>Copy
               </button>
-              <pre class="rounded-lg"><code class="language-python"># Append - menambah di akhir
-self.time_log.append(self.simulation_time)  # Line 901
+              <pre class="rounded-lg"><code class="language-python"># app.py - Append to log
+self.time_log.append(self.simulation_time)
 
-# Access dengan index
-last_momentum = self.momentum_log[-1]  # Index negatif
+# app.py - Access dengan index negatif
+last_momentum = self.momentum_log[-1]
 
-# Clear all elements
-self.time_log.clear()  # Line 690
+# app.py - Clear all elements
+self.time_log.clear()
 
-# Iterate dengan index
-for i in range(len(self.time_log)):  # Line 954
+# app.py - Iterate dengan index for CSV export
+for i in range(len(self.time_log)):
     value = self.time_log[i]</code></pre>
             </div>
           </div>

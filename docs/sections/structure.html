@@ -140,21 +140,33 @@
         <div class="code-block mb-4">
           <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
-          <pre class="rounded-lg"><code class="language-python"># Line 14-21 - Organized imports
+          <pre class="rounded-lg"><code class="language-python"># app.py - Organized imports
 # 1. Standard library imports first (Library standar duluan)
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
-import csv
-from collections import deque
-from typing import Tuple, Optional
-
-# 2. Third-party imports second
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import csv
+from typing import Optional
 
-# 3. Local imports last (if any)
-# from mymodule import MyClass</code></pre>
+# 2. Local imports (modular structure)
+from constants import (
+    PIXELS_TO_METERS, TIME_STEP, COLLISION_DURATION,
+    BALL_RADIUS_PIXELS, BALL_1_COLOR, BALL_2_COLOR,
+    CANVAS_BG_COLOR, GRID_COLOR, GRID_STEP_PIXELS,
+    CENTER_OF_MASS_COLOR
+)
+from ball import Ball
+from physics import (
+    calculate_collision, handle_wall_bounce,
+    calculate_center_of_mass, calculate_physics_data
+)
+from ui_components import (
+    create_mode_selector, create_restitution_selector,
+    create_ball_input_row, create_position_sliders,
+    create_control_buttons, create_info_panel
+)</code></pre>
         </div>
 
         <div class="callout tip">
@@ -255,13 +267,14 @@ def _setup_user_interface(self):</code></pre>
           <div class="code-block">
             <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
               onclick="copyCode(this)">Copy</button>
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 24-26
+            <pre class="rounded-lg text-sm"><code class="language-python"># ball.py - Section Headers
 # ==========================================
 # KELAS BOLA (Ball Object)
 # ==========================================
 
-# Line 217
-# ===== KONSTANTA FISIKA =====</code></pre>
+# constants.py - Logical grouping
+# ===== KONSTANTA FISIKA =====
+# ===== KONSTANTA VISUAL BOLA =====</code></pre>
           </div>
         </div>
 
@@ -270,11 +283,11 @@ def _setup_user_interface(self):</code></pre>
           <div class="code-block">
             <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
               onclick="copyCode(this)">Copy</button>
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 173
+            <pre class="rounded-lg text-sm"><code class="language-python"># ball.py - Physics formula comment
 # Update posisi: s = s₀ + v·Δt
 self.position += self.velocity * time_step
 
-# Line 844
+# physics.py - Quick explanation
 n = pos_diff / (dist + 1e-9)  # Normalisasi</code></pre>
           </div>
         </div>
@@ -291,34 +304,156 @@ n = pos_diff / (dist + 1e-9)  # Normalisasi</code></pre>
       </div>
     </div>
 
+    <!-- Modular Architecture -->
+    <div class="mb-12">
+      <h3 class="text-3xl font-bold mb-6">📂 Modular Architecture (7 Files)</h3>
+
+      <div
+        class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-xl mb-6">
+        <p class="text-lg mb-4">Kode terorganisir dalam <strong>7 file modular</strong> dengan separation of concerns
+          yang jelas:</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <!-- main.py -->
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+            <h5 class="font-bold text-blue-600 dark:text-blue-400 mb-2">📄 main.py <span
+                class="text-xs text-gray-500">(~20 lines)</span></h5>
+            <p class="text-sm mb-2">Entry point aplikasi</p>
+            <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+              from app import CollisionSimulatorApp<br>
+              root = tk.Tk()<br>
+              app = CollisionSimulatorApp(root)
+            </code>
+          </div>
+
+          <!-- constants.py -->
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+            <h5 class="font-bold text-green-600 dark:text-green-400 mb-2">⚙️ constants.py <span
+                class="text-xs text-gray-500">(~28 lines)</span></h5>
+            <p class="text-sm mb-2">Konstanta fisika & visual</p>
+            <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+              PIXELS_TO_METERS = 0.01<br>
+              TIME_STEP = 0.02<br>
+              BALL_RADIUS_PIXELS = 20
+            </code>
+          </div>
+
+          <!-- ball.py -->
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+            <h5 class="font-bold text-red-600 dark:text-red-400 mb-2">🔴 ball.py <span
+                class="text-xs text-gray-500">(~162 lines)</span></h5>
+            <p class="text-sm mb-2">Class Ball (object bola)</p>
+            <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+              class Ball:<br>
+              &nbsp;&nbsp;def move(self, time_step)<br>
+              &nbsp;&nbsp;def draw_trail(self)
+            </code>
+          </div>
+
+          <!-- physics.py -->
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+            <h5 class="font-bold text-purple-600 dark:text-purple-400 mb-2">⚛️ physics.py <span
+                class="text-xs text-gray-500">(~182 lines)</span></h5>
+            <p class="text-sm mb-2">Logika fisika tumbukan</p>
+            <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+              calculate_collision()<br>
+              handle_wall_bounce()<br>
+              calculate_physics_data()
+            </code>
+          </div>
+
+          <!-- ui_components.py -->
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+            <h5 class="font-bold text-orange-600 dark:text-orange-400 mb-2">🎨 ui_components.py <span
+                class="text-xs text-gray-500">(~287 lines)</span></h5>
+            <p class="text-sm mb-2">Helper UI components</p>
+            <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+              create_mode_selector()<br>
+              create_ball_input_row()<br>
+              create_control_buttons()
+            </code>
+          </div>
+
+          <!-- app.py -->
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+            <h5 class="font-bold text-cyan-600 dark:text-cyan-400 mb-2">🚀 app.py <span
+                class="text-xs text-gray-500">(~555 lines)</span></h5>
+            <p class="text-sm mb-2">Aplikasi utama (Controller)</p>
+            <code class="text-xs block bg-gray-100 dark:bg-gray-700 p-2 rounded">
+              class CollisionSimulatorApp:<br>
+              &nbsp;&nbsp;def start_simulation()<br>
+              &nbsp;&nbsp;def _run_loop()
+            </code>
+          </div>
+        </div>
+
+        <!-- Dependency Diagram -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+          <h5 class="font-bold text-lg mb-4 text-center">🔗 Dependencies Flow</h5>
+          <div class="text-center text-sm">
+            <code class="block p-4 bg-gray-100 dark:bg-gray-700 rounded-lg font-mono">
+              main.py → app.py → ball.py + physics.py + ui_components.py<br>
+                                ↓<br>
+                          constants.py (shared)
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="callout success">
+          <h4 class="font-bold mb-2">✅ Manfaat Modular Architecture</h4>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Single Responsibility:</strong> Each file has one job</li>
+            <li>• <strong>Easy Testing:</strong> Test komponen secara terpisah</li>
+            <li>• <strong>Reusability:</strong> Import ball.py di project lain</li>
+            <li>• <strong>Maintainability:</strong> Bug di physics.py? Cari di satu file</li>
+          </ul>
+        </div>
+        <div class="callout tip">
+          <h4 class="font-bold mb-2">💡 Import Pattern</h4>
+          <div class="code-block">
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - importing local modules
+from constants import PIXELS_TO_METERS
+from ball import Ball
+from physics import calculate_collision
+from ui_components import create_mode_selector</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Code Grouping -->
     <div class="mb-12">
-      <h3 class="text-3xl font-bold mb-6">📂 Logical Code Grouping</h3>
+      <h3 class="text-3xl font-bold mb-6">📋 File-by-File Structure</h3>
 
       <div
         class="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 p-6 rounded-xl">
-        <p class="text-lg mb-4">Kode terorganisir dalam sections yang jelas:</p>
+        <p class="text-lg mb-4">Setiap file terorganisir dalam sections yang jelas:</p>
 
         <div class="grid md:grid-cols-2 gap-4">
           <div>
-            <h5 class="font-bold mb-2">CollisionSimulatorApp Structure</h5>
+            <h5 class="font-bold mb-2">app.py Structure (~555 lines)</h5>
             <ul class="text-sm space-y-1">
-              <li>• Constants (Lines 217-231)</li>
-              <li>• __init__ (Lines 233-277)</li>
-              <li>• Setup UI Methods (Lines 289-560)</li>
-              <li>• Event Handlers (Lines 562-623)</li>
-              <li>• Visual Helpers (Lines 625-680)</li>
-              <li>• Core Simulation (Lines 682-891)</li>
-              <li>• Data Export (Lines 939-963)</li>
+              <li>• Imports (Lines 1-30)</li>
+              <li>• Class Definition (Lines 33-555)</li>
+              <li>• __init__ (Lines 59-103)</li>
+              <li>• Setup UI Methods (Lines 115-230)</li>
+              <li>• Event Handlers (Lines 234-293)</li>
+              <li>• Visual Helpers (Lines 298-343)</li>
+              <li>• Core Simulation (Lines 348-528)</li>
+              <li>• Data Export (Lines 530-555)</li>
             </ul>
           </div>
           <div>
-            <h5 class="font-bold mb-2">Manfaat Pengelompokan</h5>
+            <h5 class="font-bold mb-2">ball.py Structure (~162 lines)</h5>
             <ul class="text-sm space-y-1">
-              <li>✓ Easy to find related code</li>
-              <li>✓ Clear separation of concerns</li>
-              <li>✓ Easier maintenance</li>
-              <li>✓ Better readability</li>
+              <li>• Imports & Constants (Lines 1-15)</li>
+              <li>• Class Ball (Lines 18-162)</li>
+              <li>• __init__ (Lines 42-101)</li>
+              <li>• draw_trail() (Lines 103-125)</li>
+              <li>• update_visual_position() (Lines 127-138)</li>
+              <li>• move() (Lines 140-162)</li>
             </ul>
           </div>
         </div>

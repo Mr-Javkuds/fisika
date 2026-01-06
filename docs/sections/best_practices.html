@@ -19,7 +19,7 @@
         <div class="code-block mb-4">
           <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
-          <pre class="rounded-lg"><code class="language-python"># Line 951 - File I/O with context manager
+          <pre class="rounded-lg"><code class="language-python"># app.py - File I/O with context manager
 with open(path, "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["t (s)", "F (N)", "P_total (kg·m/s)", "KE_total (J)"])
@@ -69,11 +69,11 @@ dist = sqrt(dx*dx + dy*dy)</code></pre>
         <div class="comparison-box good">
           <h4 class="font-bold text-green-600 mb-3">✅ Cepat: Sekaligus (Vektor)</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 174 - Vector operation (FAST!)
+            <pre class="rounded-lg text-sm"><code class="language-python"># ball.py - Vector operation (FAST!)
 self.position += self.velocity * dt
 # Operates on ENTIRE array at once
 
-# Line 838 - Vector distance (FAST!)
+# physics.py - Vector distance (FAST!)
 dist = np.linalg.norm(pos_diff)
 # Optimized C implementation</code></pre>
           </div>
@@ -100,7 +100,7 @@ dist = np.linalg.norm(pos_diff)
           <div>
             <h4 class="font-bold text-lg mb-3">Validasi Input</h4>
             <div class="code-block">
-              <pre class="rounded-lg text-sm"><code class="language-python"># Line 714-724 - Validate input
+              <pre class="rounded-lg text-sm"><code class="language-python"># app.py - Validate input
 try:
     mass = float(entry.get())
 except ValueError:
@@ -114,13 +114,13 @@ except ValueError:
           <div>
             <h4 class="font-bold text-lg mb-3">Cek Nilai Kosong</h4>
             <div class="code-block">
-              <pre class="rounded-lg text-sm"><code class="language-python"># Line 668 - Check if exists
+              <pre class="rounded-lg text-sm"><code class="language-python"># app.py - Check if exists
 if self.center_of_mass_id is None:
     # Create new
 else:
     # Update existing
 
-# Line 947 - Early exit if no path
+# app.py - Early exit if no path
 if not path:
     return</code></pre>
             </div>
@@ -147,8 +147,8 @@ if not path:
         <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
           <h4 class="font-bold text-lg mb-3">Deque untuk Buffer Tetap</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 113 - Sempurna untuk efek jejak (trails)
-self.trail_points = deque(maxlen=30)
+            <pre class="rounded-lg text-sm"><code class="language-python"># ball.py - Sempurna untuk efek jejak (trails)
+self.trail_points = deque(maxlen=TRAIL_MAX_LENGTH)
 
 # Otomatis hapus data terlama saat penuh
 self.trail_points.append(new_point)
@@ -160,11 +160,11 @@ self.trail_points.append(new_point)
         <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
           <h4 class="font-bold text-lg mb-3">Dict untuk Pencarian Cepat</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 262-266 - Pelacakan Status
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - Pelacakan Status
 contact_tracker = {
     "in_contact": False,
-    "impulse": 0.0,
-    "samples": []
+    "impulse_accumulated": 0.0,
+    "force_samples": []
 }
 # Akses dengan kunci: O(1)</code></pre>
           </div>
@@ -181,8 +181,8 @@ contact_tracker = {
         <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
           <h4 class="font-bold mb-3">Tuple Unpacking (Buka Bungkus)</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 135 - Buka tuple
-for index, (x, y) in enumerate(points):
+            <pre class="rounded-lg text-sm"><code class="language-python"># ball.py - Buka tuple dalam loop
+for index, (x, y) in enumerate(trail_points):
     # index, x, y semua tersedia
 
 # Multiple assignment (tukar posisi)
@@ -193,7 +193,7 @@ a, b = b, a  # Tukar nilai</code></pre>
         <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
           <h4 class="font-bold mb-3">Negative Indexing (Indeks Negatif)</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 909 - Elemen terakhir
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - Elemen terakhir dari log
 last = momentum_log[-1]
 
 # 5 elemen terakhir

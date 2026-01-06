@@ -18,6 +18,7 @@
 class DarkModeManager {
     constructor() {
         this.toggleBtn = document.getElementById('darkModeToggle');
+        this.toggleBtnMobile = document.getElementById('darkModeToggleMobile');
         this.html = document.documentElement;
         this.init();
     }
@@ -29,9 +30,12 @@ class DarkModeManager {
             this.html.classList.add('dark');
         }
 
-        // Add event listener
+        // Add event listeners for both desktop and mobile toggles
         if (this.toggleBtn) {
             this.toggleBtn.addEventListener('click', () => this.toggle());
+        }
+        if (this.toggleBtnMobile) {
+            this.toggleBtnMobile.addEventListener('click', () => this.toggle());
         }
     }
 
@@ -39,6 +43,52 @@ class DarkModeManager {
         this.html.classList.toggle('dark');
         const theme = this.html.classList.contains('dark') ? 'dark' : 'light';
         localStorage.setItem('theme', theme);
+    }
+}
+
+// =============================
+// MOBILE MENU FUNCTIONALITY
+// =============================
+class MobileMenuManager {
+    constructor() {
+        this.menuToggle = document.getElementById('mobileMenuToggle');
+        this.mobileMenu = document.getElementById('mobileMenu');
+        this.menuLinks = document.querySelectorAll('.mobile-nav-link');
+        this.init();
+    }
+
+    init() {
+        if (this.menuToggle && this.mobileMenu) {
+            // Toggle menu on button click
+            this.menuToggle.addEventListener('click', () => this.toggleMenu());
+
+            // Close menu when a link is clicked
+            this.menuLinks.forEach(link => {
+                link.addEventListener('click', () => this.closeMenu());
+            });
+        }
+    }
+
+    toggleMenu() {
+        this.mobileMenu.classList.toggle('hidden');
+
+        // Update icon
+        const icon = this.menuToggle.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+    }
+
+    closeMenu() {
+        this.mobileMenu.classList.add('hidden');
+
+        // Reset icon
+        const icon = this.menuToggle.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     }
 }
 
@@ -63,13 +113,13 @@ class CodeTabsManager {
 
         // Remove active state from all tabs
         this.tabs.forEach(tab => {
-            tab.classList.remove('active', 'border-purple-500', 'text-purple-600', 
+            tab.classList.remove('active', 'border-purple-500', 'text-purple-600',
                 'dark:text-purple-400', 'bg-purple-50', 'dark:bg-purple-900/30');
             tab.classList.add('text-gray-600', 'dark:text-gray-400');
         });
 
         // Add active state to clicked tab
-        clickedTab.classList.add('active', 'border-purple-500', 'text-purple-600', 
+        clickedTab.classList.add('active', 'border-purple-500', 'text-purple-600',
             'dark:text-purple-400', 'bg-purple-50', 'dark:bg-purple-900/30');
         clickedTab.classList.remove('text-gray-600', 'dark:text-gray-400');
 
@@ -116,7 +166,7 @@ class CopyCodeManager {
     showCopyFeedback(button) {
         const originalHTML = button.innerHTML;
         button.innerHTML = '<i class="fas fa-check mr-1"></i>Copied!';
-        
+
         setTimeout(() => {
             button.innerHTML = originalHTML;
         }, 2000);
@@ -137,7 +187,7 @@ class SmoothScrollManager {
                 e.preventDefault();
                 const targetId = anchor.getAttribute('href');
                 const target = document.querySelector(targetId);
-                
+
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
@@ -224,10 +274,10 @@ class AccordionManager {
     toggle(header) {
         const content = header.nextElementSibling;
         const icon = header.querySelector('.accordion-icon');
-        
+
         if (content && content.classList.contains('accordion-content')) {
             content.classList.toggle('active');
-            
+
             if (icon) {
                 icon.classList.toggle('fa-chevron-down');
                 icon.classList.toggle('fa-chevron-up');
@@ -250,7 +300,7 @@ class ComparisonSlider {
     init() {
         const slider = this.container.querySelector('.comparison-slider');
         const beforeCode = this.container.querySelector('.before-code');
-        
+
         if (slider && beforeCode) {
             slider.addEventListener('input', (e) => {
                 const value = e.target.value;
@@ -282,7 +332,7 @@ class SearchManager {
         sections.forEach(section => {
             const text = section.textContent.toLowerCase();
             const shouldShow = text.includes(lowerQuery);
-            
+
             section.style.display = shouldShow ? '' : 'none';
         });
     }
@@ -309,9 +359,9 @@ class TooltipManager {
         tooltip.className = 'tooltip-popup';
         tooltip.textContent = tooltipText;
         tooltip.id = 'active-tooltip';
-        
+
         document.body.appendChild(tooltip);
-        
+
         const rect = event.target.getBoundingClientRect();
         tooltip.style.position = 'absolute';
         tooltip.style.left = rect.left + 'px';
@@ -347,6 +397,7 @@ class App {
     initManagers() {
         try {
             this.managers.push(new DarkModeManager());
+            this.managers.push(new MobileMenuManager());
             this.managers.push(new CodeTabsManager());
             this.managers.push(new CopyCodeManager());
             this.managers.push(new SmoothScrollManager());
@@ -355,7 +406,7 @@ class App {
             this.managers.push(new AccordionManager());
             this.managers.push(new SearchManager());
             this.managers.push(new TooltipManager());
-            
+
             console.log('✅ All managers initialized successfully');
         } catch (error) {
             console.error('❌ Error initializing managers:', error);

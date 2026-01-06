@@ -16,27 +16,29 @@
     <div class="mb-16">
       <h3 class="text-3xl font-bold mb-8 text-center">🔄 Alur Program Simulasi</h3>
 
-      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl">
+      <!-- Visual Flow Diagram (FIRST) -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl mb-8">
+        <h4 class="text-xl font-bold mb-6 text-center">🔄 Diagram Alur Visual</h4>
         <div class="grid md:grid-cols-5 gap-4 text-center">
           <div class="bg-blue-100 dark:bg-blue-900/30 p-6 rounded-xl">
             <div class="text-4xl mb-3">1️⃣</div>
             <h4 class="font-bold mb-2">Initialization</h4>
             <p class="text-sm">Setup GUI, create Ball objects, set parameters</p>
-            <code class="text-xs">__init__()</code>
+            <code class="text-xs">app.py → __init__()</code>
           </div>
           <div class="text-3xl flex items-center justify-center">→</div>
           <div class="bg-green-100 dark:bg-green-900/30 p-6 rounded-xl">
             <div class="text-4xl mb-3">2️⃣</div>
             <h4 class="font-bold mb-2">Event Loop</h4>
             <p class="text-sm">Update positions every 20ms</p>
-            <code class="text-xs">_run_loop()</code>
+            <code class="text-xs">app.py → _run_loop()</code>
           </div>
           <div class="text-3xl flex items-center justify-center">→</div>
           <div class="bg-purple-100 dark:bg-purple-900/30 p-6 rounded-xl">
             <div class="text-4xl mb-3">3️⃣</div>
             <h4 class="font-bold mb-2">Physics</h4>
             <p class="text-sm">Collision detection & resolution</p>
-            <code class="text-xs">_handle_collision()</code>
+            <code class="text-xs">physics.py → calculate_collision()</code>
           </div>
         </div>
 
@@ -45,13 +47,13 @@
             <div class="text-4xl mb-3">4️⃣</div>
             <h4 class="font-bold mb-2">Visualization</h4>
             <p class="text-sm">Update canvas, draw balls & trails, plot graphs</p>
-            <code class="text-xs">update_visual_position(), draw_trail()</code>
+            <code class="text-xs">ball.py → update_visual_position(), draw_trail()</code>
           </div>
           <div class="bg-pink-100 dark:bg-pink-900/30 p-6 rounded-xl text-center">
             <div class="text-4xl mb-3">5️⃣</div>
             <h4 class="font-bold mb-2">Data Logging</h4>
             <p class="text-sm">Record momentum, energy, forces</p>
-            <code class="text-xs">_log_simulation_data()</code>
+            <code class="text-xs">app.py → _log_simulation_data()</code>
           </div>
         </div>
 
@@ -59,6 +61,297 @@
           <p class="text-center text-sm">
             <strong>Loop berulang setiap 20ms (50 FPS)</strong> hingga user stop atau tutup window
           </p>
+        </div>
+      </div>
+
+      <!-- Implementasi Kode Section (BELOW DIAGRAM) -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl">
+        <h4 class="text-2xl font-bold mb-6 text-purple-600 dark:text-purple-400">
+          📋 Implementasi Kode
+        </h4>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          Implementasi simulasi dilakukan menggunakan bahasa pemrograman Python dengan struktur modular.
+          Modul utama <code>physics.py</code> menangani seluruh logika interaksi fisik, sementara inisialisasi
+          parameter dilakukan pada antarmuka utama. Berikut adalah rincian implementasi kode berdasarkan tahapan
+          simulasi:
+        </p>
+
+        <!-- Step A: Inisialisasi -->
+        <div class="border-l-4 border-blue-500 pl-6 mb-6">
+          <h5 class="font-bold text-lg mb-2 text-blue-600 dark:text-blue-400">
+            A. Inisialisasi Objek dan Parameter
+          </h5>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+            Pada tahap awal, sistem membaca input parameter fisik dari pengguna (massa dan kecepatan awal vektor).
+            Objek bola diinstansiasi menggunakan kelas <code>Ball</code> yang menyimpan properti fisik dan visual.
+            Kode melakukan konversi satuan dari piksel ke meter untuk memastikan akurasi perhitungan fisika.
+          </p>
+          <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg mb-3">
+            <p class="text-sm font-mono">
+              📁 <strong>ball.py</strong> → Baris <code>42-101</code> (Ball.__init__)<br>
+              📁 <strong>app.py</strong> → Baris <code>377-420</code> (reset_simulation)
+            </p>
+          </div>
+          <div class="code-block">
+            <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># ball.py - Ball.__init__() (Baris 42-101)
+class Ball:
+    def __init__(self, 
+                 canvas: tk.Canvas, 
+                 x_pixels: float, 
+                 y_pixels: float, 
+                 radius_pixels: float, 
+                 color: str, 
+                 mass: float, 
+                 velocity_x: float, 
+                 velocity_y: float, 
+                 pixels_to_meters: float):
+        self.canvas = canvas
+        self.radius_pixels = radius_pixels
+        self.radius_meters = radius_pixels * pixels_to_meters
+        self.mass = float(mass)
+        self.pixels_to_meters = pixels_to_meters
+        self.color = color
+
+        # Posisi dan kecepatan dalam satuan meter dan m/s
+        self.position = np.array([x_pixels * pixels_to_meters, 
+                                  y_pixels * pixels_to_meters], dtype=float)
+        self.velocity = np.array([velocity_x, velocity_y], dtype=float)
+
+        # Trail (jejak bola)
+        self.trail_points = deque(maxlen=TRAIL_MAX_LENGTH)
+        self.trail_ids = []
+
+        # Gambar bola di canvas
+        self.canvas_id = canvas.create_oval(
+            x_pixels - radius_pixels, 
+            y_pixels - radius_pixels, 
+            x_pixels + radius_pixels, 
+            y_pixels + radius_pixels,
+            fill=color, 
+            outline="black", 
+            width=BALL_BORDER_WIDTH
+        )</code></pre>
+          </div>
+        </div>
+
+        <!-- Step B: Deteksi Tumbukan -->
+        <div class="border-l-4 border-green-500 pl-6 mb-6">
+          <h5 class="font-bold text-lg mb-2 text-green-600 dark:text-green-400">
+            B. Deteksi Tumbukan (Collision Detection)
+          </h5>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+            Sistem mendeteksi tumbukan dengan menghitung jarak <em>Euclidean</em> antar pusat massa kedua objek.
+            Jika jarak ini lebih kecil atau sama dengan jumlah jari-jari kedua bola, maka kondisi tumbukan terpenuhi.
+          </p>
+          <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg mb-3">
+            <p class="text-sm font-mono">
+              📁 <strong>physics.py</strong> → Baris <code>24-34</code>
+            </p>
+          </div>
+          <div class="code-block">
+            <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># physics.py - calculate_collision() (Baris 24-34)
+def calculate_collision(ball_1: Ball, 
+                        ball_2: Ball, 
+                        restitution: float,
+                        contact_tracker: Dict[str, Any]) -> Tuple[float, float]:
+    """
+    Deteksi dan tangani tumbukan antara dua bola.
+    Menggunakan Hukum Kekekalan Momentum dan Koefisien Restitusi.
+    """
+    
+    # 1. Menghitung jarak antara dua pusat massa (Euclidean Distance)
+    # Rumus: dist = ||pos_1 - pos_2|| = sqrt((x1-x2)^2 + (y1-y2)^2)
+    pos_diff = ball_1.position - ball_2.position
+    dist = np.linalg.norm(pos_diff)
+    
+    # Jarak minimal agar bersentuhan: r1 + r2
+    min_dist = ball_1.radius_meters + ball_2.radius_meters
+    f_sample = 0.0
+    finished_impulse = 0.0 
+
+    if dist <= min_dist:  # Tumbukan terdeteksi!
+        # Lanjut ke perhitungan fisika...</code></pre>
+          </div>
+        </div>
+
+        <!-- Step C: Perhitungan Vektor -->
+        <div class="border-l-4 border-yellow-500 pl-6 mb-6">
+          <h5 class="font-bold text-lg mb-2 text-yellow-600 dark:text-yellow-400">
+            C. Perhitungan Vektor Normal dan Kecepatan Relatif
+          </h5>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+            Saat tumbukan terdeteksi, program menghitung vektor normal satuan (<em>n</em>) yang menjadi acuan garis
+            dampak (<em>line of impact</em>). Selanjutnya, dihitung kecepatan relatif (<em>v<sub>rel</sub></em>)
+            antara dua benda untuk menentukan arah gerak relatif.
+          </p>
+          <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg mb-3">
+            <p class="text-sm font-mono">
+              📁 <strong>physics.py</strong> → Baris <code>35-48</code>
+            </p>
+          </div>
+          <div class="code-block">
+            <button class="copy-btn bg-yellow-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># physics.py - calculate_collision() (Baris 35-48)
+if dist <= min_dist:
+    # 2. Menentukan Normal Vektor (Unit Vector)
+    # Vektor satuan yang menunjuk dari benda 2 ke benda 1
+    # Rumus: n = (pos_1 - pos_2) / dist
+    n = pos_diff / (dist + 1e-9)
+    
+    # 3. Menghitung Kecepatan Relatif
+    # Kecepatan benda 1 dilihat dari benda 2
+    # Rumus: v_rel = v_1 - v_2
+    v_rel = ball_1.velocity - ball_2.velocity
+    
+    # 4. Proyeksi Kecepatan Relatif ke Normal Vektor (Dot Product)
+    # Kita hanya peduli pada kecepatan sepanjang Garis Dampak (Line of Impact)
+    # Rumus: v_norm = v_rel • n
+    v_norm = np.dot(v_rel, n)</code></pre>
+          </div>
+        </div>
+
+        <!-- Step D: Kalkulasi Impuls -->
+        <div class="border-l-4 border-purple-500 pl-6 mb-6">
+          <h5 class="font-bold text-lg mb-2 text-purple-600 dark:text-purple-400">
+            D. Kalkulasi Impuls dan Momentum
+          </h5>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+            Program menghitung besar impuls skalar (<em>j</em>) yang bekerja pada benda berdasarkan Hukum Kekekalan
+            Momentum dan Koefisien Restitusi (Lenting). Impuls ini kemudian dikonversi menjadi vektor dan diterapkan
+            untuk mengubah kecepatan kedua bola.
+          </p>
+          <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg mb-3">
+            <p class="text-sm font-mono">
+              📁 <strong>physics.py</strong> → Baris <code>62-78</code>
+            </p>
+          </div>
+          <div class="code-block">
+            <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># physics.py - calculate_collision() (Baris 62-78)
+# 6. Kalkulasi Impuls (Hanya jika benda saling mendekat: v_norm < 0)
+if v_norm < 0:
+    # Menghitung Impuls Skalar (j)
+    # Rumus turunan dari Kekekalan Momentum & Restitusi:
+    # j = [-(1 + e) * v_norm] / [(1/m1) + (1/m2)]
+    j = -(1 + restitution) * v_norm
+    j /= (1.0 / ball_1.mass + 1.0 / ball_2.mass)
+    
+    # Mengubah Impuls Skalar menjadi Vektor sepanjang normal
+    # Rumus Impuls Vektor (J): J = j * n
+    impulse_vec = j * n
+
+    # 7. Update Kecepatan Akhir (v')
+    # Menerapkan perubahan momentum: delta_p = J
+    # v_new = v_old ± (J / m)
+    ball_1.velocity += impulse_vec / ball_1.mass
+    ball_2.velocity -= impulse_vec / ball_2.mass</code></pre>
+          </div>
+        </div>
+
+        <!-- Step E: Pembaruan Posisi -->
+        <div class="border-l-4 border-red-500 pl-6 mb-6">
+          <h5 class="font-bold text-lg mb-2 text-red-600 dark:text-red-400">
+            E. Pembaruan Posisi (Time Integration)
+          </h5>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+            Posisi setiap objek diperbarui pada setiap langkah waktu (<em>time step</em>) menggunakan metode
+            integrasi Euler. Posisi baru adalah hasil penjumlahan posisi lama dengan perpindahan akibat
+            kecepatan selama selang waktu.
+          </p>
+          <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg mb-3">
+            <p class="text-sm font-mono">
+              📁 <strong>ball.py</strong> → Baris <code>140-161</code> (Ball.move)<br>
+              📁 <strong>physics.py</strong> → Baris <code>50-60</code> (Resolusi Overlap)
+            </p>
+          </div>
+          <div class="code-block">
+            <button class="copy-btn bg-red-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+            </button>
+            <pre class="rounded-lg text-sm"><code class="language-python"># ball.py - Ball.move() (Baris 140-161)
+def move(self, time_step: float) -> None:
+    """
+    Gerakkan bola berdasarkan kecepatan dan waktu.
+    
+    Parameters:
+    -----------
+    time_step : float
+        Delta waktu (detik)
+    """
+    # Update posisi: s = s₀ + v·Δt
+    self.position += self.velocity * time_step
+    
+    # Konversi ke piksel untuk visual
+    pixels_x = self.position[0] / self.pixels_to_meters
+    pixels_y = self.position[1] / self.pixels_to_meters
+    
+    # Simpan posisi untuk jejak
+    self.trail_points.append((pixels_x, pixels_y))
+    
+    # Update visual
+    self.draw_trail()
+    self.update_visual_position()</code></pre>
+          </div>
+        </div>
+
+        <!-- Summary Table -->
+        <div
+          class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
+          <h5 class="font-bold mb-4 text-center text-lg">📊 Ringkasan Referensi Baris Kode</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-purple-100 dark:bg-purple-900/30">
+                  <th class="p-3 text-left rounded-tl-lg">#</th>
+                  <th class="p-3 text-left">Tahap</th>
+                  <th class="p-3 text-left">File</th>
+                  <th class="p-3 text-left rounded-tr-lg">Baris</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b dark:border-gray-700">
+                  <td class="p-3 font-bold">A</td>
+                  <td class="p-3">Inisialisasi Kondisi Awal</td>
+                  <td class="p-3"><code>ball.py</code> / <code>app.py</code></td>
+                  <td class="p-3"><code>42-101</code> / <code>377-420</code></td>
+                </tr>
+                <tr class="border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+                  <td class="p-3 font-bold">B</td>
+                  <td class="p-3">Deteksi Tumbukan</td>
+                  <td class="p-3"><code>physics.py</code></td>
+                  <td class="p-3"><code>24-34</code></td>
+                </tr>
+                <tr class="border-b dark:border-gray-700">
+                  <td class="p-3 font-bold">C</td>
+                  <td class="p-3">Perhitungan Fisika (x,y)</td>
+                  <td class="p-3"><code>physics.py</code></td>
+                  <td class="p-3"><code>35-48</code></td>
+                </tr>
+                <tr class="border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+                  <td class="p-3 font-bold">D</td>
+                  <td class="p-3">Kekekalan Momentum & Restitusi</td>
+                  <td class="p-3"><code>physics.py</code></td>
+                  <td class="p-3"><code>62-78</code></td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold rounded-bl-lg">E</td>
+                  <td class="p-3">Pembaruan Posisi</td>
+                  <td class="p-3"><code>ball.py</code> / <code>physics.py</code></td>
+                  <td class="p-3 rounded-br-lg"><code>140-161</code> / <code>50-60</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -104,18 +397,18 @@
               <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
                 <i class="fas fa-copy"></i>
               </button>
-              <pre class="rounded-lg"><code class="language-python"># Line 894-898 - Calculate total momentum
-p1 = self.ball_1.mass * self.ball_1.velocity
-p2 = self.ball_2.mass * self.ball_2.velocity
-
-# Vector sum (NumPy magic!)
-p_total_vec = p1 + p2
-
-# Magnitude (scalar)
-p_total = np.linalg.norm(p_total_vec)
-
-# Log for verification
-self.momentum_log.append(p_total)</code></pre>
+              <pre class="rounded-lg"><code class="language-python"># physics.py - calculate_physics_data()
+def calculate_physics_data(ball_1: Ball, ball_2: Ball) -> Tuple[float, float]:
+    """Hitung data fisika: momentum total dan energi kinetik."""
+    # Total momentum vektor
+    p_vec = ball_1.mass * ball_1.velocity + ball_2.mass * ball_2.velocity
+    p_tot = np.linalg.norm(p_vec)
+    
+    # Energi kinetik total
+    ke = (0.5 * ball_1.mass * np.dot(ball_1.velocity, ball_1.velocity) + 
+          0.5 * ball_2.mass * np.dot(ball_2.velocity, ball_2.velocity))
+    
+    return p_tot, ke</code></pre>
             </div>
             <div class="callout success mt-3">
               <p class="text-sm"><strong>Insight:</strong> Dalam sistem tertutup (no external forces), momentum total
@@ -169,28 +462,26 @@ self.momentum_log.append(p_total)</code></pre>
               <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
                 <i class="fas fa-copy"></i>
               </button>
-              <pre class="rounded-lg"><code class="language-python"># Line 837-867 - Collision resolution
+              <pre class="rounded-lg"><code class="language-python"># physics.py - calculate_collision()
 # 1. Collision normal (unit vector)
-pos_diff = b1.position - b2.position
+pos_diff = ball_1.position - ball_2.position
 dist = np.linalg.norm(pos_diff)
 n = pos_diff / (dist + 1e-9)  # Normalize
 
 # 2. Relative velocity along normal
-v_rel = b1.velocity - b2.velocity
+v_rel = ball_1.velocity - ball_2.velocity
 v_norm = np.dot(v_rel, n)
 
 # 3. Check if approaching
 if v_norm < 0:  # Negative = approaching
-    # 4. Get restitution coefficient
-    e = float(self.restitution_coefficient.get())
+    # 4. Calculate impulse magnitude
+    j = -(1 + restitution) * v_norm
+    j /= (1.0 / ball_1.mass + 1.0 / ball_2.mass)
     
-    # 5. Calculate impulse magnitude
-    j = -(1 + e) * v_norm / (1/b1.mass + 1/b2.mass)
-    
-    # 6. Apply impulse (vector)
+    # 5. Apply impulse (vector)
     impulse_vec = j * n
-    b1.velocity += impulse_vec / b1.mass
-    b2.velocity -= impulse_vec / b2.mass</code></pre>
+    ball_1.velocity += impulse_vec / ball_1.mass
+    ball_2.velocity -= impulse_vec / ball_2.mass</code></pre>
             </div>
           </div>
         </div>
@@ -279,24 +570,18 @@ if v_norm < 0:  # Negative = approaching
                 <button class="copy-btn bg-orange-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
                   <i class="fas fa-copy"></i>
                 </button>
-                <pre class="rounded-lg"><code class="language-python"># Line 902-907 - Calculate kinetic energy
-# Using dot product for speed² (efficient!)
-speed_1_sq = np.dot(
-    self.ball_1.velocity, 
-    self.ball_1.velocity
-)
-speed_2_sq = np.dot(
-    self.ball_2.velocity, 
-    self.ball_2.velocity
-)
-
-# KE = 0.5 * m * v²
-ke_total = (
-    0.5 * self.ball_1.mass * speed_1_sq +
-    0.5 * self.ball_2.mass * speed_2_sq
-)
-
-self.kinetic_energy_log.append(ke_total)</code></pre>
+                <pre class="rounded-lg"><code class="language-python"># physics.py - calculate_physics_data()
+def calculate_physics_data(ball_1: Ball, ball_2: Ball) -> Tuple[float, float]:
+    # Total momentum vektor
+    p_vec = ball_1.mass * ball_1.velocity + ball_2.mass * ball_2.velocity
+    p_tot = np.linalg.norm(p_vec)
+    
+    # Energi kinetik total: KE = 0.5 * m * v²
+    # Using dot product: np.dot(v, v) = v·v = |v|²
+    ke = (0.5 * ball_1.mass * np.dot(ball_1.velocity, ball_1.velocity) + 
+          0.5 * ball_2.mass * np.dot(ball_2.velocity, ball_2.velocity))
+    
+    return p_tot, ke</code></pre>
               </div>
               <div class="callout tip mt-3">
                 <p class="text-sm"><strong>Optimization:</strong> Menggunakan <code>np.dot(v, v)</code> lebih cepat
@@ -344,19 +629,28 @@ self.kinetic_energy_log.append(ke_total)</code></pre>
                 <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm" onclick="copyCode(this)">
                   <i class="fas fa-copy"></i>
                 </button>
-                <pre class="rounded-lg"><code class="language-python"># Line 173-174 - Update position
+                <pre class="rounded-lg"><code class="language-python"># ball.py - Ball.move()
 def move(self, time_step: float) -> None:
-    """Gerakkan bola berdasarkan kecepatan."""
+    """
+    Gerakkan bola berdasarkan kecepatan dan waktu.
     
-    # Vector equation: s = s₀ + v·Δt
-    # NumPy applies to ALL elements!
+    Parameters:
+    -----------
+    time_step : float
+        Delta waktu (detik)
+    """
+    # Update posisi: s = s₀ + v·Δt
     self.position += self.velocity * time_step
     
-    # Equivalent to (but MUCH faster than):
-    # self.position[0] += self.velocity[0] * time_step
-    # self.position[1] += self.velocity[1] * time_step
+    # Konversi ke piksel untuk visual
+    pixels_x = self.position[0] / self.pixels_to_meters
+    pixels_y = self.position[1] / self.pixels_to_meters
     
-    # Update visualization
+    # Simpan posisi untuk jejak
+    self.trail_points.append((pixels_x, pixels_y))
+    
+    # Update visual
+    self.draw_trail()
     self.update_visual_position()</code></pre>
               </div>
               <div class="highlight-box mt-3">

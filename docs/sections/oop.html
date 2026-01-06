@@ -219,34 +219,52 @@
         <div class="code-block">
           <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
-          <pre class="rounded-lg"><code class="language-python"># Line 27-125 - Class definition
+          <pre class="rounded-lg"><code class="language-python"># ball.py - Class definition
 class Ball:
-    """Representasi objek bola dalam simulasi fisika."""
+    """
+    Representasi objek bola dalam simulasi fisika.
     
-    # Class constants (shared by all instances)
-    TRAIL_MAX_LENGTH = 30
-    TRAIL_POINT_MIN_SIZE = 2
-    TRAIL_POINT_MAX_SIZE = 5
-    BORDER_WIDTH = 2
+    ATRIBUT:
+    --------
+    canvas : tk.Canvas
+        Canvas Tkinter untuk menggambar
+    radius_pixels : float
+        Jari-jari bola dalam piksel
+    mass : float
+        Massa bola (kg)
+    position : np.array
+        Posisi [x, y] dalam meter
+    velocity : np.array
+        Kecepatan [vx, vy] dalam m/s
+    trail_points : deque
+        Queue titik-titik jejak bola
+    """
     
-    def __init__(self, canvas, x_pixels, y_pixels, radius_pixels, 
-                 color, mass, velocity_x, velocity_y, pixels_to_meters):
-        """Constructor - initialize instance attributes."""
-        # Instance attributes (unique per object)
+    def __init__(self, canvas: tk.Canvas, x_pixels: float, y_pixels: float, 
+                 radius_pixels: float, color: str, mass: float, 
+                 velocity_x: float, velocity_y: float, pixels_to_meters: float):
+        """Inisialisasi objek bola."""
         self.canvas = canvas
         self.radius_pixels = radius_pixels
+        self.radius_meters = radius_pixels * pixels_to_meters
         self.mass = float(mass)
+        self.pixels_to_meters = pixels_to_meters
+        
+        # Posisi dan kecepatan dalam satuan meter dan m/s
         self.position = np.array([x_pixels * pixels_to_meters, 
                                   y_pixels * pixels_to_meters], dtype=float)
         self.velocity = np.array([velocity_x, velocity_y], dtype=float)
-        
-        # Create visual representation
-        self.canvas_id = canvas.create_oval(...)
-    
-    def move(self, time_step: float) -> None:
-        """Instance method - operate on instance data."""
-        self.position += self.velocity * time_step
-        self.update_visual_position()</code></pre>
+
+        # Trail (jejak bola)
+        self.trail_points = deque(maxlen=TRAIL_MAX_LENGTH)
+        self.trail_ids = []
+
+        # Gambar bola di canvas
+        self.canvas_id = canvas.create_oval(
+            x_pixels - radius_pixels, y_pixels - radius_pixels, 
+            x_pixels + radius_pixels, y_pixels + radius_pixels,
+            fill=color, outline="black", width=BALL_BORDER_WIDTH
+        )</code></pre>
         </div>
       </div>
 
@@ -358,12 +376,12 @@ class Ball:
         <div class="code-block mb-4">
           <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
-          <pre class="rounded-lg"><code class="language-python"># Line 292 - Private method (convention)
+          <pre class="rounded-lg"><code class="language-python"># app.py - Private method (convention)
 def _setup_user_interface(self) -> None:
     """Setup seluruh komponen UI."""
     # _ prefix = internal implementation detail
     
-# Line 307 - Private method calling other private methods
+# app.py - Private method calling other private methods
 def _setup_left_panel(self, parent: ttk.Frame) -> None:
     """Setup panel kiri (canvas visualisasi)."""
     # Implementation details hidden from public API
@@ -502,7 +520,7 @@ def start_simulation(self) -> None:
         <div class="code-block mb-4">
           <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
-          <pre class="rounded-lg"><code class="language-python"># Line 233-277 - CollisionSimulatorApp HAS-A many objects
+          <pre class="rounded-lg"><code class="language-python"># app.py - CollisionSimulatorApp HAS-A many objects
 class CollisionSimulatorApp:
     def __init__(self, root: tk.Tk):
         self.root = root  # ← Has-A Tk window
@@ -522,7 +540,7 @@ class CollisionSimulatorApp:
         self.combo_mode = None
         self.entry_mass_1 = None
         
-# Line 738-756 - Creating composed objects
+# app.py - reset_simulation() creates composed objects
 self.ball_1 = Ball(canvas, 50, center_y, ...)  # ← Composition
 self.ball_2 = Ball(canvas, width-50, center_y, ...)</code></pre>
         </div>
@@ -549,13 +567,15 @@ self.ball_2 = Ball(canvas, width-50, center_y, ...)</code></pre>
         <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
           <h4 class="font-bold text-lg text-green-600 dark:text-green-300 mb-3">1. Pembuatan (Creation)</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 738-746
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - reset_simulation()
 ball_1 = Ball(
     canvas,
     50, center_y,
-    20, "#e63946",
-    2.0, 3.0, 0.0,
-    0.01
+    BALL_RADIUS_PIXELS, 
+    BALL_1_COLOR,
+    mass_1, 
+    velocity_1_x, velocity_1_y, 
+    PIXELS_TO_METERS
 )</code></pre>
           </div>
         </div>
@@ -563,8 +583,8 @@ ball_1 = Ball(
         <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
           <h4 class="font-bold text-lg text-blue-600 dark:text-blue-300 mb-3">2. Penggunaan (Usage)</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 795-796
-ball_1.move(0.02)
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - _run_loop()
+ball_1.move(TIME_STEP)
 ball_1.draw_trail()
 
 # Access attributes
@@ -576,8 +596,8 @@ vel = ball_1.velocity</code></pre>
         <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
           <h4 class="font-bold text-lg text-red-600 dark:text-red-300 mb-3">3. Pembersihan (Cleanup)</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 703
-canvas.delete("all")
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - reset_simulation()
+self.canvas.delete("all")
 # ← Hapus visual
 # Python GC bersihkan memori
 # saat tidak ada referensi</code></pre>

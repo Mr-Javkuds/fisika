@@ -159,12 +159,12 @@
           <div class="code-block">
             <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
               onclick="copyCode(this)">Copy</button>
-            <pre class="rounded-lg"><code class="language-python"># Line 802 - Iterate over objects
+            <pre class="rounded-lg"><code class="language-python"># app.py - Iterate over objects
 for b in (self.ball_1, self.ball_2):
-    px = b.position[0] / self.PIXELS_TO_METERS
+    px = b.position[0] / PIXELS_TO_METERS
     # Process each ball
 
-# Line 954 - Range iteration
+# app.py - Range iteration for CSV export
 for i in range(len(self.time_log)):
     writer.writerow([self.time_log[i], ...])</code></pre>
           </div>
@@ -175,11 +175,11 @@ for i in range(len(self.time_log)):
           <div class="code-block">
             <button class="copy-btn bg-green-500 text-white px-2 py-1 rounded text-sm"
               onclick="copyCode(this)">Copy</button>
-            <pre class="rounded-lg"><code class="language-python"># Line 135 - Enumerate untuk index & value
+            <pre class="rounded-lg"><code class="language-python"># ball.py - Enumerate untuk index & value
 for index, (trail_x, trail_y) in enumerate(self.trail_points):
     # index: 0, 1, 2, ...
     # (trail_x, trail_y): tuple unpacking
-    size = 2 + (index / 30) * 5</code></pre>
+    size = TRAIL_POINT_MIN_SIZE + (index / TRAIL_MAX_LENGTH) * TRAIL_POINT_MAX_SIZE</code></pre>
           </div>
         </div>
       </div>
@@ -200,19 +200,19 @@ for index, (trail_x, trail_y) in enumerate(self.trail_points):
         <div class="code-block">
           <button class="copy-btn bg-blue-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
-          <pre class="rounded-lg"><code class="language-python"># Line 806-818 - Wall collision detection
-if px - b.radius_pixels < 0:
-    b.position[0] = b.radius_pixels * self.PIXELS_TO_METERS
-    b.velocity[0] *= -1  # Reverse direction
-elif px + b.radius_pixels > cw:
-    b.position[0] = (cw - b.radius_pixels) * self.PIXELS_TO_METERS
-    b.velocity[0] *= -1
+          <pre class="rounded-lg"><code class="language-python"># physics.py - Wall collision detection
+if px - ball.radius_pixels < 0:
+    ball.position[0] = ball.radius_pixels * pixels_to_meters
+    ball.velocity[0] *= -1  # Reverse direction
+elif px + ball.radius_pixels > canvas_width:
+    ball.position[0] = (canvas_width - ball.radius_pixels) * pixels_to_meters
+    ball.velocity[0] *= -1
 
-# Line 842-877 - Complex conditional logic
+# physics.py - Complex conditional logic for collision
 if dist <= min_dist:  # Collision detected
     if v_norm < 0:  # Moving towards each other
         # Calculate impulse
-        j = -(1 + e) * v_norm / (1.0/m1 + 1.0/m2)</code></pre>
+        j = -(1 + restitution) * v_norm / (1.0/ball_1.mass + 1.0/ball_2.mass)</code></pre>
         </div>
       </div>
 
@@ -221,11 +221,11 @@ if dist <= min_dist:  # Collision detected
         <div class="code-block">
           <button class="copy-btn bg-purple-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
-          <pre class="rounded-lg"><code class="language-python"># Line 786-787 - Guard clause pattern
+          <pre class="rounded-lg"><code class="language-python"># app.py - Guard clause pattern
 if not self.is_running:
     return  # Exit early if not running
 
-# Line 789-791 - Another guard
+# app.py - Another guard
 if self.is_paused:
     self.animation_callback_id = self.root.after(50, self._run_loop)
     return  # Exit early</code></pre>
@@ -245,7 +245,7 @@ if self.is_paused:
           <div class="code-block">
             <button class="copy-btn bg-red-500 text-white px-2 py-1 rounded text-sm"
               onclick="copyCode(this)">Copy</button>
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 714-724 - Validate user input
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - Validate user input
 try:
     mass_1 = float(self.entry_mass_1.get())
     velocity_1_x = float(self.entry_velocity_1_x.get())
@@ -264,7 +264,7 @@ except ValueError:
           <div class="code-block">
             <button class="copy-btn bg-orange-500 text-white px-2 py-1 rounded text-sm"
               onclick="copyCode(this)">Copy</button>
-            <pre class="rounded-lg text-sm"><code class="language-python"># Line 950-963 - File writing with error handling
+            <pre class="rounded-lg text-sm"><code class="language-python"># app.py - File writing with error handling
 try:
     with open(path, "w", newline="") as f:
         writer = csv.writer(f)
@@ -296,28 +296,48 @@ except Exception as e:
         <div class="code-block">
           <button class="copy-btn bg-indigo-500 text-white px-2 py-1 rounded text-sm"
             onclick="copyCode(this)">Copy</button>
-          <pre class="rounded-lg"><code class="language-python"># Line 969-971 - Main event loop
-if __name__ == "__main__":
+          <pre class="rounded-lg"><code class="language-python"># main.py - Main entry point
+def main():
+    """Fungsi utama untuk menjalankan aplikasi."""
     root = tk.Tk()
     app = CollisionSimulatorApp(root)
-    root.mainloop()  # ← While loop internally (runs until window closed)
+    root.mainloop()  # ← Tkinter event loop (runs until window closed)
 
-# Line 784-830 - Custom loop dengan after()
+
+if __name__ == "__main__":
+    main()
+
+# app.py - Custom animation loop dengan after()
 def _run_loop(self) -> None:
-    """Loop utama simulasi."""
+    """Loop utama simulasi (dipanggil berulang menggunakan after)."""
     if not self.is_running:
-        return  # Exit loop
-    
+        return  # Exit guard
+
     if self.is_paused:
-        self.root.after(50, self._run_loop)  # Check again later
-        return
+        # Tetap schedule check singkat saat pause
+        self.animation_callback_id = self.root.after(50, self._run_loop)
+        return  # Exit early
+
+    # Move balls
+    self.ball_1.move(TIME_STEP)
+    self.ball_2.move(TIME_STEP)
+
+    # Bounce off walls
+    cw = self.canvas.winfo_width()
+    ch = self.canvas.winfo_height()
+    handle_wall_bounce(self.ball_1, cw, ch, PIXELS_TO_METERS)
+    handle_wall_bounce(self.ball_2, cw, ch, PIXELS_TO_METERS)
+
+    # Handle collision antara dua bola
+    restitution = float(self.restitution_coefficient.get())
+    force, finished_impulse = calculate_collision(
+        self.ball_1, self.ball_2, restitution, self.contact_tracker
+    )
     
-    # Do work...
-    self.ball_1.move(self.TIME_STEP)
-    self.ball_2.move(self.TIME_STEP)
-    
-    # Schedule next iteration (recursive call)
-    self.root.after(int(self.TIME_STEP * 1000), self._run_loop)</code></pre>
+    # Schedule next frame (recursive dengan after)
+    self.animation_callback_id = self.root.after(
+        int(TIME_STEP * 1000), self._run_loop
+    )</code></pre>
         </div>
 
         <div class="callout info mt-4">

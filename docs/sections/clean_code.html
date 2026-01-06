@@ -226,18 +226,33 @@ entry3.pack()</code></pre>
         <div class="comparison-box good">
           <h4 class="font-bold text-green-600 dark:text-green-300 mb-3">✅ Helper Function</h4>
           <div class="code-block">
-            <pre class="rounded-lg text-sm"><code class="language-python"># GOOD: Extract to helper (Line 454-459)
-def create_entry(label, default, attr_name):
-    ttk.Label(frame, text=label).pack(...)
-    entry = ttk.Entry(frame, width=5)
-    entry.insert(0, default)
-    entry.pack(...)
-    setattr(self, attr_name, entry)
-
-# Use the helper
-create_entry("m (kg):", "2.0", "entry_mass")
-create_entry("vx (m/s):", "3.0", "entry_vx")
-create_entry("vy (m/s):", "0.0", "entry_vy")</code></pre>
+            <pre class="rounded-lg text-sm"><code class="language-python"># ui_components.py - Helper function untuk menghindari repetisi
+def create_ball_input_row(parent: ttk.Frame, owner: Any,
+                          title: str, 
+                          mass_attr: str, mass_default: str,
+                          vx_attr: str, vx_default: str, 
+                          vy_attr: str, vy_default: str) -> ttk.Frame:
+    """Buat baris input untuk parameter satu bola."""
+    frame = ttk.Frame(parent)
+    frame.pack(fill=tk.X, pady=2)
+    
+    ttk.Label(frame, text=title, font=("", 8, "bold")).pack(anchor="w")
+    frame_inputs = ttk.Frame(frame)
+    frame_inputs.pack(fill=tk.X)
+    
+    # Nested helper untuk DRY
+    def create_entry(label: str, default: str, attr_name: str):
+        ttk.Label(frame_inputs, text=label, font=("", 8)).pack(side=tk.LEFT)
+        entry = ttk.Entry(frame_inputs, width=5, font=("", 8))
+        entry.insert(0, default)
+        entry.pack(side=tk.LEFT, padx=(0, 5))
+        setattr(owner, attr_name, entry)
+    
+    create_entry("m (kg):", mass_default, mass_attr)
+    create_entry("vx (m/s):", vx_default, vx_attr)
+    create_entry("vy (m/s):", vy_default, vy_attr)
+    
+    return frame</code></pre>
           </div>
         </div>
       </div>
@@ -270,10 +285,11 @@ create_entry("vy (m/s):", "0.0", "entry_vy")</code></pre>
           <div>
             <p class="text-sm text-green-600 dark:text-green-300 font-bold mb-2">✅ Guard Clauses</p>
             <div class="code-block">
-              <pre class="rounded-lg text-sm"><code class="language-python">def process():  # Line 784-792
-    if not running:
+              <pre class="rounded-lg text-sm"><code class="language-python"># app.py - Guard Clauses pattern
+def _run_loop(self):
+    if not self.is_running:
         return  # ← Exit early
-    if paused:
+    if self.is_paused:
         return  # ← Exit early
     if not data_ready:
         return  # ← Exit early
